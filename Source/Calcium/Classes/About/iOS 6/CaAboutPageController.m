@@ -26,13 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UITableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"640x1136.png"]];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.delegate = self;
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITitlebarBG"]];
 }
 
 @end

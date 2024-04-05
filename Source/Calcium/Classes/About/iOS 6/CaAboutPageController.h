@@ -10,4 +10,6 @@
 
 @interface CaAboutPageController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @end

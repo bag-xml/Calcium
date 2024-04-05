@@ -145,11 +145,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="EMv-vB-nUZ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        </view>
                         <sections>
                             <tableViewSection id="9fa-mO-unh">
                                 <cells/>
@@ -161,6 +156,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="gCh-lY-0FN"/>
+                    <connections>
+                        <outlet property="tableView" destination="Uku-um-Chk" id="alx-Go-D0h"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pV9-L8-NTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
