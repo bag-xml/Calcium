@@ -37,7 +37,7 @@
     self.bubbleTableView.bubbleDataSource = self;
     self.bubbleTableView.watchingInRealTime = YES;
     self.bubbleTableView.delegate = self;
-    self.bubbleTableView.snapInterval = 120;
+    self.bubbleTableView.snapInterval = 2800;
     self.bubbleDataArray = [NSMutableArray array];
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
     [self.bubbleTableView reloadData];
@@ -112,6 +112,7 @@
         self.inputFieldPlaceholder.text = @"Type something in...";
         self.inputField.text = @"";
         [self.modeButton setImage:correspondingMode];
+        
     } else if (imageMode == NO) {
         UIImage *correspondingMode = [UIImage imageNamed:@"hamburger"];
         NSLog(@"--BUTTON ACTION-- User switched to gen from chat mode");
@@ -189,6 +190,9 @@
     [messageActionSheet showInView:self.view];
 }
 
+- (IBAction)topRightHelper:(id)sender {
+    //Because this is a multi-purpose button, it can serve 2 things. One, a way to get rid of the keyboard on-screen. Other, to rename conversations.
+}
 //Button action block end
 
 //Temporary request classes

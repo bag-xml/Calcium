@@ -461,6 +461,7 @@
                                 <action selector="exposeSidebar:" destination="PAh-4J-EHy" id="qxK-gI-pP9"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="M5S-0k-33V"/>
                     </navigationItem>
                     <connections>
                         <outlet property="bubbleTableView" destination="517-Wc-wuN" id="cDi-c7-IOZ"/>
