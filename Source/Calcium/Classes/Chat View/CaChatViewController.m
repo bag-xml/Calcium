@@ -37,6 +37,7 @@
     self.bubbleTableView.bubbleDataSource = self;
     self.bubbleTableView.watchingInRealTime = YES;
     self.bubbleTableView.delegate = self;
+    self.bubbleTableView.snapInterval = 120;
     self.bubbleDataArray = [NSMutableArray array];
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
     [self.bubbleTableView reloadData];
@@ -145,31 +146,27 @@
     if(imageMode == YES) {
         NSLog(@"imageMode == YES");
         NSLog(@"Image generation mode is enabled, therefore the function for image generation is executed.");
-        //test
-        NSBubbleData *photoExample = [NSBubbleData dataWithImage:[UIImage imageNamed:@"WelcomeBanner-iOS7"] date:[NSDate date] type:BubbleTypeSomeoneElse];
-        
-        // Add the sample message to your data array
-        [self.bubbleDataArray addObject:photoExample];
-        [self.bubbleTableView reloadData];
-        //test end
-        [self imageGenRequest];
-        self.inputField.text = @"";
+        NSString *messageContent = self.inputField.text;
+        if(messageContent.length < 3) {
+            //preventative, for both ugliness and effectiveness
+            [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
+        } else {
+            [self imageGenRequest];
+            self.inputField.text = @"";
+        }
         //kaboom
     } else if(imageMode == NO) {
         NSLog(@"imageMode == NO");
         NSLog(@"Chat mode is enabled, therefore the function for image generation is executed.");
 
         NSString *messagePayload = self.inputField.text;
-        //test
-        NSBubbleData *photoExample = [NSBubbleData dataWithText:messagePayload date:[NSDate date] type:BubbleTypeMine];
-        
-        // Add the sample message to your data array
-        [self.bubbleDataArray addObject:photoExample];
-        [self.bubbleTableView reloadData];
-        //test end
-        
-        [self chatRequest];
-        self.inputField.text = @"";
+        if(messagePayload.length < 3) {
+            //preventative, for both ugliness and effectiveness
+            [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
+        } else {
+            [self chatRequest];
+            self.inputField.text = @"";
+        }
     }
 }
 
