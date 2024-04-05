@@ -461,13 +461,18 @@
                                 <action selector="exposeSidebar:" destination="PAh-4J-EHy" id="qxK-gI-pP9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="M5S-0k-33V"/>
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="M5S-0k-33V">
+                            <connections>
+                                <action selector="topRightHelper:" destination="PAh-4J-EHy" id="zkA-6o-9Hx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bubbleTableView" destination="517-Wc-wuN" id="cDi-c7-IOZ"/>
                         <outlet property="inputField" destination="pdZ-WF-lAs" id="N1y-S5-hQs"/>
                         <outlet property="inputFieldPlaceholder" destination="pro-8I-4AN" id="Xwz-B5-4Y1"/>
                         <outlet property="modeButton" destination="CzD-y7-NfY" id="LWX-Ew-NA4"/>
+                        <outlet property="multipurposeButton" destination="M5S-0k-33V" id="9w3-lC-rfh"/>
                         <outlet property="pill" destination="kgW-ux-RjX" id="oWo-Cz-9mZ"/>
                         <outlet property="sendButton" destination="fZ8-Wy-Tj4" id="bHD-g0-N5r"/>
                         <outlet property="toolbar" destination="BGA-Gf-FqA" id="dg7-9c-1bl"/>

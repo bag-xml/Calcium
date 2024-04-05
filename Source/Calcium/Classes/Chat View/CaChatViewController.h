@@ -25,6 +25,9 @@
 //right button
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 
+//top right button
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *multipurposeButton;
+
 //pill
 @property (weak, nonatomic) IBOutlet UITextView *inputField;
 @property (weak, nonatomic) IBOutlet UILabel *inputFieldPlaceholder;
