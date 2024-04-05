@@ -42,28 +42,12 @@
 		5B0A938E2B82101D003FBE13 /* UIBubbleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A937B2B82101D003FBE13 /* UIBubbleTableView.m */; };
 		5B0A938F2B82101D003FBE13 /* UIBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A937D2B82101D003FBE13 /* UIBubbleTableViewCell.m */; };
 		5B0A93902B82101D003FBE13 /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A93812B82101D003FBE13 /* UIBubbleTypingTableViewCell.m */; };
-		5B17D49C2B9B3C9E00D58038 /* SidebarTopLeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B17D49A2B9B3C9E00D58038 /* SidebarTopLeader.png */; };
-		5B17D49D2B9B3C9E00D58038 /* SidebarTopLeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B17D49B2B9B3C9E00D58038 /* SidebarTopLeader@2x.png */; };
-		5B17D49F2B9B403800D58038 /* PHPref.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B17D49E2B9B403800D58038 /* PHPref.png */; };
-		5B17D4A12B9B45F500D58038 /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B17D4A02B9B45F500D58038 /* HelpButton.png */; };
-		5B2D1EAC2B88D86D00289FC5 /* PictureModeGlyph.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2D1EAA2B88D86D00289FC5 /* PictureModeGlyph.png */; };
-		5B2D1EAD2B88D86D00289FC5 /* PictureModeGlyph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2D1EAB2B88D86D00289FC5 /* PictureModeGlyph@2x.png */; };
-		5B50E1E72BBC1C1100DB0532 /* UITitlebarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B50E1E22BBC1C1100DB0532 /* UITitlebarBG.png */; };
-		5B50E1E82BBC1C1100DB0532 /* UITitlebarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B50E1E32BBC1C1100DB0532 /* UITitlebarBG@2x.png */; };
-		5B50E1E92BBC1C1100DB0532 /* UIToolbarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B50E1E52BBC1C1100DB0532 /* UIToolbarBG.png */; };
-		5B50E1EA2BBC1C1100DB0532 /* UIToolbarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B50E1E62BBC1C1100DB0532 /* UIToolbarBG@2x.png */; };
 		5B50E1EF2BBC2F8600DB0532 /* CaAboutPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1ED2BBC2F8600DB0532 /* CaAboutPageController.m */; };
 		5B50E1F22BBC2FD400DB0532 /* CaAboutPageController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1F12BBC2FD400DB0532 /* CaAboutPageController-iOS7.m */; };
 		5B50E1F72BBC30EC00DB0532 /* CaWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1F52BBC30EC00DB0532 /* CaWelcomeViewController.m */; };
 		5B50E1FD2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1FC2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.m */; };
-		5B50E2002BBC348100DB0532 /* WelcomeBanner-iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B50E1FF2BBC348100DB0532 /* WelcomeBanner-iOS7.png */; };
-		5B50E2022BBC380F00DB0532 /* WelcomeBanner-iOS5-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B50E2012BBC380F00DB0532 /* WelcomeBanner-iOS5-6.png */; };
-		5B56004A2B891A9000729A54 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B5600462B891A9000729A54 /* hamburger.png */; };
-		5B56004B2B891A9000729A54 /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B5600472B891A9000729A54 /* hamburger@2x.png */; };
-		5B56004C2B891A9000729A54 /* Send.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B5600482B891A9000729A54 /* Send.png */; };
-		5B56004D2B891A9000729A54 /* Send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B5600492B891A9000729A54 /* Send@2x.png */; };
 		5B68CB532B822835000A42AC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B68CB522B822835000A42AC /* Settings.bundle */; };
-		5B97E4DD2B9B7F740098B5F4 /* GuideButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B97E4DC2B9B7F740098B5F4 /* GuideButton.png */; };
+		5BE551612BC073FE00BD0F70 /* Images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE551602BC073FE00BD0F70 /* Images.bundle */; };
 		5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */; };
 /* End PBXBuildFile section */
 
@@ -130,18 +114,8 @@
 		5B0A937F2B82101D003FBE13 /* UIBubbleTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewDelegate.h; sourceTree = "<group>"; };
 		5B0A93802B82101D003FBE13 /* UIBubbleTypingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTypingTableViewCell.h; sourceTree = "<group>"; };
 		5B0A93812B82101D003FBE13 /* UIBubbleTypingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTypingTableViewCell.m; sourceTree = "<group>"; };
-		5B17D49A2B9B3C9E00D58038 /* SidebarTopLeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SidebarTopLeader.png; sourceTree = "<group>"; };
-		5B17D49B2B9B3C9E00D58038 /* SidebarTopLeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SidebarTopLeader@2x.png"; sourceTree = "<group>"; };
-		5B17D49E2B9B403800D58038 /* PHPref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PHPref.png; sourceTree = "<group>"; };
-		5B17D4A02B9B45F500D58038 /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpButton.png; sourceTree = "<group>"; };
 		5B1D4A362BC06DC00066E92D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B1D4A372BC06DC00066E92D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5B2D1EAA2B88D86D00289FC5 /* PictureModeGlyph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PictureModeGlyph.png; sourceTree = "<group>"; };
-		5B2D1EAB2B88D86D00289FC5 /* PictureModeGlyph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PictureModeGlyph@2x.png"; sourceTree = "<group>"; };
-		5B50E1E22BBC1C1100DB0532 /* UITitlebarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITitlebarBG.png; sourceTree = "<group>"; };
-		5B50E1E32BBC1C1100DB0532 /* UITitlebarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UITitlebarBG@2x.png"; sourceTree = "<group>"; };
-		5B50E1E52BBC1C1100DB0532 /* UIToolbarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIToolbarBG.png; sourceTree = "<group>"; };
-		5B50E1E62BBC1C1100DB0532 /* UIToolbarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIToolbarBG@2x.png"; sourceTree = "<group>"; };
 		5B50E1EC2BBC2F8600DB0532 /* CaAboutPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaAboutPageController.h; sourceTree = "<group>"; };
 		5B50E1ED2BBC2F8600DB0532 /* CaAboutPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaAboutPageController.m; sourceTree = "<group>"; };
 		5B50E1F02BBC2FD400DB0532 /* CaAboutPageController-iOS7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CaAboutPageController-iOS7.h"; sourceTree = "<group>"; };
@@ -150,14 +124,8 @@
 		5B50E1F52BBC30EC00DB0532 /* CaWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaWelcomeViewController.m; sourceTree = "<group>"; };
 		5B50E1FB2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CaWelcomeViewController-iOS7.h"; sourceTree = "<group>"; };
 		5B50E1FC2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CaWelcomeViewController-iOS7.m"; sourceTree = "<group>"; };
-		5B50E1FF2BBC348100DB0532 /* WelcomeBanner-iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WelcomeBanner-iOS7.png"; sourceTree = "<group>"; };
-		5B50E2012BBC380F00DB0532 /* WelcomeBanner-iOS5-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WelcomeBanner-iOS5-6.png"; sourceTree = "<group>"; };
-		5B5600462B891A9000729A54 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
-		5B5600472B891A9000729A54 /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger@2x.png"; sourceTree = "<group>"; };
-		5B5600482B891A9000729A54 /* Send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Send.png; sourceTree = "<group>"; };
-		5B5600492B891A9000729A54 /* Send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Send@2x.png"; sourceTree = "<group>"; };
 		5B68CB522B822835000A42AC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		5B97E4DC2B9B7F740098B5F4 /* GuideButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GuideButton.png; sourceTree = "<group>"; };
+		5BE551602BC073FE00BD0F70 /* Images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Images.bundle; sourceTree = "<group>"; };
 		5BFEABAF2B823AC200032F34 /* TRMalleableFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMalleableFrameView.h; sourceTree = "<group>"; };
 		5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMalleableFrameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,7 +227,6 @@
 		5B0A93452B820B86003FBE13 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5B2D1EA82B88D86200289FC5 /* Images */,
 				5B68CB512B82282E000A42AC /* Bundles */,
 				5B0A93462B820B86003FBE13 /* Catalog */,
 				5B0A93482B820B86003FBE13 /* User Interface Building */,
@@ -393,49 +360,6 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		5B2D1EA82B88D86200289FC5 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				5B50E1FE2BBC347900DB0532 /* Welcome+Guide */,
-				5B50E1E12BBC1C1100DB0532 /* Titlebar */,
-				5B50E1E42BBC1C1100DB0532 /* Toolbar */,
-				5B5600412B89197600729A54 /* Sidebar resources */,
-				5B2D1EA92B88D86200289FC5 /* BarButton Images */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		5B2D1EA92B88D86200289FC5 /* BarButton Images */ = {
-			isa = PBXGroup;
-			children = (
-				5B5600462B891A9000729A54 /* hamburger.png */,
-				5B5600472B891A9000729A54 /* hamburger@2x.png */,
-				5B5600482B891A9000729A54 /* Send.png */,
-				5B5600492B891A9000729A54 /* Send@2x.png */,
-				5B2D1EAA2B88D86D00289FC5 /* PictureModeGlyph.png */,
-				5B2D1EAB2B88D86D00289FC5 /* PictureModeGlyph@2x.png */,
-			);
-			path = "BarButton Images";
-			sourceTree = "<group>";
-		};
-		5B50E1E12BBC1C1100DB0532 /* Titlebar */ = {
-			isa = PBXGroup;
-			children = (
-				5B50E1E22BBC1C1100DB0532 /* UITitlebarBG.png */,
-				5B50E1E32BBC1C1100DB0532 /* UITitlebarBG@2x.png */,
-			);
-			path = Titlebar;
-			sourceTree = "<group>";
-		};
-		5B50E1E42BBC1C1100DB0532 /* Toolbar */ = {
-			isa = PBXGroup;
-			children = (
-				5B50E1E52BBC1C1100DB0532 /* UIToolbarBG.png */,
-				5B50E1E62BBC1C1100DB0532 /* UIToolbarBG@2x.png */,
-			);
-			path = Toolbar;
-			sourceTree = "<group>";
-		};
 		5B50E1EB2BBC2F8600DB0532 /* iOS 6 */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,27 +396,6 @@
 			path = "iOS 7";
 			sourceTree = "<group>";
 		};
-		5B50E1FE2BBC347900DB0532 /* Welcome+Guide */ = {
-			isa = PBXGroup;
-			children = (
-				5B50E2012BBC380F00DB0532 /* WelcomeBanner-iOS5-6.png */,
-				5B50E1FF2BBC348100DB0532 /* WelcomeBanner-iOS7.png */,
-			);
-			path = "Welcome+Guide";
-			sourceTree = "<group>";
-		};
-		5B5600412B89197600729A54 /* Sidebar resources */ = {
-			isa = PBXGroup;
-			children = (
-				5B97E4DC2B9B7F740098B5F4 /* GuideButton.png */,
-				5B17D4A02B9B45F500D58038 /* HelpButton.png */,
-				5B17D49E2B9B403800D58038 /* PHPref.png */,
-				5B17D49A2B9B3C9E00D58038 /* SidebarTopLeader.png */,
-				5B17D49B2B9B3C9E00D58038 /* SidebarTopLeader@2x.png */,
-			);
-			path = "Sidebar resources";
-			sourceTree = "<group>";
-		};
 		5B68CB4D2B821E1B000A42AC /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +408,7 @@
 		5B68CB512B82282E000A42AC /* Bundles */ = {
 			isa = PBXGroup;
 			children = (
+				5BE551602BC073FE00BD0F70 /* Images.bundle */,
 				5B68CB522B822835000A42AC /* Settings.bundle */,
 			);
 			path = Bundles;
@@ -601,38 +505,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B56004B2B891A9000729A54 /* hamburger@2x.png in Resources */,
-				5B2D1EAC2B88D86D00289FC5 /* PictureModeGlyph.png in Resources */,
-				5B56004A2B891A9000729A54 /* hamburger.png in Resources */,
 				5B0A93602B820C4C003FBE13 /* SVProgressHUD.bundle in Resources */,
+				5BE551612BC073FE00BD0F70 /* Images.bundle in Resources */,
 				5B0A93872B82101D003FBE13 /* missingAvatar@2x.png in Resources */,
-				5B2D1EAD2B88D86D00289FC5 /* PictureModeGlyph@2x.png in Resources */,
-				5B50E1E82BBC1C1100DB0532 /* UITitlebarBG@2x.png in Resources */,
 				5B0A93862B82101D003FBE13 /* missingAvatar.png in Resources */,
 				5B0A934B2B820B86003FBE13 /* Main.storyboard in Resources */,
-				5B17D4A12B9B45F500D58038 /* HelpButton.png in Resources */,
 				5B0A93832B82101D003FBE13 /* bubbleMine@2x.png in Resources */,
 				5B0A93882B82101D003FBE13 /* typingMine.png in Resources */,
-				5B56004C2B891A9000729A54 /* Send.png in Resources */,
 				5B0A93852B82101D003FBE13 /* bubbleSomeone@2x.png in Resources */,
-				5B97E4DD2B9B7F740098B5F4 /* GuideButton.png in Resources */,
-				5B50E2022BBC380F00DB0532 /* WelcomeBanner-iOS5-6.png in Resources */,
-				5B17D49C2B9B3C9E00D58038 /* SidebarTopLeader.png in Resources */,
 				5B0A93822B82101D003FBE13 /* bubbleMine.png in Resources */,
 				5B68CB532B822835000A42AC /* Settings.bundle in Resources */,
-				5B50E1E72BBC1C1100DB0532 /* UITitlebarBG.png in Resources */,
-				5B17D49F2B9B403800D58038 /* PHPref.png in Resources */,
 				5B0A931B2B820AC7003FBE13 /* InfoPlist.strings in Resources */,
 				5B0A935F2B820C4C003FBE13 /* SVProgressHUD-15e9190d.o.tmp in Resources */,
 				5B0A938B2B82101D003FBE13 /* typingSomeone@2x.png in Resources */,
-				5B56004D2B891A9000729A54 /* Send@2x.png in Resources */,
-				5B50E1E92BBC1C1100DB0532 /* UIToolbarBG.png in Resources */,
 				5B0A93892B82101D003FBE13 /* typingMine@2x.png in Resources */,
-				5B50E2002BBC348100DB0532 /* WelcomeBanner-iOS7.png in Resources */,
 				5B0A93842B82101D003FBE13 /* bubbleSomeone.png in Resources */,
 				5B0A934A2B820B86003FBE13 /* Images.xcassets in Resources */,
-				5B17D49D2B9B3C9E00D58038 /* SidebarTopLeader@2x.png in Resources */,
-				5B50E1EA2BBC1C1100DB0532 /* UIToolbarBG@2x.png in Resources */,
 				5B0A938A2B82101D003FBE13 /* typingSomeone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
