@@ -11,11 +11,11 @@
 #import "SVProgressHUD.h"
 #import "UIBubbleTableView.h"
 #import "TRMalleableFrameView.h"
-@interface CaChatViewController : UIViewController
+@interface CaChatViewController : UIViewController <UIBubbleTableViewDataSource, UIBubbleTableViewDelegate, UIActionSheetDelegate>
 
 
 //mainview
-@property (weak, nonatomic) IBOutlet UIBubbleTableView *chatTableView;
+@property (weak, nonatomic) IBOutlet UIBubbleTableView *bubbleTableView;
 //mainview end
 
 //toolbar, and its children, block begin
@@ -43,7 +43,5 @@
 
 @property (readonly, nonatomic) UIView *container;
 
-//TEST
 @property (nonatomic, strong) NSMutableArray *bubbleDataArray;
-
 @end

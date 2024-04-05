@@ -133,7 +133,6 @@
 		5B0A937C2B82101D003FBE13 /* UIBubbleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewCell.h; sourceTree = "<group>"; };
 		5B0A937D2B82101D003FBE13 /* UIBubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTableViewCell.m; sourceTree = "<group>"; };
 		5B0A937E2B82101D003FBE13 /* UIBubbleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewDataSource.h; sourceTree = "<group>"; };
-		5B0A937F2B82101D003FBE13 /* UIBubbleTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewDelegate.h; sourceTree = "<group>"; };
 		5B0A93802B82101D003FBE13 /* UIBubbleTypingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTypingTableViewCell.h; sourceTree = "<group>"; };
 		5B0A93812B82101D003FBE13 /* UIBubbleTypingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTypingTableViewCell.m; sourceTree = "<group>"; };
 		5B1D4A362BC06DC00066E92D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -375,7 +374,6 @@
 				5B0A937C2B82101D003FBE13 /* UIBubbleTableViewCell.h */,
 				5B0A937D2B82101D003FBE13 /* UIBubbleTableViewCell.m */,
 				5B0A937E2B82101D003FBE13 /* UIBubbleTableViewDataSource.h */,
-				5B0A937F2B82101D003FBE13 /* UIBubbleTableViewDelegate.h */,
 				5B0A93802B82101D003FBE13 /* UIBubbleTypingTableViewCell.h */,
 				5B0A93812B82101D003FBE13 /* UIBubbleTypingTableViewCell.m */,
 			);

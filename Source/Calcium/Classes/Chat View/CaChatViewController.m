@@ -9,7 +9,9 @@
 #import "CaChatViewController.h"
 
 @interface CaChatViewController ()
-
+{
+    NSMutableArray *bubbleData;
+}
 @end
 
 @implementation CaChatViewController
@@ -29,10 +31,16 @@
     self.slideMenuController.separatorColor = [UIColor grayColor];
     //Setup block end
     
-    //TEST
-    self.chatTableView.showAvatars = YES;
-    [self.chatTableView reloadData];
-    //TEST END
+    //Table view options
+    
+    //temp population
+    self.bubbleTableView.bubbleDataSource = self;
+    self.bubbleTableView.watchingInRealTime = YES;
+    self.bubbleTableView.delegate = self;
+    self.bubbleDataArray = [NSMutableArray array];
+    self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
+    [self.bubbleTableView reloadData];
+    //table view options OFF
     
     //Delegate decs
     [self.inputField setDelegate:self];
@@ -63,7 +71,6 @@
         }
     }
     //first launch block END
-
 }
 
 
@@ -85,12 +92,21 @@
 //Button actions
 - (IBAction)modeSwitch:(id)sender {
     BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
+    BOOL clearAlways = [[NSUserDefaults standardUserDefaults] boolForKey:@"alwaysClear"];
     if (imageMode == YES) {
         UIImage *correspondingMode = [UIImage imageNamed:@"PictureModeGlyph"];
         NSLog(@"--BUTTON ACTION-- User switched to chat mode from gen mode");
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"imageGenerationModeEnabled"];
         [SVProgressHUD showErrorWithStatus:@"Switched to Chat Mode"];
         self.navigationItem.title = @"Chat";
+        
+        //Clears history
+        if(clearAlways == YES) {
+            NSLog(@"Chat history has been cleared.");
+            [self.bubbleDataArray removeAllObjects];
+            [self.bubbleTableView reloadData];
+        }
+        
         //Input field
         self.inputFieldPlaceholder.text = @"Type something in...";
         self.inputField.text = @"";
@@ -101,6 +117,13 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"imageGenerationModeEnabled"];
         [SVProgressHUD showSuccessWithStatus:@"Switched to Image Generation Mode"];
         self.navigationItem.title = @"Generate Image";
+        
+        //Clears history
+        if(clearAlways == YES) {
+            NSLog(@"Chat history has been cleared.");
+            [self.bubbleDataArray removeAllObjects];
+            [self.bubbleTableView reloadData];
+        }
 
         BOOL switchForFirstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"didIWarnYou"];
         if(switchForFirstTime == NO) {
@@ -122,12 +145,31 @@
     if(imageMode == YES) {
         NSLog(@"imageMode == YES");
         NSLog(@"Image generation mode is enabled, therefore the function for image generation is executed.");
+        //test
+        NSBubbleData *photoExample = [NSBubbleData dataWithImage:[UIImage imageNamed:@"WelcomeBanner-iOS7"] date:[NSDate date] type:BubbleTypeSomeoneElse];
+        
+        // Add the sample message to your data array
+        [self.bubbleDataArray addObject:photoExample];
+        [self.bubbleTableView reloadData];
+        //test end
         [self imageGenRequest];
+        self.inputField.text = @"";
         //kaboom
     } else if(imageMode == NO) {
         NSLog(@"imageMode == NO");
         NSLog(@"Chat mode is enabled, therefore the function for image generation is executed.");
+
+        NSString *messagePayload = self.inputField.text;
+        //test
+        NSBubbleData *photoExample = [NSBubbleData dataWithText:messagePayload date:[NSDate date] type:BubbleTypeMine];
+        
+        // Add the sample message to your data array
+        [self.bubbleDataArray addObject:photoExample];
+        [self.bubbleTableView reloadData];
+        //test end
+        
         [self chatRequest];
+        self.inputField.text = @"";
     }
 }
 
@@ -174,13 +216,13 @@
 	[UIView setAnimationDuration:keyboardAnimationDuration];
 	[UIView setAnimationCurve:keyboardAnimationCurve];
 	[UIView setAnimationBeginsFromCurrentState:YES];
-	[self.chatTableView setHeight:self.view.height - keyboardHeight - self.toolbar.height];
+	[self.bubbleTableView setHeight:self.view.height - keyboardHeight - self.toolbar.height];
 	[self.toolbar setY:self.view.height - keyboardHeight - self.toolbar.height];
 	[UIView commitAnimations];
 	
 	
 	if(self.viewingPresentTime)
-		[self.chatTableView setContentOffset:CGPointMake(0, self.chatTableView.contentSize.height - self.chatTableView.frame.size.height) animated:NO];
+		[self.bubbleTableView setContentOffset:CGPointMake(0, self.bubbleTableView.contentSize.height - self.bubbleTableView.frame.size.height) animated:NO];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -192,18 +234,37 @@
 	[UIView setAnimationDuration:keyboardAnimationDuration];
 	[UIView setAnimationCurve:keyboardAnimationCurve];
 	[UIView setAnimationBeginsFromCurrentState:YES];
-	[self.chatTableView setHeight:self.view.height - self.toolbar.height];
+	[self.bubbleTableView setHeight:self.view.height - self.toolbar.height];
 	[self.toolbar setY:self.view.height - self.toolbar.height];
 	[UIView commitAnimations];
 }
 //Keyboard event block end
 
+//Bubble table view attributes BEGIN
+- (NSInteger)rowsForBubbleTable:(UIBubbleTableView *)tableView {
+    return self.bubbleDataArray.count;
+}
+
+- (NSBubbleData *)bubbleTableView:(UIBubbleTableView *)tableView dataForRow:(NSInteger)row {
+    return [self.bubbleDataArray objectAtIndex:row];
+}
+
+// Implement optional delegate method
+- (void)bubbleTableView:(UIBubbleTableView *)tableView didSelectRow:(NSUInteger)row {
+    [SVProgressHUD showErrorWithStatus:@"Selected"];
+}
+
+
+//END
 //Miscellaneous functions that get called from other block components BEGIN
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 
+-(void)scrollChatToBottom {
+    [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
+}
 //END
 
 @end

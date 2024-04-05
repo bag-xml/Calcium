@@ -463,7 +463,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatTableView" destination="517-Wc-wuN" id="5Iq-kC-NcJ"/>
+                        <outlet property="bubbleTableView" destination="517-Wc-wuN" id="cDi-c7-IOZ"/>
                         <outlet property="inputField" destination="pdZ-WF-lAs" id="N1y-S5-hQs"/>
                         <outlet property="inputFieldPlaceholder" destination="pro-8I-4AN" id="Xwz-B5-4Y1"/>
                         <outlet property="modeButton" destination="CzD-y7-NfY" id="LWX-Ew-NA4"/>

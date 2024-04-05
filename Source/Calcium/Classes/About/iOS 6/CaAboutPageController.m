@@ -47,5 +47,6 @@
 //button actions
 - (IBAction)back:(id)sender {
     [self performSegueWithIdentifier:@"iOS6-about to main" sender:self];
+    NSLog(@"User left about page");
 }
 @end
