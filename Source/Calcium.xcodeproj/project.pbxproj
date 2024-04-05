@@ -18,7 +18,6 @@
 		5B0A933A2B820AC8003FBE13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A93382B820AC8003FBE13 /* InfoPlist.strings */; };
 		5B0A933C2B820AC8003FBE13 /* CalciumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A933B2B820AC8003FBE13 /* CalciumTests.m */; };
 		5B0A934A2B820B86003FBE13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A93472B820B86003FBE13 /* Images.xcassets */; };
-		5B0A934B2B820B86003FBE13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A93492B820B86003FBE13 /* Main.storyboard */; };
 		5B0A93502B820B8F003FBE13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A934F2B820B8F003FBE13 /* AppDelegate.m */; };
 		5B0A935D2B820C4C003FBE13 /* APLSlideMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A93542B820C4C003FBE13 /* APLSlideMenuSegue.m */; };
 		5B0A935E2B820C4C003FBE13 /* APLSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A93562B820C4C003FBE13 /* APLSlideMenuViewController.m */; };
@@ -48,6 +47,7 @@
 		5B50E1FD2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1FC2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.m */; };
 		5B68CB532B822835000A42AC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B68CB522B822835000A42AC /* Settings.bundle */; };
 		5BE551612BC073FE00BD0F70 /* Images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE551602BC073FE00BD0F70 /* Images.bundle */; };
+		5BE551642BC0757B00BD0F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE551632BC0757B00BD0F70 /* Main.storyboard */; };
 		5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +76,6 @@
 		5B0A93392B820AC8003FBE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B0A933B2B820AC8003FBE13 /* CalciumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalciumTests.m; sourceTree = "<group>"; };
 		5B0A93472B820B86003FBE13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5B0A93492B820B86003FBE13 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5B0A934E2B820B8F003FBE13 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B0A934F2B820B8F003FBE13 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5B0A93532B820C4C003FBE13 /* APLSlideMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLSlideMenuSegue.h; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		5B50E1FC2BBC31AE00DB0532 /* CaWelcomeViewController-iOS7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CaWelcomeViewController-iOS7.m"; sourceTree = "<group>"; };
 		5B68CB522B822835000A42AC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5BE551602BC073FE00BD0F70 /* Images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Images.bundle; sourceTree = "<group>"; };
+		5BE551632BC0757B00BD0F70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5BFEABAF2B823AC200032F34 /* TRMalleableFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMalleableFrameView.h; sourceTree = "<group>"; };
 		5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMalleableFrameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,9 +227,9 @@
 		5B0A93452B820B86003FBE13 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5BE551622BC0757B00BD0F70 /* UI */,
 				5B68CB512B82282E000A42AC /* Bundles */,
 				5B0A93462B820B86003FBE13 /* Catalog */,
-				5B0A93482B820B86003FBE13 /* User Interface Building */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -240,14 +240,6 @@
 				5B0A93472B820B86003FBE13 /* Images.xcassets */,
 			);
 			path = Catalog;
-			sourceTree = "<group>";
-		};
-		5B0A93482B820B86003FBE13 /* User Interface Building */ = {
-			isa = PBXGroup;
-			children = (
-				5B0A93492B820B86003FBE13 /* Main.storyboard */,
-			);
-			path = "User Interface Building";
 			sourceTree = "<group>";
 		};
 		5B0A934C2B820B8F003FBE13 /* Classes */ = {
@@ -423,6 +415,14 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		5BE551622BC0757B00BD0F70 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5BE551632BC0757B00BD0F70 /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		5BFEABAE2B823AA900032F34 /* TRMalleableFrameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,9 +509,9 @@
 				5BE551612BC073FE00BD0F70 /* Images.bundle in Resources */,
 				5B0A93872B82101D003FBE13 /* missingAvatar@2x.png in Resources */,
 				5B0A93862B82101D003FBE13 /* missingAvatar.png in Resources */,
-				5B0A934B2B820B86003FBE13 /* Main.storyboard in Resources */,
 				5B0A93832B82101D003FBE13 /* bubbleMine@2x.png in Resources */,
 				5B0A93882B82101D003FBE13 /* typingMine.png in Resources */,
+				5BE551642BC0757B00BD0F70 /* Main.storyboard in Resources */,
 				5B0A93852B82101D003FBE13 /* bubbleSomeone@2x.png in Resources */,
 				5B0A93822B82101D003FBE13 /* bubbleMine.png in Resources */,
 				5B68CB532B822835000A42AC /* Settings.bundle in Resources */,

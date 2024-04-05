@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"640x1136.png"]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
