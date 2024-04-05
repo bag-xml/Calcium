@@ -94,7 +94,7 @@
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>
-			<string>Prompt:</string>
+			<string>Prompt</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>
