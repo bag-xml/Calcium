@@ -15,7 +15,7 @@
     NSLog(@"App finished launching");
     //Pre-set preferences
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+
     //OS Check variables
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
@@ -49,9 +49,6 @@
         NSLog(@"User isn't here for the first time..");
     //FL Check block END
     return YES;
-    
-    if(iOSVersion <7.0) {
-    }
 }
 
 

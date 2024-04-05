@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVProgressHUD.h"
+
+#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double) 568) < DBL_EPSILON)
+#define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double) 480) < DBL_EPSILON)
+#define IS_IPHONE_3GS (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double) 240) < DBL_EPSILON)
 
 @interface CaAboutPageController : UITableViewController
 

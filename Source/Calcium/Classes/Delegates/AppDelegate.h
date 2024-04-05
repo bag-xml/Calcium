@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SVProgressHUD.h"
-#import "CaChatViewController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
