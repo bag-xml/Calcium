@@ -191,16 +191,6 @@
 }
 
 - (IBAction)topRightHelper:(id)sender {
-    //Because this is a multi-purpose button, it can serve 2 things. One, a way to get rid of the keyboard on-screen. Other, to rename conversations.
-    UIImage *grabber = [UIImage imageNamed:@"GrabberGlyph"];
-    UIImage *More = [UIImage imageNamed:@"MoreGlyph"];
-    NSString *iFieldMessageContent = self.inputField.text;
-    
-    if(iFieldMessageContent.length < 0) {
-        [self.multipurposeButton setTitle:@"Down"];
-    } else {
-        [self.multipurposeButton setTitle:@"More"];
-    }
 }
 //Button action block end
 
