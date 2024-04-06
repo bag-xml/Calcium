@@ -71,6 +71,7 @@
 		5B6C5F582BC07E7A00311C0D /* DarkUITitleBarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F562BC07E7A00311C0D /* DarkUITitleBarBG.png */; };
 		5B6C5F592BC07E7A00311C0D /* DarkUITitleBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F572BC07E7A00311C0D /* DarkUITitleBarBG@2x.png */; };
 		5BE551642BC0757B00BD0F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE551632BC0757B00BD0F70 /* Main.storyboard */; };
+		5BFDE3C92BC1E6240041FE77 /* CaRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDE3C82BC1E6240041FE77 /* CaRequestFactory.m */; };
 		5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,8 @@
 		5B6C5F562BC07E7A00311C0D /* DarkUITitleBarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkUITitleBarBG.png; sourceTree = "<group>"; };
 		5B6C5F572BC07E7A00311C0D /* DarkUITitleBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkUITitleBarBG@2x.png"; sourceTree = "<group>"; };
 		5BE551632BC0757B00BD0F70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5BFDE3C72BC1E6240041FE77 /* CaRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaRequestFactory.h; sourceTree = "<group>"; };
+		5BFDE3C82BC1E6240041FE77 /* CaRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaRequestFactory.m; sourceTree = "<group>"; };
 		5BFEABAF2B823AC200032F34 /* TRMalleableFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMalleableFrameView.h; sourceTree = "<group>"; };
 		5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMalleableFrameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,6 +294,7 @@
 		5B0A934C2B820B8F003FBE13 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5BFDE3C62BC1E5F50041FE77 /* RequestFactory */,
 				5B97E4DE2B9B8ABD0098B5F4 /* About */,
 				5B68CB4D2B821E1B000A42AC /* Welcome */,
 				5B0A93662B820CF7003FBE13 /* Chat View */,
@@ -578,6 +582,15 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		5BFDE3C62BC1E5F50041FE77 /* RequestFactory */ = {
+			isa = PBXGroup;
+			children = (
+				5BFDE3C72BC1E6240041FE77 /* CaRequestFactory.h */,
+				5BFDE3C82BC1E6240041FE77 /* CaRequestFactory.m */,
+			);
+			path = RequestFactory;
+			sourceTree = "<group>";
+		};
 		5BFEABAE2B823AA900032F34 /* TRMalleableFrameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,6 +731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFDE3C92BC1E6240041FE77 /* CaRequestFactory.m in Sources */,
 				5B0A938C2B82101D003FBE13 /* NSBubbleData.m in Sources */,
 				5B0A93692B820D0A003FBE13 /* CaChatViewController.m in Sources */,
 				5B0A938F2B82101D003FBE13 /* UIBubbleTableViewCell.m in Sources */,
