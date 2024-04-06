@@ -16,11 +16,6 @@
     //Pre-set preferences
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    //OS Check variables
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
-    //OS Check vars END
-    
     //Predefined values FOR the preferences
     NSString *aiPrompt = @"";
     NSString *defaultApiEndpoint = @"https://api.openai.com/v1/chat/completions";

@@ -192,9 +192,6 @@
     [messageActionSheet setDelegate:self];
     [messageActionSheet showInView:self.view];
 }
-
-- (IBAction)topRightHelper:(id)sender {
-}
 //Button action block end
 
 //Temporary request classes
@@ -212,7 +209,6 @@
 }
 
 - (void)didReceiveResponseData:(NSData *)data {
-    exit(0);
     [self.bubbleTableView reloadData];
 }
 
