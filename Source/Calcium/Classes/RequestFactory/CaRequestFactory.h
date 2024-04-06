@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CaRequestFactory : NSObject
-
+@protocol CaRequestFactoryDelegate <NSObject>
+- (void)didReceiveResponseData:(NSData *)data;
 @end
+
+@interface CaRequestFactory : NSObject
+@property (nonatomic, weak) id<CaRequestFactoryDelegate> delegate;
+- (void)startTextRequest:(NSString *)messagePayload;
+@end
+

@@ -14,6 +14,5 @@
 @interface CaSidebarMainViewController : UITableViewController
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
-@property UIRefreshControl *refreshControl;
 
 @end

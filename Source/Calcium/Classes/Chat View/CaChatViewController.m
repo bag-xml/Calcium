@@ -43,6 +43,10 @@
     [self.bubbleTableView reloadData];
     //table view options OFF
     
+    //RFactory delegate
+    self.requestFactory = [[CaRequestFactory alloc] init];
+    self.requestFactory.delegate = self;
+    //RFD end
     //Delegate decs
     [self.inputField setDelegate:self];
     //Delegate decs end
@@ -197,30 +201,21 @@
 
 - (void)chatRequest {
     NSLog(@"Chat request is being prepared");
+    NSString *messagePayload = self.inputField.text;
+    [self.requestFactory startTextRequest:messagePayload];
 }
 
 - (void)imageGenRequest {
     NSLog(@"Image generation request is being prepared");
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSURL *apiaryEndpoint = [NSURL URLWithString:@"http://cydia.skyglow.es:5002/"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:apiaryEndpoint];
-    
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"if you see this then tell me that it worked and send a screenshot" forHTTPHeaderField:@"hi requis"];
-    
-    NSMutableDictionary *bodyData = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                    @"model": @"dall-e-3",
-                                                                                    @"prompt": @"skeuomorphic phone icon",
-                                                                                    @"n": @1,
-                                                                                    @"size": @"256x256"
-                                                                                    }];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:bodyData options:0 error:nil];
-    [request setHTTPBody:jsonData];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+
     [SVProgressHUD showSuccessWithStatus:@"calderon"];
 }
+
+- (void)didReceiveResponseData:(NSData *)data {
+    exit(0);
+    [self.bubbleTableView reloadData];
+}
+
 //Temp request classes END
 
 //Keyboard event block begin

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calcium/Classes/Sidebar/CaSidebarMainViewController.h"
-            timestampString = "733677488.826515"
+            timestampString = "734129454.347262"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20">
+            startingLineNumber = "19"
+            endingLineNumber = "19">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,6 +62,38 @@
             startingLineNumber = "94"
             endingLineNumber = "94"
             landmarkName = "-modeSwitch:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calcium/Classes/RequestFactory/CaRequestFactory.m"
+            timestampString = "734129575.961364"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-startTextRequest:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calcium/Classes/Chat View/CaChatViewController.m"
+            timestampString = "734130793.547431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-chatRequest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

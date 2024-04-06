@@ -11,7 +11,9 @@
 #import "SVProgressHUD.h"
 #import "UIBubbleTableView.h"
 #import "TRMalleableFrameView.h"
-@interface CaChatViewController : UIViewController <UIBubbleTableViewDataSource, UIBubbleTableViewDelegate, UIActionSheetDelegate>
+#import "CaRequestFactory.h"
+
+@interface CaChatViewController : UIViewController <UIBubbleTableViewDataSource, UIBubbleTableViewDelegate, UIActionSheetDelegate, CaRequestFactoryDelegate>
 
 
 //mainview
@@ -24,9 +26,6 @@
 
 //right button
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sendButton;
-
-//top right button
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *multipurposeButton;
 
 //pill
 @property (weak, nonatomic) IBOutlet UITextView *inputField;
@@ -42,9 +41,10 @@
 
 //misc declarations
 @property bool viewingPresentTime;
+@property (nonatomic, strong) NSMutableArray *bubbleDataArray;
 //end
 
-@property (readonly, nonatomic) UIView *container;
+//RFC
+@property (nonatomic, strong) CaRequestFactory *requestFactory;
 
-@property (nonatomic, strong) NSMutableArray *bubbleDataArray;
 @end
