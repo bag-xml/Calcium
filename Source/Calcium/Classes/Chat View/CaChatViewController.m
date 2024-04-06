@@ -153,7 +153,7 @@
             [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
             [self imageGenRequest];
-            self.inputField.text = @"";
+
         }
         //kaboom
     } else if(imageMode == NO) {
@@ -166,7 +166,6 @@
             [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
             [self chatRequest];
-            self.inputField.text = @"";
         }
     }
 }
@@ -202,6 +201,25 @@
 
 - (void)imageGenRequest {
     NSLog(@"Image generation request is being prepared");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSURL *apiaryEndpoint = [NSURL URLWithString:@"http://cydia.skyglow.es:5002/"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:apiaryEndpoint];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"if you see this then tell me that it worked and send a screenshot" forHTTPHeaderField:@"hi requis"];
+    
+    NSMutableDictionary *bodyData = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                    @"model": @"dall-e-3",
+                                                                                    @"prompt": @"skeuomorphic phone icon",
+                                                                                    @"n": @1,
+                                                                                    @"size": @"256x256"
+                                                                                    }];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:bodyData options:0 error:nil];
+    [request setHTTPBody:jsonData];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+    [SVProgressHUD showSuccessWithStatus:@"calderon"];
 }
 //Temp request classes END
 
