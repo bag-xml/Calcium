@@ -23,7 +23,6 @@
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
     BOOL firstLaunchCheck = [[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"];
-    BOOL iOS7LegacyUI = [[NSUserDefaults standardUserDefaults] boolForKey:@"UIUseLegacyUI"];
     //end
     
     //Sidebar setup block

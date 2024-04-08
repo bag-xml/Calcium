@@ -20,7 +20,6 @@
     //Variables
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
-    BOOL iOS7LegacyUI = [[NSUserDefaults standardUserDefaults] boolForKey:@"UIUseLegacyUI"];
     //Var END
     
     //If classes BEGON
