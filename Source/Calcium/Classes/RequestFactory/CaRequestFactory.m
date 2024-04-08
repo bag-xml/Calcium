@@ -16,7 +16,7 @@
         NSLog(@"Communicator active, will prepare request now.");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         //free api key cheat mod apk 100% free unlimited credit!!!!
-        NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
+        NSString *authenticationSecret = @"sk-nicrzguhieoruhdjwopibuhgefjdokiuhergfdosijuhgrfjeokiugrefighu";
         
         BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
         
@@ -63,6 +63,10 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //Check the client's OS for if-blocks
+        NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+        CGFloat iOSVersion = [systemVersion floatValue];
+        
         NSLog(@"API has responded");
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
@@ -78,12 +82,9 @@
             NSLog(@"error");
             NSString *errorCode = [apiaryError objectForKey:@"code"];
             NSString *errorBody = [apiaryError objectForKey:@"message"];
-            if([errorCode isEqualToString:@"invalid_api_key"]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self displayAlertView:errorCode message:errorBody];
+                    [self displayAlertView:@"Apiary Error" message:errorBody];
                 });
-
-            }
         }
         
         if(didTheRequestWithMiddleman == YES) {

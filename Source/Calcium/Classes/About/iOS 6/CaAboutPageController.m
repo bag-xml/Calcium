@@ -40,9 +40,11 @@
     }
     
     //beauty
-    [UINavigationBar.appearance setBackgroundImage:[UIImage imageNamed:@"DarkUITitlebarBG"] forBarMetrics:UIBarMetricsDefault];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [UINavigationBar.appearance setBackgroundImage:[UIImage imageNamed:@"DarkUITitlebarBG"] forBarMetrics:UIBarMetricsDefault];
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [UINavigationBar.appearance setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 }
