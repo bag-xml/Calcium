@@ -14,6 +14,7 @@
 
 - (void)startTextRequest:(NSString *)messagePayload {
         NSLog(@"Communicator active, will prepare request now.");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         //free api key cheat mod apk 100% free unlimited credit!!!!
         NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
         
@@ -63,6 +64,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"API has responded");
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
         BOOL didImageGeneration = [[NSUserDefaults standardUserDefaults] boolForKey:@"didGenerateImage"];
         
@@ -77,7 +79,7 @@
             NSString *errorCode = [apiaryError objectForKey:@"code"];
             if([errorCode isEqualToString:@"invalid_api_key"]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [SVProgressHUD showErrorWithStatus:@"Invalid API key."];
+                    [self displayAlertView]
                 });
 
             }
@@ -111,16 +113,14 @@
 
 //MISC FUNCTION
 - (void)displayAlertView {
-    UIAlertView *connectDisplay = [UIAlertView.alloc initWithTitle:@"Connecting" message:@"\n" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    UIAlertView *connectDisplay = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [connectDisplay show];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Ensure that receivedData is initialized
     if (!self.apiaryResponseData) {
         self.apiaryResponseData = [NSMutableData data];
     }
-    // Append the received data to receivedData
     [self.apiaryResponseData appendData:data];
 }
 
