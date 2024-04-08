@@ -13,13 +13,15 @@
 @implementation CaRequestFactory
 
 - (void)startTextRequest:(NSString *)messagePayload {
-        NSLog(@"Communicator active, will prepare request now.");
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        //free api key cheat mod apk 100% free unlimited credit!!!!
-        NSString *authenticationSecret = @"sk-nicrzguhieoruhdjwopibuhgefjdokiuhergfdosijuhgrfjeokiugrefighu";
-        
-        BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
-        
+    NSLog(@"ChatCommunicator active, will prepare request now.");
+    //OSBlock
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+    CGFloat iOSVersion = [systemVersion floatValue];
+    
+    NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
+    BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
+    
+    if(iOSVersion < 7.0) {
         if(useHeadlessBrowserEngine == YES) {
             NSLog(@"User desires headless browser engine, will request this way.");
             //config
@@ -59,6 +61,14 @@
             NSLog(@"Preparing request to %@, with the content %@ and authorization %@", apiaryURL, completionRequestBody, authenticationSecret);
             [communicatorCall start];
         }
+    } else if(iOSVersion > 7.0) {
+        if(useHeadlessBrowserEngine == YES) {
+            //headless code
+        } else if(useHeadlessBrowserEngine == NO) {
+            //conventional openai endpoint engineering
+            //use 7.0+ because nsurlsession
+        }
+    }
 }
 
 - (void)startImageGenerationRequest:(NSString *)messageContent {
