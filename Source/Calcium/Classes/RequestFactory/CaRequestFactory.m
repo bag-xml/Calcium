@@ -48,6 +48,12 @@
             [apiaryCommunicationRequest setValue:[NSString stringWithFormat:@"Bearer %@", authenticationSecret] forHTTPHeaderField:@"Authorization"];
             //Goes directly to OpenAI
             
+            //Debug alert view
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"json: %@, auth header: 'Bearer %@', endpoint: %@", completionRequestBody, authenticationSecret, apiaryRequestURL]];
+            });
+            //Remove after communicator development
+            
             //Starting the request
             NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
             NSLog(@"Preparing request to %@, with the content %@ and authorization %@", apiaryURL, completionRequestBody, authenticationSecret);
@@ -57,7 +63,9 @@
 
 - (void)startImageGenerationRequest:(NSString *)messageContent {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ImageGeneration -- POST-Request log" message:@"Not implemented."];
+        });
     });
 }
 
@@ -80,11 +88,11 @@
         NSDictionary *apiaryError = [apiaryResponseJournal objectForKey:@"error"];
         if(apiaryError) {
             NSLog(@"error");
-            NSString *errorCode = [apiaryError objectForKey:@"code"];
             NSString *errorBody = [apiaryError objectForKey:@"message"];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self displayAlertView:@"Apiary Error" message:errorBody];
-                });
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayAlertView:@"Apiary Error" message:errorBody];
+            });
         }
         
         if(didTheRequestWithMiddleman == YES) {
@@ -101,15 +109,16 @@
                 NSLog(@"Image Generation = YES");
             } else if(didImageGeneration == NO) {
                 NSLog(@"Image Generation = NO");
-                //at the VERY end
                 [self sendReset];
+                //Debug, delete at the end of Calcium development
+                dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman-ChatGeneration Response" message:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
+                });
+                
+                
+                
             }
         }
-
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //[self.delegate didReceiveResponseData:[NSString stringWithFormat:@"a" ]];
-        });
     });
 }
 
@@ -134,4 +143,11 @@
     NSLog(@"Done");
 }
 
+/* - - -
+ 
+ dispatch_async(dispatch_get_main_queue(), ^{
+ //[self.delegate didReceiveResponseData:[NSString stringWithFormat:@"a" ]];
+ });
+ 
+ - - - */
 @end

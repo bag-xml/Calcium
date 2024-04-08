@@ -19,5 +19,6 @@
 //Data
 @property (nonatomic, strong) NSMutableData *apiaryResponseData;
 - (void)startTextRequest:(NSString *)messagePayload;
+- (void)startImageGenerationRequest:(NSString *)messageContent;
 @end
 

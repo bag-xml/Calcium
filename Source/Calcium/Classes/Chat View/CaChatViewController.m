@@ -154,10 +154,9 @@
         NSString *messageContent = self.inputField.text;
         if(messageContent.length < 3) {
             //preventative, for both ugliness and effectiveness
-            [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
+            [SVProgressHUD showErrorWithStatus:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
             [self imageGenRequest];
-
         }
         //kaboom
     } else if(imageMode == NO) {
@@ -170,7 +169,6 @@
             [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
             [self chatRequest];
-            self.inputField.text = @"";
         }
     }
 }
@@ -201,12 +199,14 @@
     NSLog(@"Chat request is being prepared");
     NSString *messagePayload = self.inputField.text;
     [self.requestFactory startTextRequest:messagePayload];
+    self.inputField.text = @"";
 }
 
 - (void)imageGenRequest {
     NSLog(@"Image generation request is being prepared");
-
-    [SVProgressHUD showSuccessWithStatus:@"calderon"];
+    NSString *messageContent = self.inputField.text;
+    [self.requestFactory startImageGenerationRequest:messageContent];
+    self.inputField.text = @"";
 }
 
 - (void)didReceiveResponseData:(NSData *)data {
