@@ -15,4 +15,19 @@
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
 
+
+//Declarations
+
+//Main 2 Views
+@property (strong, nonatomic) IBOutlet UITableView *historyView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *utiltyBackground;
+
+//Three Utility buttons INSIDE view
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *Guide;
+
+@property (weak, nonatomic) IBOutlet UIButton *About;
+
 @end

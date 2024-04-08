@@ -20,11 +20,18 @@
     //Variables
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
+    BOOL iOS7LegacyUI = [[NSUserDefaults standardUserDefaults] boolForKey:@"UIUseLegacyUI"];
     //Var END
     
     //If classes BEGON
     if(iOSVersion > 7.0) {
-        //Basically what this does is prevent jag-in into the statusbar (fuck you ios 7)
+        //Customization of the background view
+        self.utiltyBackground.image = [UIImage imageNamed:@"hamburger"];
+        self.historyView.backgroundColor = [UIColor colorWithRed:116.0/255.0 green:116.0/255.0 blue:116.0/255.0 alpha:1.0];
+        
+        //Buttons
+        [self.settingsButton setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        //Statusbar adjustment
         if ([self respondsToSelector:@selector(topLayoutGuide)]) {
             self.tableView.contentInset = UIEdgeInsetsMake(20., 0., 0., 0.);
         }
@@ -42,6 +49,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *historyCell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
+    
+    //Optical tweaking of elements inside of historyCell
+    historyCell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17];
+    //History cell LOGICAL properties
     historyCell.textLabel.text = [NSString stringWithFormat:@"Conversation %ld",(long)indexPath.row];
     historyCell.detailTextLabel.text = [NSString stringWithFormat:@"01/09/2007"];
     return historyCell;

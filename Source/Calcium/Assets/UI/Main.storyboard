@@ -102,8 +102,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Byu-wX-mix">
-                                            <rect key="frame" x="10" y="1" width="49" height="23"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="mommy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Byu-wX-mix">
+                                            <rect key="frame" x="10" y="1" width="67" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,6 +130,11 @@
                     </tableView>
                     <size key="freeformSize" width="320" height="0.0"/>
                     <connections>
+                        <outlet property="About" destination="l8M-ax-hAt" id="8Rg-j1-Wwq"/>
+                        <outlet property="Guide" destination="XdT-Oe-MIy" id="xRI-9y-36M"/>
+                        <outlet property="historyView" destination="iK4-Tx-Z3g" id="MGZ-hL-uHe"/>
+                        <outlet property="settingsButton" destination="poT-Ap-myM" id="UpS-Ow-8NR"/>
+                        <outlet property="utiltyBackground" destination="amR-Sv-e1k" id="qY2-7J-wqG"/>
                         <segue destination="8w3-pu-rjt" kind="modal" identifier="sidebar to About-iOS7" modalTransitionStyle="flipHorizontal" id="maV-G1-snS"/>
                     </connections>
                 </viewController>
@@ -357,11 +362,17 @@
                             <outlet property="delegate" destination="koP-Hg-Gc1" id="kze-qm-pzL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="About" id="Vhp-dw-Dfd"/>
+                    <navigationItem key="navigationItem" title="About" id="Vhp-dw-Dfd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OzC-2e-3vB">
+                            <connections>
+                                <segue destination="wFt-If-Q7F" kind="modal" modalTransitionStyle="flipHorizontal" id="oIy-bk-XWQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLV-Dp-GzC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="-1653"/>
+            <point key="canvasLocation" x="1484" y="-1653"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hd-Fl-r76">
@@ -619,6 +630,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MhR-Xq-Ywg"/>
+        <segue reference="oIy-bk-XWQ"/>
     </inferredMetricsTieBreakers>
 </document>

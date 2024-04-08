@@ -28,6 +28,7 @@
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"requestPerformedWithMiddleman"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
             //Request code for the headless chatgpt engine
+            //NOT YET
             
         } else if(useHeadlessBrowserEngine == NO) {
             NSLog(@"User does not want to use a middleman, this is okay.");
@@ -67,6 +68,10 @@
         } else if(useHeadlessBrowserEngine == NO) {
             //conventional openai endpoint engineering
             //use 7.0+ because nsurlsession
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"iOS 7+ NSURLSession RequestBlock not implemented, CaRequestFactory"]];
+            });
         }
     }
 }
