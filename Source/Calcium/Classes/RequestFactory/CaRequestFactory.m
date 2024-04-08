@@ -14,51 +14,79 @@
 
 - (void)startTextRequest:(NSString *)messagePayload {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *apiaryEndpoint = [NSURL URLWithString:@"http://cydia.skyglow.es:5002/"];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:apiaryEndpoint];
+        //free api key cheat mod apk 100% free unlimited credit!!!!
+        NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
         
-        [request setHTTPMethod:@"POST"];
+        BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
         
-        NSMutableDictionary *bodyData = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                        @"model": @"dall-e-3",
-                                                                                        @"prompt": @"skeuomorphic phone icon",
-                                                                                        @"n": @1,
-                                                                                        @"size": @"256x256"
-                                                                                        }];
-        
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:bodyData options:0 error:nil];
-        [request setHTTPBody:jsonData];
-        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        [connection start];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *nothing = @"";
-            [self.delegate didReceiveResponseData:nothing];
-        });
+        if(useHeadlessBrowserEngine == YES) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"requestPerformedWithMiddleman"];
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
+            //Request code for the headless chatgpt engine
+        } else if(useHeadlessBrowserEngine == NO) {
+            //configuration
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
+            
+            NSString *apiaryURL = @"https://api.openai.com/v1/chat/completions";
+            NSURL *apiaryRequestURL = [NSURL URLWithString:apiaryURL];
+            
+            NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
+            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"role": @"user", @"content": messagePayload}];
+            
+            NSData *completionRBData = [NSJSONSerialization dataWithJSONObject:completionRequestBody options:0 error:nil];
+            
+            //Headers for the apiary URL Request
+            [apiaryCommunicationRequest setHTTPMethod:@"POST"];
+            [apiaryCommunicationRequest setHTTPBody:completionRBData];
+            [apiaryCommunicationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [apiaryCommunicationRequest setValue:[NSString stringWithFormat:@"Bearer %@", authenticationSecret] forHTTPHeaderField:@"Authorization"];
+            //Goes directly to OpenAI
+            
+            //Starting the request
+            NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
+            
+            [communicatorCall start];
+        }
     });
 }
 
 - (void)startImageGenerationRequest:(NSString *)messageContent {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *apiaryEndpoint = [NSURL URLWithString:@"http://cydia.skyglow.es:5002/"];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:apiaryEndpoint];
         
-        [request setHTTPMethod:@"POST"];
+    });
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
+        BOOL didImageGeneration = [[NSUserDefaults standardUserDefaults] boolForKey:@"didGenerateImage"];
         
-        NSMutableDictionary *bodyData = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                        @"model": @"dall-e-3",
-                                                                                        @"prompt": @"skeuomorphic phone icon",
-                                                                                        @"n": @1,
-                                                                                        @"size": @"256x256"
-                                                                                        }];
+        if(didTheRequestWithMiddleman == YES) {
+            if(didImageGeneration == YES) {
+                
+            } else if(didImageGeneration == NO) {
+                
+            }
+        } else if(didTheRequestWithMiddleman == NO) {
+            if(didImageGeneration == YES) {
+                
+            } else if(didImageGeneration == NO) {
+                
+            }
+        }
         
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:bodyData options:0 error:nil];
-        [request setHTTPBody:jsonData];
-        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        [connection start];
+        
+        
+        
+        
+        
+        
+        
+        
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate didReceiveResponseData:[NSString stringWithFormat:@"a" ]];
+            //[self.delegate didReceiveResponseData:[NSString stringWithFormat:@"a" ]];
         });
     });
 }
