@@ -14,16 +14,21 @@
 
 - (void)startTextRequest:(NSString *)messagePayload {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"Communicator active, will prepare request now.");
         //free api key cheat mod apk 100% free unlimited credit!!!!
         NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
         
         BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
         
         if(useHeadlessBrowserEngine == YES) {
+            NSLog(@"User desires headless browser engine, will request this way.");
+            //config
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"requestPerformedWithMiddleman"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
             //Request code for the headless chatgpt engine
+            
         } else if(useHeadlessBrowserEngine == NO) {
+            NSLog(@"User does not want to use a middleman, this is okay.");
             //configuration
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
@@ -45,8 +50,9 @@
             
             //Starting the request
             NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
-            
+            NSLog(@"Preparing request to %@, with the content %@ and authorization %@", apiaryURL, completionRBData, authenticationSecret);
             [communicatorCall start];
+            NSLog(@"Request started. A headful chat completion has been issued");
         }
     });
 }
@@ -59,6 +65,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"Response recieved.");
         BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
         BOOL didImageGeneration = [[NSUserDefaults standardUserDefaults] boolForKey:@"didGenerateImage"];
         
@@ -72,7 +79,7 @@
             if(didImageGeneration == YES) {
                 
             } else if(didImageGeneration == NO) {
-                
+                exit(0);
             }
         }
         
