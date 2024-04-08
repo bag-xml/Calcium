@@ -77,9 +77,10 @@
         if(apiaryError) {
             NSLog(@"error");
             NSString *errorCode = [apiaryError objectForKey:@"code"];
+            NSString *errorBody = [apiaryError objectForKey:@"message"];
             if([errorCode isEqualToString:@"invalid_api_key"]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self displayAlertView]
+                    [self displayAlertView:errorCode message:errorBody];
                 });
 
             }
@@ -112,7 +113,7 @@
 }
 
 //MISC FUNCTION
-- (void)displayAlertView {
+- (void)displayAlertView:(NSString *)title message:(NSString *)message {
     UIAlertView *connectDisplay = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [connectDisplay show];
 }
