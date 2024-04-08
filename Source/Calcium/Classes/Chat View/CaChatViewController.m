@@ -170,6 +170,7 @@
             [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
             [self chatRequest];
+            self.inputField.text = @"";
         }
     }
 }

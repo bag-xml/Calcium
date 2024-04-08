@@ -13,8 +13,11 @@
 - (void)didReceiveResponseData:(NSData *)data;
 @end
 
-@interface CaRequestFactory : NSObject
+@interface CaRequestFactory : NSObject <NSURLConnectionDelegate>
 @property (nonatomic, weak) id<CaRequestFactoryDelegate> delegate;
+
+//Data
+@property (nonatomic, strong) NSMutableData *apiaryResponseData;
 - (void)startTextRequest:(NSString *)messagePayload;
 @end
 
