@@ -30,6 +30,14 @@
         
         //Buttons
         [self.settingsButton setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        [self.settingsButton.titleLabel setShadowOffset:CGSizeMake(0, 0)];
+        [self.settingsButton setTitleColor:[UIColor colorWithRed:116.0/255.0 green:116.0/255.0 blue:116.0/255.0 alpha:1.0] forState:UIControlStateNormal]; // Change color as needed
+        
+        [self.Guide setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        [self.Guide.titleLabel setShadowOffset:CGSizeMake(0, 0)];
+        
+        [self.About setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        [self.About.titleLabel setShadowOffset:CGSizeMake(0, 0)];
         //Statusbar adjustment
         if ([self respondsToSelector:@selector(topLayoutGuide)]) {
             self.tableView.contentInset = UIEdgeInsetsMake(20., 0., 0., 0.);
