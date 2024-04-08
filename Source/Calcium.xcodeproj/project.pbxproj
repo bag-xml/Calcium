@@ -871,7 +871,7 @@
 				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
 				INFOPLIST_FILE = "Calcium/Calcium-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -887,7 +887,7 @@
 				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
 				INFOPLIST_FILE = "Calcium/Calcium-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

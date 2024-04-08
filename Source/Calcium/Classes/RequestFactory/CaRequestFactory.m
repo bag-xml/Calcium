@@ -35,7 +35,7 @@
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
             
-            NSString *apiaryURL = @"https://api.openai.com/v1/chat/completions";
+            NSString *apiaryURL = @"http://api.openai.com/v1/chat/completions";
             NSURL *apiaryRequestURL = [NSURL URLWithString:apiaryURL];
             
             NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
@@ -81,10 +81,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //Check the client's OS for if-blocks
-        NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-        CGFloat iOSVersion = [systemVersion floatValue];
-        
+        //Check the client's OS for if-blocks 
         NSLog(@"API has responded");
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
