@@ -71,7 +71,7 @@
             //use 7.0+ because nsurlsession
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"iOS 7+ NSURLSession RequestBlock not implemented, CaRequestFactory"]];
+                [self displayAlertView:@"Communicator Log" message:[NSString stringWithFormat:@"iOS 7+ NSURLSession RequestBlock not implemented, CaRequestFactory"]];
             });
         }
     }
@@ -79,8 +79,9 @@
 
 - (void)startImageGenerationRequest:(NSString *)messageContent {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ImageGeneration -- POST-Request log" message:@"Not implemented."];
+            [self displayAlertView:@"Communicator Log" message:@"Not implemented."];
         });
     });
 }
@@ -125,7 +126,7 @@
                 [self sendReset];
                 //Debug, delete at the end of Calcium development
                 dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman-ChatGeneration Response" message:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
+                [self displayAlertView:@"Communicator Log (Response)" message:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
                 });
                 
             }
