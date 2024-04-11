@@ -19,6 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //DELETE DELETE DELETE DELETE DELETE
+    //DELETE DELETE DELETE DELETE DELETE
+    
+//DEBUG
+    
     //Definition of variables, ones which are used on the bottom.
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
@@ -102,7 +108,7 @@
         UIImage *correspondingMode = [UIImage imageNamed:@"PictureModeGlyph"];
         NSLog(@"--BUTTON ACTION-- User switched to chat mode from gen mode");
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"imageGenerationModeEnabled"];
-        [SVProgressHUD showErrorWithStatus:@"Switched to Chat Mode"];
+        [SVProgressHUD showSuccessWithStatus:@"Switched to Chat Mode"];
         self.navigationItem.title = @"Chat";
         
         //Clears history
@@ -154,7 +160,7 @@
         NSString *messageContent = self.inputField.text;
         if(messageContent.length < 3) {
             //preventative, for both ugliness and effectiveness
-            [SVProgressHUD showErrorWithStatus:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
+            [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
             [self imageGenRequest];
         }
@@ -196,10 +202,18 @@
 //Temporary request classes
 
 - (void)chatRequest {
-    NSLog(@"Chat request is being prepared");
-    NSString *messagePayload = self.inputField.text;
-    [self.requestFactory startTextRequest:messagePayload];
-    self.inputField.text = @"";
+    //Check prerequisites
+    NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
+    
+    if(authenticationSecret.length == 0) {
+        [self showAlertWithTitle:@"Apiary Error" message:@"You have no API key set"];
+        NSLog(@"Chat Request preparation failed. No Authentication Secret set.");
+    } else {
+        NSLog(@"Chat request is being prepared");
+        NSString *messagePayload = self.inputField.text;
+        [self.requestFactory startTextRequest:messagePayload];
+        self.inputField.text = @"";
+    }
 }
 
 - (void)imageGenRequest {
@@ -210,8 +224,8 @@
 }
 
 - (void)didReceiveResponseData:(NSData *)data {
-    
-    [self.bubbleTableView reloadData];
+    //temp setup DEBUG VIEW
+    self.debugView.text = data;
 }
 
 //Temp request classes END

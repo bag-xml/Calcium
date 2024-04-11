@@ -23,6 +23,11 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *utiltyBackground;
 
+//TEMPORARY
+@property (weak, nonatomic) IBOutlet UILabel *debugLabel;
+
+//TEMPORARY END
+
 //Three Utility buttons INSIDE view
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 

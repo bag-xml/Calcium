@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calcium/Classes/Sidebar/CaSidebarMainViewController.h"
-            timestampString = "734309597.3573149"
+            timestampString = "734536101.560511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34">
+            startingLineNumber = "39"
+            endingLineNumber = "39">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calcium/Classes/Chat View/CaChatViewController.m"
-            timestampString = "734310483.233768"
+            timestampString = "734530978.1682971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "@implementation CaChatViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -56,28 +56,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calcium/Classes/Chat View/CaChatViewController.m"
-            timestampString = "734310483.233768"
+            timestampString = "734530814.325304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "-modeSwitch:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calcium/Classes/Chat View/CaChatViewController.m"
-            timestampString = "734310483.233768"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "-chatRequest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -102,11 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calcium/Classes/RequestFactory/CaRequestFactory.m"
-            timestampString = "734292387.1088279"
+            timestampString = "734538582.934906"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-connectionDidFinishLoading:"
             landmarkType = "5">
          </BreakpointContent>
@@ -117,13 +101,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Calcium/Classes/RequestFactory/CaRequestFactory.m"
-            timestampString = "734290752.268422"
+            filePath = "Calcium/Classes/Sidebar/CaSidebarMainViewController.m"
+            timestampString = "734537442.791292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-startTextRequest:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -70,6 +70,8 @@
 		5B6C5F4F2BC07CD700311C0D /* WelcomeBanner-iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F392BC07CD700311C0D /* WelcomeBanner-iOS7.png */; };
 		5B6C5F582BC07E7A00311C0D /* DarkUITitleBarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F562BC07E7A00311C0D /* DarkUITitleBarBG.png */; };
 		5B6C5F592BC07E7A00311C0D /* DarkUITitleBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F572BC07E7A00311C0D /* DarkUITitleBarBG@2x.png */; };
+		5BBF067F2BC81138004C0FF1 /* SidebarTopLeaderFlat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBF067D2BC81138004C0FF1 /* SidebarTopLeaderFlat.png */; };
+		5BBF06802BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBF067E2BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png */; };
 		5BE551642BC0757B00BD0F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE551632BC0757B00BD0F70 /* Main.storyboard */; };
 		5BFDE3C92BC1E6240041FE77 /* CaRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDE3C82BC1E6240041FE77 /* CaRequestFactory.m */; };
 		5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEABB02B823AC200032F34 /* TRMalleableFrameView.m */; };
@@ -112,7 +114,7 @@
 		5B0A935B2B820C4C003FBE13 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		5B0A935C2B820C4C003FBE13 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		5B0A93632B820CB1003FBE13 /* CaSidebarMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaSidebarMainViewController.h; sourceTree = "<group>"; };
-		5B0A93642B820CB1003FBE13 /* CaSidebarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaSidebarMainViewController.m; sourceTree = "<group>"; };
+		5B0A93642B820CB1003FBE13 /* CaSidebarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaSidebarMainViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		5B0A93672B820D0A003FBE13 /* CaChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaChatViewController.h; sourceTree = "<group>"; };
 		5B0A93682B820D0A003FBE13 /* CaChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaChatViewController.m; sourceTree = "<group>"; };
 		5B0A936C2B82101D003FBE13 /* bubbleMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubbleMine.png; sourceTree = "<group>"; };
@@ -171,6 +173,8 @@
 		5B6C5F392BC07CD700311C0D /* WelcomeBanner-iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WelcomeBanner-iOS7.png"; sourceTree = "<group>"; };
 		5B6C5F562BC07E7A00311C0D /* DarkUITitleBarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkUITitleBarBG.png; sourceTree = "<group>"; };
 		5B6C5F572BC07E7A00311C0D /* DarkUITitleBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkUITitleBarBG@2x.png"; sourceTree = "<group>"; };
+		5BBF067D2BC81138004C0FF1 /* SidebarTopLeaderFlat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SidebarTopLeaderFlat.png; sourceTree = "<group>"; };
+		5BBF067E2BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SidebarTopLeaderFlat@2x.png"; sourceTree = "<group>"; };
 		5BE551632BC0757B00BD0F70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5BFDE3C72BC1E6240041FE77 /* CaRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaRequestFactory.h; sourceTree = "<group>"; };
 		5BFDE3C82BC1E6240041FE77 /* CaRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaRequestFactory.m; sourceTree = "<group>"; };
@@ -519,6 +523,7 @@
 		5B6C5F2A2BC07CD700311C0D /* Sidebar resources */ = {
 			isa = PBXGroup;
 			children = (
+				5BBF067C2BC81138004C0FF1 /* iOS 7 */,
 				5B6C5F2B2BC07CD700311C0D /* GuideButton.png */,
 				5B6C5F2C2BC07CD700311C0D /* HelpButton.png */,
 				5B6C5F2D2BC07CD700311C0D /* HelpButton@2x.png */,
@@ -572,6 +577,15 @@
 				5B50E1EE2BBC2F8600DB0532 /* iOS 7 */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		5BBF067C2BC81138004C0FF1 /* iOS 7 */ = {
+			isa = PBXGroup;
+			children = (
+				5BBF067D2BC81138004C0FF1 /* SidebarTopLeaderFlat.png */,
+				5BBF067E2BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png */,
+			);
+			path = "iOS 7";
 			sourceTree = "<group>";
 		};
 		5BE551622BC0757B00BD0F70 /* UI */ = {
@@ -689,10 +703,12 @@
 				5B6C5F422BC07CD700311C0D /* Send.png in Resources */,
 				5B6C5F442BC07CD700311C0D /* GuideButton.png in Resources */,
 				5B6C5F492BC07CD700311C0D /* SidebarTopLeader@2x.png in Resources */,
+				5BBF067F2BC81138004C0FF1 /* SidebarTopLeaderFlat.png in Resources */,
 				5B0A93852B82101D003FBE13 /* bubbleSomeone@2x.png in Resources */,
 				5B6C5F432BC07CD700311C0D /* Send@2x.png in Resources */,
 				5B6C5F3C2BC07CD700311C0D /* AboutTableBG@2x.png in Resources */,
 				5B0A93822B82101D003FBE13 /* bubbleMine.png in Resources */,
+				5BBF06802BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png in Resources */,
 				5B6C5F592BC07E7A00311C0D /* DarkUITitleBarBG@2x.png in Resources */,
 				5B6C5F452BC07CD700311C0D /* HelpButton.png in Resources */,
 				5B68CB532B822835000A42AC /* Settings.bundle in Resources */,

@@ -6,6 +6,12 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Middleman Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 			<key>Title</key>
 			<string>jnjlknjoi</string>

@@ -25,8 +25,15 @@
     //If classes BEGON
     if(iOSVersion > 7.0) {
         //Customization of the background view
-        self.utiltyBackground.image = [UIImage imageNamed:@"hamburger"];
-        self.historyView.backgroundColor = [UIColor colorWithRed:116.0/255.0 green:116.0/255.0 blue:116.0/255.0 alpha:1.0];
+        
+        //figma doesnt work on any of my machines
+        self.debugLabel.text = @"Welcome";
+        
+        //thats why i have to do this
+        
+        //bg
+        self.utiltyBackground.image = [UIImage imageNamed:@"SidebarTopLeaderFlat"];
+        self.historyView.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:83.0/255.0 alpha:1.0];
         
         //Buttons
         [self.settingsButton setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
@@ -43,7 +50,8 @@
             self.tableView.contentInset = UIEdgeInsetsMake(20., 0., 0., 0.);
         }
     } else if(iOSVersion > 6.0) {
-    
+        //figma thingy
+        self.debugLabel.text = @"";
     }
     //If classes END
 }
@@ -51,7 +59,7 @@
 //Sidebar table view properties BEGIN
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3482;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,6 +67,7 @@
     
     //Optical tweaking of elements inside of historyCell
     historyCell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17];
+    [historyCell.textLabel setShadowOffset:CGSizeMake(0, 0)];
     //History cell LOGICAL properties
     historyCell.textLabel.text = [NSString stringWithFormat:@"Conversation %ld",(long)indexPath.row];
     historyCell.detailTextLabel.text = [NSString stringWithFormat:@"01/09/2007"];
@@ -94,7 +103,13 @@
 
 - (IBAction)guide:(id)sender {
     NSLog(@"--ACTION-- Pressed Guide button in sidebar");
-    [self performSegueWithIdentifier:@"sidebar to Guide" sender:self];
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+    CGFloat iOSVersion = [systemVersion floatValue];
+    if(iOSVersion > 7.0) {
+        [self performSegueWithIdentifier:@"sidebar to Guide-iOS7" sender:self];
+    } else if(iOSVersion < 7.0) {
+        [self performSegueWithIdentifier:@"sidebar to Guide-iOS6" sender:self];
+    }
 }
 
 

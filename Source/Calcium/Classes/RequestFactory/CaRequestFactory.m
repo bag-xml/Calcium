@@ -40,7 +40,8 @@
             NSURL *apiaryRequestURL = [NSURL URLWithString:apiaryURL];
             
             NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
-            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"role": @"user", @"content": messagePayload}];
+            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"model": @"gpt-3.5-turbo", @"messages": @[@{@"role": @"user", @"content": messagePayload}]}];
+
             
             NSData *completionRBData = [NSJSONSerialization dataWithJSONObject:completionRequestBody options:0 error:nil];
             
@@ -53,7 +54,7 @@
             
             //Debug alert view
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"json: %@, auth header: 'Bearer %@', endpoint: %@", completionRequestBody, authenticationSecret, apiaryRequestURL]];
+                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"JSON Body: %@, auth header: 'Bearer %@', endpoint: %@", completionRequestBody, authenticationSecret, apiaryRequestURL]];
             });
             //Remove after communicator development
             
@@ -127,10 +128,11 @@
                 [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman-ChatGeneration Response" message:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
                 });
                 
-                
-                
             }
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate didReceiveResponseData:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
+        });
     });
 }
 
