@@ -20,11 +20,6 @@
 {
     [super viewDidLoad];
     
-    //DELETE DELETE DELETE DELETE DELETE
-    //DELETE DELETE DELETE DELETE DELETE
-    
-//DEBUG
-    
     //Definition of variables, ones which are used on the bottom.
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
