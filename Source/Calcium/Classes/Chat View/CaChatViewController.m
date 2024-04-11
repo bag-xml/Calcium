@@ -172,6 +172,9 @@
             [self chatRequest];
         }
     }
+    //i dont wanna repeat myself twice, but what this does is that it updated the bubbletable view pos to that of what the view looks like with the keyboard expanded
+    if(self.viewingPresentTime)
+        [self.bubbleTableView setContentOffset:CGPointMake(0, self.bubbleTableView.contentSize.height - self.bubbleTableView.frame.size.height) animated:YES];
 }
 
 - (IBAction)exposeSidebar:(id)sender {
