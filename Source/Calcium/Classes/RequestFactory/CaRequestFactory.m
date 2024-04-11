@@ -54,7 +54,7 @@
             
             //Debug alert view
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"JSON Body: %@, auth header: 'Bearer %@', endpoint: %@", completionRequestBody, authenticationSecret, apiaryRequestURL]];
+                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"JSON Body: %@", completionRequestBody]];
             });
             //Remove after communicator development
             

@@ -27,8 +27,7 @@
         //Customization of the background view
         
         //figma doesnt work on any of my machines
-        self.debugLabel.text = @"Welcome";
-        
+        self.debugLabel.text = @"ChatGPT";
         //thats why i have to do this
         
         //bg
@@ -36,15 +35,17 @@
         self.historyView.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:83.0/255.0 alpha:1.0];
         
         //Buttons
-        [self.settingsButton setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        [self.settingsButton setImage:[UIImage imageNamed:@"flatGear"] forState:UIControlStateNormal];
         [self.settingsButton.titleLabel setShadowOffset:CGSizeMake(0, 0)];
-        [self.settingsButton setTitleColor:[UIColor colorWithRed:116.0/255.0 green:116.0/255.0 blue:116.0/255.0 alpha:1.0] forState:UIControlStateNormal]; // Change color as needed
+        [self.settingsButton setTitleColor:[UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1.0] forState:UIControlStateNormal];
         
-        [self.Guide setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        [self.Guide setImage:[UIImage imageNamed:@"flatGuide"] forState:UIControlStateNormal];
         [self.Guide.titleLabel setShadowOffset:CGSizeMake(0, 0)];
+        [self.Guide setTitleColor:[UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1.0] forState:UIControlStateNormal];
         
-        [self.About setImage:[UIImage imageNamed:@"hamburger"] forState:UIControlStateNormal];
+        [self.About setImage:[UIImage imageNamed:@"flatContact"] forState:UIControlStateNormal];
         [self.About.titleLabel setShadowOffset:CGSizeMake(0, 0)];
+        [self.About setTitleColor:[UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1.0] forState:UIControlStateNormal];
         //Statusbar adjustment
         if ([self respondsToSelector:@selector(topLayoutGuide)]) {
             self.tableView.contentInset = UIEdgeInsetsMake(20., 0., 0., 0.);
@@ -59,15 +60,21 @@
 //Sidebar table view properties BEGIN
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *historyCell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
+    //iOS 7's block
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+    CGFloat iOSVersion = [systemVersion floatValue];
+    if(iOSVersion > 7.0) {
+        historyCell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:17];
+        [historyCell.textLabel setShadowOffset:CGSizeMake(0, 0)];
+        [historyCell.detailTextLabel setShadowOffset:CGSizeMake(0, 0)];
+    }
+    //End of iOS 7's block
     
-    //Optical tweaking of elements inside of historyCell
-    historyCell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17];
-    [historyCell.textLabel setShadowOffset:CGSizeMake(0, 0)];
     //History cell LOGICAL properties
     historyCell.textLabel.text = [NSString stringWithFormat:@"Conversation %ld",(long)indexPath.row];
     historyCell.detailTextLabel.text = [NSString stringWithFormat:@"01/09/2007"];

@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calcium/Classes/Chat View/CaChatViewController.m"
-            timestampString = "734530978.1682971"
+            timestampString = "734545023.644145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "@implementation CaChatViewController"
             landmarkType = "3">
          </BreakpointContent>

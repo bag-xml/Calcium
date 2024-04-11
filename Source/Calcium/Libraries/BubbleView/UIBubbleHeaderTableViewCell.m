@@ -48,7 +48,7 @@
     self.label.shadowOffset = CGSizeMake(0, 1);
     self.label.shadowColor = [UIColor whiteColor];
     self.label.textColor = [UIColor darkGrayColor];
-    self.label.backgroundColor = [UIColor clearColor];
+    self.label.backgroundColor = [UIColor clearColor]; //edit
     [self addSubview:self.label];
 }
 

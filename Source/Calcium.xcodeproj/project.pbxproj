@@ -41,6 +41,9 @@
 		5B0A938E2B82101D003FBE13 /* UIBubbleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A937B2B82101D003FBE13 /* UIBubbleTableView.m */; };
 		5B0A938F2B82101D003FBE13 /* UIBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A937D2B82101D003FBE13 /* UIBubbleTableViewCell.m */; };
 		5B0A93902B82101D003FBE13 /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A93812B82101D003FBE13 /* UIBubbleTypingTableViewCell.m */; };
+		5B26964F2BC84F28000FA95F /* flatGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B26964E2BC84F28000FA95F /* flatGear.png */; };
+		5B2696522BC85C7B000FA95F /* flatContact.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2696502BC85C7B000FA95F /* flatContact.png */; };
+		5B2696532BC85C7B000FA95F /* flatGuide.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2696512BC85C7B000FA95F /* flatGuide.png */; };
 		5B50E1EF2BBC2F8600DB0532 /* CaAboutPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1ED2BBC2F8600DB0532 /* CaAboutPageController.m */; };
 		5B50E1F22BBC2FD400DB0532 /* CaAboutPageController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1F12BBC2FD400DB0532 /* CaAboutPageController-iOS7.m */; };
 		5B50E1F72BBC30EC00DB0532 /* CaWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E1F52BBC30EC00DB0532 /* CaWelcomeViewController.m */; };
@@ -140,6 +143,9 @@
 		5B0A93812B82101D003FBE13 /* UIBubbleTypingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTypingTableViewCell.m; sourceTree = "<group>"; };
 		5B1D4A362BC06DC00066E92D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B1D4A372BC06DC00066E92D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B26964E2BC84F28000FA95F /* flatGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatGear.png; sourceTree = "<group>"; };
+		5B2696502BC85C7B000FA95F /* flatContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatContact.png; sourceTree = "<group>"; };
+		5B2696512BC85C7B000FA95F /* flatGuide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatGuide.png; sourceTree = "<group>"; };
 		5B50E1EC2BBC2F8600DB0532 /* CaAboutPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaAboutPageController.h; sourceTree = "<group>"; };
 		5B50E1ED2BBC2F8600DB0532 /* CaAboutPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaAboutPageController.m; sourceTree = "<group>"; };
 		5B50E1F02BBC2FD400DB0532 /* CaAboutPageController-iOS7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CaAboutPageController-iOS7.h"; sourceTree = "<group>"; };
@@ -582,6 +588,9 @@
 		5BBF067C2BC81138004C0FF1 /* iOS 7 */ = {
 			isa = PBXGroup;
 			children = (
+				5B2696502BC85C7B000FA95F /* flatContact.png */,
+				5B2696512BC85C7B000FA95F /* flatGuide.png */,
+				5B26964E2BC84F28000FA95F /* flatGear.png */,
 				5BBF067D2BC81138004C0FF1 /* SidebarTopLeaderFlat.png */,
 				5BBF067E2BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png */,
 			);
@@ -714,6 +723,7 @@
 				5B68CB532B822835000A42AC /* Settings.bundle in Resources */,
 				5B6C5F4D2BC07CD700311C0D /* UIToolbarBG@2x.png in Resources */,
 				5B6C5F472BC07CD700311C0D /* PHPref.png in Resources */,
+				5B26964F2BC84F28000FA95F /* flatGear.png in Resources */,
 				5B0A931B2B820AC7003FBE13 /* InfoPlist.strings in Resources */,
 				5B0A935F2B820C4C003FBE13 /* SVProgressHUD-15e9190d.o.tmp in Resources */,
 				5B0A938B2B82101D003FBE13 /* typingSomeone@2x.png in Resources */,
@@ -723,12 +733,14 @@
 				5B6C5F3D2BC07CD700311C0D /* AboutTableBG@R4.png in Resources */,
 				5B6C5F4B2BC07CD700311C0D /* UITitlebarBG@2x.png in Resources */,
 				5B6C5F4A2BC07CD700311C0D /* UITitlebarBG.png in Resources */,
+				5B2696522BC85C7B000FA95F /* flatContact.png in Resources */,
 				5B6C5F4F2BC07CD700311C0D /* WelcomeBanner-iOS7.png in Resources */,
 				5B0A93842B82101D003FBE13 /* bubbleSomeone.png in Resources */,
 				5B6C5F482BC07CD700311C0D /* SidebarTopLeader.png in Resources */,
 				5B0A934A2B820B86003FBE13 /* Images.xcassets in Resources */,
 				5B0A938A2B82101D003FBE13 /* typingSomeone.png in Resources */,
 				5B6C5F4C2BC07CD700311C0D /* UIToolbarBG.png in Resources */,
+				5B2696532BC85C7B000FA95F /* flatGuide.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

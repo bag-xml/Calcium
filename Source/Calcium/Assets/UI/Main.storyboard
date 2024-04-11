@@ -93,9 +93,9 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatGPT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UPT-Qt-xbn">
-                                    <rect key="frame" x="20" y="30" width="236" height="82"/>
+                                    <rect key="frame" x="0.0" y="30" width="256" height="82"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="60"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="55"/>
                                     <color key="textColor" white="0.4970703125" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -145,6 +145,7 @@
                         <outlet property="settingsButton" destination="poT-Ap-myM" id="UpS-Ow-8NR"/>
                         <outlet property="utiltyBackground" destination="amR-Sv-e1k" id="qY2-7J-wqG"/>
                         <segue destination="8w3-pu-rjt" kind="modal" identifier="sidebar to About-iOS7" modalTransitionStyle="flipHorizontal" id="maV-G1-snS"/>
+                        <segue destination="Sma-T1-KKy" kind="modal" identifier="sidebar to Guide-iOS7" modalTransitionStyle="flipHorizontal" id="RgR-k2-2VN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mU7-hS-Cht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -562,29 +563,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="517-Wc-wuN" customClass="UIBubbleTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="u1C-hQ-Shv">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Data will appear here" id="EEb-HL-Uok">
-                                            <rect key="frame" x="0.0" y="44" width="320" height="93"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                        </textView>
-                                        <navigationBar contentMode="scaleToFill" id="KCt-Hp-ac4">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <color key="tintColor" red="0.63754670516304346" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <items>
-                                                <navigationItem title="Debug View" id="f9q-mX-3z7"/>
-                                            </items>
-                                        </navigationBar>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="BGA-Gf-FqA">
                                 <rect key="frame" x="0.0" y="460" width="320" height="44"/>
@@ -650,10 +628,14 @@
                                 <action selector="exposeSidebar:" destination="PAh-4J-EHy" id="qxK-gI-pP9"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Down" id="dOS-gU-Er9">
+                            <connections>
+                                <action selector="dropdown:" destination="PAh-4J-EHy" id="kSQ-ik-gsg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bubbleTableView" destination="517-Wc-wuN" id="cDi-c7-IOZ"/>
-                        <outlet property="debugView" destination="EEb-HL-Uok" id="cfO-FO-5M8"/>
                         <outlet property="inputField" destination="pdZ-WF-lAs" id="N1y-S5-hQs"/>
                         <outlet property="inputFieldPlaceholder" destination="pro-8I-4AN" id="Xwz-B5-4Y1"/>
                         <outlet property="modeButton" destination="CzD-y7-NfY" id="LWX-Ew-NA4"/>

@@ -5,6 +5,8 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>FooterText</key>
+			<string>A &quot;Middleman&quot; server is a server you self-host that acts as a headless browser engine, this can be used by advanced users or users who dont want to generate API keys. More about this is on Calcium&apos;s GitHub page. If you don&apos;t know what you&apos;re doing LEAVE THIS DISABLED AND AS-IS</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
@@ -12,117 +14,51 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
-			<key>Title</key>
-			<string>jnjlknjoi</string>
-			<key>Key</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Title</key>
-			<string>API related</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Use Middleman</string>
+			<string>Enable</string>
 			<key>Key</key>
 			<string>useMiddleman</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
 		<dict>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-			<key>IsSecure</key>
-			<false/>
-			<key>Key</key>
-			<string>apiKey</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
-			<key>Title</key>
-			<string>API Key:</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
-		</dict>
-		<dict>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-			<key>IsSecure</key>
-			<false/>
+			<key>Title</key>
+			<string>Endpoint</string>
 			<key>Key</key>
-			<string>apiEndpoint</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
-			<key>Title</key>
-			<string>API Endpoint:</string>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<string>middlemanURL</string>
 		</dict>
 		<dict>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-			<key>IsSecure</key>
-			<false/>
-			<key>Key</key>
-			<string>AIModel</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
-			<key>Title</key>
-			<string>AI Model:</string>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-		</dict>
-		<dict>
-			<key>Title</key>
-			<string>Fun</string>
+			<key>FooterText</key>
+			<string>Basic OpenAI API Settings</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>OpenAI Settings</string>
 		</dict>
 		<dict>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-			<key>IsSecure</key>
-			<false/>
-			<key>Key</key>
-			<string>aiPrompt</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
-			<key>Title</key>
-			<string>Prompt</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>API Key</string>
+			<key>Key</key>
+			<string>apiKey</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Show Profile Pictures</string>
+			<string>AI Model</string>
 			<key>Key</key>
-			<string>showPFP</string>
-			<key>DefaultValue</key>
-			<true/>
+			<string>AIModel</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Always Clear when switching</string>
-			<key>Key</key>
-			<string>alwaysClear</string>
-			<key>DefaultValue</key>
-			<true/>
+			<string>Fun</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

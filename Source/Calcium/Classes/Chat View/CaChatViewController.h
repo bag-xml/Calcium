@@ -47,9 +47,4 @@
 //RFC
 @property (nonatomic, strong) CaRequestFactory *requestFactory;
 
-
-//DELETE DELETE
-@property (weak, nonatomic) IBOutlet UITextView *debugView;
-
-
 @end

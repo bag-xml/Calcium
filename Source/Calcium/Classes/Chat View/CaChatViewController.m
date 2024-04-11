@@ -197,9 +197,17 @@
     [messageActionSheet setDelegate:self];
     [messageActionSheet showInView:self.view];
 }
+
+//remove after drag-dev
+- (IBAction)dropdown:(id)sender {
+    [self.inputField resignFirstResponder];
+}
+
+//end
+
 //Button action block end
 
-//Temporary request classes
+//Request-firing Blocks
 
 - (void)chatRequest {
     //Check prerequisites
@@ -211,7 +219,12 @@
     } else {
         NSLog(@"Chat request is being prepared");
         NSString *messagePayload = self.inputField.text;
+        NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[messagePayload stringByAppendingString:@""] date:[NSDate date] type:BubbleTypeMine];
+        
+        [self.bubbleDataArray addObject:userBubbleData];
+        
         [self.requestFactory startTextRequest:messagePayload];
+        [self.bubbleTableView reloadData];
         self.inputField.text = @"";
     }
 }
@@ -224,8 +237,10 @@
 }
 
 - (void)didReceiveResponseData:(NSData *)data {
-    //temp setup DEBUG VIEW
-    self.debugView.text = data;
+    NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:data date:[NSDate date] type:BubbleTypeSomeoneElse];
+    [self.bubbleDataArray addObject:assistantBubbleData];
+    [self.bubbleTableView reloadData];
+    
 }
 
 //Temp request classes END
