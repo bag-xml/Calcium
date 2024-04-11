@@ -13,7 +13,7 @@
 - (void)didReceiveResponseData:(NSData *)data;
 @end
 
-@interface CaRequestFactory : NSObject <NSURLConnectionDelegate>
+@interface CaRequestFactory : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLSessionDelegate>
 @property (nonatomic, weak) id<CaRequestFactoryDelegate> delegate;
 
 //Data

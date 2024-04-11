@@ -32,6 +32,8 @@
             
         } else if(useHeadlessBrowserEngine == NO) {
             NSLog(@"User does not want to use a middleman, this is okay.");
+            //inherited values
+            NSString *preferredModel = [[NSUserDefaults standardUserDefaults] objectForKey:@"AIModel"];
             //configuration
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
@@ -40,7 +42,7 @@
             NSURL *apiaryRequestURL = [NSURL URLWithString:apiaryURL];
             
             NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
-            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"model": @"gpt-3.5-turbo", @"messages": @[@{@"role": @"user", @"content": messagePayload}]}];
+            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"model": preferredModel, @"messages": @[@{@"role": @"user", @"content": messagePayload}]}];
 
             
             NSData *completionRBData = [NSJSONSerialization dataWithJSONObject:completionRequestBody options:0 error:nil];
@@ -56,11 +58,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"JSON Body: %@", completionRequestBody]];
             });
+            NSLog(@"Request Headers: %@", [apiaryCommunicationRequest allHTTPHeaderFields]);
             //Remove after communicator development
-            
+
+
             //Starting the request
             NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
-            NSLog(@"Preparing request to %@, with the content %@ and authorization %@", apiaryURL, completionRequestBody, authenticationSecret);
             [communicatorCall start];
         }
     } else if(iOSVersion > 7.0) {
@@ -126,7 +129,6 @@
                 [self sendReset];
                 //Debug, delete at the end of Calcium development
                 dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"Communicator Log (Response)" message:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
                 });
                 
             }
