@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APLSlideMenuViewController.h"
+#import "NSBubbleData.h"
 #import "SVProgressHUD.h"
 #import "UIBubbleTableView.h"
 #import "TRMalleableFrameView.h"
@@ -46,5 +47,6 @@
 
 //RFC
 @property (nonatomic, strong) CaRequestFactory *requestFactory;
+@property (nonatomic, strong) NSMutableData *apiaryResponseData;
 
 @end

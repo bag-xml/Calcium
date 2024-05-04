@@ -55,6 +55,8 @@
 			<string>AIModel</string>
 		</dict>
 		<dict>
+			<key>FooterText</key>
+			<string>Miscellaneous options, albeit still important ones.</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>

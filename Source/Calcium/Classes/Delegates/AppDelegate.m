@@ -18,13 +18,8 @@
 
     //Predefined values FOR the preferences
     NSString *aiPrompt = @"";
-    NSString *defaultApiEndpoint = @"https://api.openai.com/v1/chat/completions";
     NSString *defaultAIModel = @"gpt-3.5-turbo";
     //predef block end
-    
-    if (![defaults objectForKey:@"apiEndpoint"]) {
-        [defaults setObject:defaultApiEndpoint forKey:@"apiEndpoint"];
-    }
     if (![defaults objectForKey:@"AIModel"]) {
         [defaults setObject:defaultAIModel forKey:@"AIModel"];
     }

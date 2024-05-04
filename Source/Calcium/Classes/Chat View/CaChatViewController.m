@@ -37,7 +37,6 @@
     //temp population
     self.bubbleTableView.bubbleDataSource = self;
     self.bubbleTableView.watchingInRealTime = YES;
-    self.bubbleTableView.delegate = self;
     self.bubbleTableView.snapInterval = 2800;
     self.bubbleDataArray = [NSMutableArray array];
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
@@ -152,25 +151,25 @@
     if(imageMode == YES) {
         NSLog(@"imageMode == YES");
         NSLog(@"Image generation mode is enabled, therefore the function for image generation is executed.");
-        NSString *messageContent = self.inputField.text;
-        if(messageContent.length < 3) {
-            //preventative, for both ugliness and effectiveness
-            [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
-        } else {
-            [self imageGenRequest];
-        }
+        [self imageGenRequest];
         //kaboom
     } else if(imageMode == NO) {
         NSLog(@"imageMode == NO");
         NSLog(@"Chat mode is enabled, therefore the function for image generation is executed.");
-
-        NSString *messagePayload = self.inputField.text;
-        if(messagePayload.length < 3) {
-            //preventative, for both ugliness and effectiveness
-            [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
+        
+        //this right here is purely a cosmetic measure to hide how the message bubble's dimensions break if the character length is less than 3.
+        //to prevent that just "force" the user to assign themselves a nickname
+        NSString *prepopulatedText = self.inputField.text;
+        NSString *nickname = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
+        if(nickname.length == 0) {
+            NSBubbleData *userBubbleData = [NSBubbleData dataWithText:prepopulatedText date:[NSDate date] type:BubbleTypeMine];
+            [self.bubbleDataArray addObject:userBubbleData];
         } else {
-            [self chatRequest];
+            NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[NSString stringWithFormat:@"%@:\n%@", nickname, prepopulatedText] date:[NSDate date] type:BubbleTypeMine];
+            [self.bubbleDataArray addObject:userBubbleData];
         }
+        [self.bubbleTableView reloadData];
+        [self chatRequest];
     }
     //i dont wanna repeat myself twice, but what this does is that it updated the bubbletable view pos to that of what the view looks like with the keyboard expanded
     if(self.viewingPresentTime)
@@ -217,12 +216,7 @@
     } else {
         NSLog(@"Chat request is being prepared");
         NSString *messagePayload = self.inputField.text;
-        NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[messagePayload stringByAppendingString:@""] date:[NSDate date] type:BubbleTypeMine];
-        
-        [self.bubbleDataArray addObject:userBubbleData];
-        
         [self.requestFactory startTextRequest:messagePayload];
-        [self.bubbleTableView reloadData];
         self.inputField.text = @"";
     }
 }
@@ -304,5 +298,7 @@
     [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
 }
 //END
+
+
 
 @end

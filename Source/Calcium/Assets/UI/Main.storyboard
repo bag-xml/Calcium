@@ -785,12 +785,13 @@
         <image name="WelcomeBanner-iOS7.png" width="640" height="270"/>
         <image name="hamburger.png" width="25" height="25"/>
     </resources>
+    <color key="tintColor" red="0.49411764705882355" green="0.73725490196078436" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oIy-bk-XWQ"/>
+        <segue reference="MhR-Xq-Ywg"/>
     </inferredMetricsTieBreakers>
 </document>
