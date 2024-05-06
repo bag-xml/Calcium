@@ -34,13 +34,26 @@
                         <color key="separatorColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Eoz-MC-YcV">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="384"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SidebarTopLeader.png" id="amR-Sv-e1k">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="384"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4rU-Ea-E68">
+                                    <rect key="frame" x="15" y="338" width="129" height="59"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                    <state key="normal" title="  Clear" image="PHPref.png">
+                                        <color key="titleColor" red="0.42467730980000001" green="0.42467730980000001" blue="0.42467730980000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clear:" destination="XJs-Un-yOy" eventType="touchUpInside" id="ZAH-vX-mV5"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="poT-Ap-myM">
                                     <rect key="frame" x="20" y="271" width="143" height="59"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,16 +95,6 @@
                                         <segue destination="BbB-SC-Jyh" kind="modal" identifier="sidebar to About-iOS6" modalTransitionStyle="flipHorizontal" id="NSg-PR-w2J"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5qW-34-V0F">
-                                    <rect key="frame" x="13" y="332" width="215" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="DEBUG-Clear-Userdefaults">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="debug:" destination="XJs-Un-yOy" eventType="touchUpInside" id="Otp-kH-gEw"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatGPT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UPT-Qt-xbn">
                                     <rect key="frame" x="0.0" y="30" width="256" height="82"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,7 +107,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyCell" textLabel="Byu-wX-mix" detailTextLabel="xE5-Uw-5wy" style="IBUITableViewCellStyleSubtitle" id="zcl-lJ-DoZ">
-                                <rect key="frame" x="0.0" y="406" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="453" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zcl-lJ-DoZ" id="x9k-fX-eva">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -139,6 +142,7 @@
                     <size key="freeformSize" width="320" height="0.0"/>
                     <connections>
                         <outlet property="About" destination="l8M-ax-hAt" id="8Rg-j1-Wwq"/>
+                        <outlet property="Clear" destination="4rU-Ea-E68" id="5bN-1d-7SI"/>
                         <outlet property="Guide" destination="XdT-Oe-MIy" id="xRI-9y-36M"/>
                         <outlet property="debugLabel" destination="UPT-Qt-xbn" id="Nut-dH-cwU"/>
                         <outlet property="historyView" destination="iK4-Tx-Z3g" id="MGZ-hL-uHe"/>
@@ -780,7 +784,7 @@
         <image name="PHPref.png" width="48" height="40"/>
         <image name="PictureModeGlyph.png" width="25" height="25"/>
         <image name="Send.png" width="23" height="20"/>
-        <image name="SidebarTopLeader.png" width="260" height="384"/>
+        <image name="SidebarTopLeader.png" width="260" height="431"/>
         <image name="WelcomeBanner-iOS5-6.png" width="640" height="241"/>
         <image name="WelcomeBanner-iOS7.png" width="640" height="270"/>
         <image name="hamburger.png" width="25" height="25"/>

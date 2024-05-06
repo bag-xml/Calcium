@@ -35,4 +35,5 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *About;
 
+@property (weak, nonatomic) IBOutlet UIButton *Clear;
 @end

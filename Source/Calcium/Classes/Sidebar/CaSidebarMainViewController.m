@@ -133,12 +133,12 @@
     }
 }
 
-- (IBAction)debug:(id)sender {
-    NSLog(@"--ACTION-- Pressed Guide button in sidebar");
+- (IBAction)clear:(id)sender {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"firstLaunch"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     exit(0);
 }
+
 
 //Button actions END
 
@@ -149,5 +149,5 @@
     [alertView show];
 }
 //Misc class End
-
+/*    */
 @end

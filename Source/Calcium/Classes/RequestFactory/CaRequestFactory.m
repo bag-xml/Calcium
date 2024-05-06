@@ -135,6 +135,9 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate didReceiveResponseData:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
+            NSString *response = [[[apiaryResponseJournal objectForKey:@"results"] objectAtIndex:0] valueForKey:@"text"];
+            [self.delegate didReceiveResponseData:response];
+            self.apiaryResponseData = nil;
         });
     });
 }
