@@ -46,7 +46,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                    <state key="normal" title="  Clear" image="PHPref.png">
+                                    <state key="normal" title="  Clear" image="TrashButton.png">
                                         <color key="titleColor" red="0.42467730980000001" green="0.42467730980000001" blue="0.42467730980000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
@@ -95,7 +95,7 @@
                                         <segue destination="BbB-SC-Jyh" kind="modal" identifier="sidebar to About-iOS6" modalTransitionStyle="flipHorizontal" id="NSg-PR-w2J"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatGPT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UPT-Qt-xbn">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calcium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UPT-Qt-xbn">
                                     <rect key="frame" x="0.0" y="30" width="256" height="82"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="55"/>
@@ -255,11 +255,11 @@
             </objects>
             <point key="canvasLocation" x="1545" y="-2440"/>
         </scene>
-        <!--Table View Controller - Root View Controller-->
+        <!--Ca Guide Controller - Root View Controller-->
         <scene sceneID="N9t-44-3mf">
             <objects>
-                <tableViewController id="Psg-UM-QQ9" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YRT-qx-pRo">
+                <tableViewController id="Psg-UM-QQ9" customClass="CaGuideController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YRT-qx-pRo" customClass="CaGuideContr">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -307,7 +307,16 @@
                             <outlet property="delegate" destination="Psg-UM-QQ9" id="zbN-H5-Yb4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="FbQ-oB-asD"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="FbQ-oB-asD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="RZM-G6-J1W">
+                            <connections>
+                                <action selector="Done:" destination="Psg-UM-QQ9" id="eyo-Vm-pgh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="wFt-If-Q7F" kind="modal" identifier="TurnBack-6" modalTransitionStyle="flipHorizontal" id="uWI-IZ-bv9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuY-Ek-Yln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,7 +389,12 @@
                             <outlet property="delegate" destination="kvh-L6-BX1" id="jq3-RF-DRt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="baX-FI-hOb"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="baX-FI-hOb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nZs-9m-bS6"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="wFt-If-Q7F" kind="modal" identifier="TurnBack-7" modalTransitionStyle="flipHorizontal" id="4jA-tT-B08"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubq-a7-Yb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -785,6 +799,7 @@
         <image name="PictureModeGlyph.png" width="25" height="25"/>
         <image name="Send.png" width="23" height="20"/>
         <image name="SidebarTopLeader.png" width="260" height="431"/>
+        <image name="TrashButton.png" width="48" height="40"/>
         <image name="WelcomeBanner-iOS5-6.png" width="640" height="241"/>
         <image name="WelcomeBanner-iOS7.png" width="640" height="270"/>
         <image name="hamburger.png" width="25" height="25"/>
@@ -796,6 +811,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MhR-Xq-Ywg"/>
+        <segue reference="uWI-IZ-bv9"/>
     </inferredMetricsTieBreakers>
 </document>

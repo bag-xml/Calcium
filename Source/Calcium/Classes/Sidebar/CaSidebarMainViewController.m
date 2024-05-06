@@ -27,7 +27,7 @@
         //Customization of the background view
         
         //figma doesnt work on any of my machines
-        self.debugLabel.text = @"ChatGPT";
+        self.debugLabel.text = @"Calcium";
         //thats why i have to do this
         
         //bg
