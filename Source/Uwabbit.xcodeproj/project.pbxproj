@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BAAB31D2BE5AD78007E118B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAAB31C2BE5AD78007E118B /* UIImage+Utils.m */; };
+		2BAAB3212BE5ADFE007E118B /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAAB3202BE5ADFE007E118B /* Base64.m */; };
 		5B0A93112B820AC7003FBE13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0A93102B820AC7003FBE13 /* Foundation.framework */; };
 		5B0A93132B820AC7003FBE13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0A93122B820AC7003FBE13 /* CoreGraphics.framework */; };
 		5B0A93152B820AC7003FBE13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0A93142B820AC7003FBE13 /* UIKit.framework */; };
@@ -91,17 +93,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B0A930D2B820AC7003FBE13 /* Calcium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calcium.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAAB31B2BE5AD78007E118B /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utils.h"; path = "UIImage+Utils/UIImage+Utils.h"; sourceTree = "<group>"; };
+		2BAAB31C2BE5AD78007E118B /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utils.m"; path = "UIImage+Utils/UIImage+Utils.m"; sourceTree = "<group>"; };
+		2BAAB31F2BE5ADFE007E118B /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = Base64/Base64.h; sourceTree = "<group>"; };
+		2BAAB3202BE5ADFE007E118B /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = Base64/Base64.m; sourceTree = "<group>"; };
+		5B0A930D2B820AC7003FBE13 /* Uwabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uwabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0A93102B820AC7003FBE13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B0A93122B820AC7003FBE13 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5B0A93142B820AC7003FBE13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5B0A93182B820AC7003FBE13 /* Calcium-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Calcium-Info.plist"; sourceTree = "<group>"; };
+		5B0A93182B820AC7003FBE13 /* Uwabbit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Uwabbit-Info.plist"; sourceTree = "<group>"; };
 		5B0A931A2B820AC7003FBE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B0A931C2B820AC7003FBE13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5B0A931E2B820AC7003FBE13 /* Calcium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calcium-Prefix.pch"; sourceTree = "<group>"; };
-		5B0A932E2B820AC8003FBE13 /* CalciumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalciumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0A931E2B820AC7003FBE13 /* Uwabbit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uwabbit-Prefix.pch"; sourceTree = "<group>"; };
+		5B0A932E2B820AC8003FBE13 /* UwabbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UwabbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0A932F2B820AC8003FBE13 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5B0A93372B820AC8003FBE13 /* CalciumTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalciumTests-Info.plist"; sourceTree = "<group>"; };
+		5B0A93372B820AC8003FBE13 /* UwabbitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UwabbitTests-Info.plist"; sourceTree = "<group>"; };
 		5B0A93392B820AC8003FBE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B0A933B2B820AC8003FBE13 /* CalciumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalciumTests.m; sourceTree = "<group>"; };
 		5B0A93472B820B86003FBE13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -212,11 +218,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BAAB31A2BE5AD53007E118B /* UIImage+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BAAB31B2BE5AD78007E118B /* UIImage+Utils.h */,
+				2BAAB31C2BE5AD78007E118B /* UIImage+Utils.m */,
+			);
+			name = "UIImage+Utils";
+			sourceTree = "<group>";
+		};
+		2BAAB31E2BE5ADE2007E118B /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				2BAAB31F2BE5ADFE007E118B /* Base64.h */,
+				2BAAB3202BE5ADFE007E118B /* Base64.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
 		5B0A93042B820AC7003FBE13 = {
 			isa = PBXGroup;
 			children = (
-				5B0A93162B820AC7003FBE13 /* Calcium */,
-				5B0A93352B820AC8003FBE13 /* CalciumTests */,
+				5B0A93162B820AC7003FBE13 /* Uwabbit */,
+				5B0A93352B820AC8003FBE13 /* UwabbitTests */,
 				5B0A930F2B820AC7003FBE13 /* Frameworks */,
 				5B0A930E2B820AC7003FBE13 /* Products */,
 			);
@@ -225,8 +249,8 @@
 		5B0A930E2B820AC7003FBE13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B0A930D2B820AC7003FBE13 /* Calcium.app */,
-				5B0A932E2B820AC8003FBE13 /* CalciumTests.xctest */,
+				5B0A930D2B820AC7003FBE13 /* Uwabbit.app */,
+				5B0A932E2B820AC8003FBE13 /* UwabbitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,7 +266,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5B0A93162B820AC7003FBE13 /* Calcium */ = {
+		5B0A93162B820AC7003FBE13 /* Uwabbit */ = {
 			isa = PBXGroup;
 			children = (
 				5B0A93512B820C4C003FBE13 /* Libraries */,
@@ -250,33 +274,35 @@
 				5B0A93452B820B86003FBE13 /* Assets */,
 				5B0A93172B820AC7003FBE13 /* Supporting Files */,
 			);
+			name = Uwabbit;
 			path = Calcium;
 			sourceTree = "<group>";
 		};
 		5B0A93172B820AC7003FBE13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B0A93182B820AC7003FBE13 /* Calcium-Info.plist */,
+				5B0A93182B820AC7003FBE13 /* Uwabbit-Info.plist */,
 				5B0A93192B820AC7003FBE13 /* InfoPlist.strings */,
 				5B0A931C2B820AC7003FBE13 /* main.m */,
-				5B0A931E2B820AC7003FBE13 /* Calcium-Prefix.pch */,
+				5B0A931E2B820AC7003FBE13 /* Uwabbit-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5B0A93352B820AC8003FBE13 /* CalciumTests */ = {
+		5B0A93352B820AC8003FBE13 /* UwabbitTests */ = {
 			isa = PBXGroup;
 			children = (
 				5B0A933B2B820AC8003FBE13 /* CalciumTests.m */,
 				5B0A93362B820AC8003FBE13 /* Supporting Files */,
 			);
+			name = UwabbitTests;
 			path = CalciumTests;
 			sourceTree = "<group>";
 		};
 		5B0A93362B820AC8003FBE13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B0A93372B820AC8003FBE13 /* CalciumTests-Info.plist */,
+				5B0A93372B820AC8003FBE13 /* UwabbitTests-Info.plist */,
 				5B0A93382B820AC8003FBE13 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -326,6 +352,8 @@
 		5B0A93512B820C4C003FBE13 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2BAAB31E2BE5ADE2007E118B /* Base64 */,
+				2BAAB31A2BE5AD53007E118B /* UIImage+Utils */,
 				5BFEABAE2B823AA900032F34 /* TRMalleableFrameView */,
 				5B0A936A2B82101D003FBE13 /* BubbleView */,
 				5B0A93522B820C4C003FBE13 /* APLSlideMenu */,
@@ -626,26 +654,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B0A930C2B820AC7003FBE13 /* Calcium */ = {
+		5B0A930C2B820AC7003FBE13 /* Uwabbit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B0A933F2B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "Calcium" */;
+			buildConfigurationList = 5B0A933F2B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "Uwabbit" */;
 			buildPhases = (
 				5B0A93092B820AC7003FBE13 /* Sources */,
 				5B0A930A2B820AC7003FBE13 /* Frameworks */,
 				5B0A930B2B820AC7003FBE13 /* Resources */,
+				2BA656652BE5B64A007A24CE /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Calcium;
+			name = Uwabbit;
 			productName = Calcium;
-			productReference = 5B0A930D2B820AC7003FBE13 /* Calcium.app */;
+			productReference = 5B0A930D2B820AC7003FBE13 /* Uwabbit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5B0A932D2B820AC8003FBE13 /* CalciumTests */ = {
+		5B0A932D2B820AC8003FBE13 /* UwabbitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B0A93422B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "CalciumTests" */;
+			buildConfigurationList = 5B0A93422B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "UwabbitTests" */;
 			buildPhases = (
 				5B0A932A2B820AC8003FBE13 /* Sources */,
 				5B0A932B2B820AC8003FBE13 /* Frameworks */,
@@ -656,9 +685,9 @@
 			dependencies = (
 				5B0A93342B820AC8003FBE13 /* PBXTargetDependency */,
 			);
-			name = CalciumTests;
+			name = UwabbitTests;
 			productName = CalciumTests;
-			productReference = 5B0A932E2B820AC8003FBE13 /* CalciumTests.xctest */;
+			productReference = 5B0A932E2B820AC8003FBE13 /* UwabbitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -667,11 +696,11 @@
 		5B0A93052B820AC7003FBE13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = Ca;
+				CLASSPREFIX = Uw;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Mali 357";
+				ORGANIZATIONNAME = Yuzu;
 			};
-			buildConfigurationList = 5B0A93082B820AC7003FBE13 /* Build configuration list for PBXProject "Calcium" */;
+			buildConfigurationList = 5B0A93082B820AC7003FBE13 /* Build configuration list for PBXProject "Uwabbit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -685,8 +714,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B0A930C2B820AC7003FBE13 /* Calcium */,
-				5B0A932D2B820AC8003FBE13 /* CalciumTests */,
+				5B0A930C2B820AC7003FBE13 /* Uwabbit */,
+				5B0A932D2B820AC8003FBE13 /* UwabbitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -754,6 +783,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BA656652BE5B64A007A24CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5B0A93092B820AC7003FBE13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -773,7 +818,9 @@
 				5B0A935E2B820C4C003FBE13 /* APLSlideMenuViewController.m in Sources */,
 				5B0A93652B820CB1003FBE13 /* CaSidebarMainViewController.m in Sources */,
 				5B0A93612B820C4C003FBE13 /* SVProgressHUD.m in Sources */,
+				2BAAB31D2BE5AD78007E118B /* UIImage+Utils.m in Sources */,
 				5B0A938D2B82101D003FBE13 /* UIBubbleHeaderTableViewCell.m in Sources */,
+				2BAAB3212BE5ADFE007E118B /* Base64.m in Sources */,
 				5B0A935D2B820C4C003FBE13 /* APLSlideMenuSegue.m in Sources */,
 				5B0A931D2B820AC7003FBE13 /* main.m in Sources */,
 				5B0A938E2B82101D003FBE13 /* UIBubbleTableView.m in Sources */,
@@ -793,7 +840,7 @@
 /* Begin PBXTargetDependency section */
 		5B0A93342B820AC8003FBE13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B0A930C2B820AC7003FBE13 /* Calcium */;
+			target = 5B0A930C2B820AC7003FBE13 /* Uwabbit */;
 			targetProxy = 5B0A93332B820AC8003FBE13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -895,12 +942,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
-				INFOPLIST_FILE = "Calcium/Calcium-Info.plist";
+				GCC_PREFIX_HEADER = "Calcium/Uwabbit-Prefix.pch";
+				INFOPLIST_FILE = "Calcium/Uwabbit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Uwabbit;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -911,12 +959,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
-				INFOPLIST_FILE = "Calcium/Calcium-Info.plist";
+				GCC_PREFIX_HEADER = "Calcium/Uwabbit-Prefix.pch";
+				INFOPLIST_FILE = "Calcium/Uwabbit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Uwabbit;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -936,8 +985,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CalciumTests/CalciumTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "CalciumTests/UwabbitTests-Info.plist";
+				PRODUCT_NAME = UwabbitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -952,8 +1001,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
-				INFOPLIST_FILE = "CalciumTests/CalciumTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "CalciumTests/UwabbitTests-Info.plist";
+				PRODUCT_NAME = UwabbitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -961,7 +1010,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B0A93082B820AC7003FBE13 /* Build configuration list for PBXProject "Calcium" */ = {
+		5B0A93082B820AC7003FBE13 /* Build configuration list for PBXProject "Uwabbit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B0A933D2B820AC8003FBE13 /* Debug */,
@@ -970,7 +1019,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B0A933F2B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "Calcium" */ = {
+		5B0A933F2B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "Uwabbit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B0A93402B820AC8003FBE13 /* Debug */,
@@ -979,7 +1028,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B0A93422B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "CalciumTests" */ = {
+		5B0A93422B820AC8003FBE13 /* Build configuration list for PBXNativeTarget "UwabbitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B0A93432B820AC8003FBE13 /* Debug */,

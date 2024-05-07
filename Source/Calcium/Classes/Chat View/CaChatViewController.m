@@ -11,10 +11,12 @@
 @interface CaChatViewController ()
 {
     NSMutableArray *bubbleData;
+    UIImagePickerController *imagePicker;
 }
 @end
 
 @implementation CaChatViewController
+@synthesize currentImage;
 
 - (void)viewDidLoad
 {
@@ -32,12 +34,21 @@
     self.slideMenuController.separatorColor = [UIColor grayColor];
     //Setup block end
     
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+#if !(TARGET_IPHONE_SIMULATOR)
+    // We don't have cameras on simulators xd
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+#else
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+#endif
+    currentImage = nil;
+    
     //Table view options
     
     //temp population
     self.bubbleTableView.bubbleDataSource = self;
     self.bubbleTableView.watchingInRealTime = YES;
-    self.bubbleTableView.delegate = self;
     self.bubbleTableView.snapInterval = 2800;
     self.bubbleDataArray = [NSMutableArray array];
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
@@ -80,7 +91,7 @@
 }
 
 
-//Text field properties BEGIN
+#pragma mark - Text field properties
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
     self.inputFieldPlaceholder.hidden = self.inputField.text.length != 0;
     return YES;
@@ -93,9 +104,12 @@
 -(void) textViewDidEndEditing:(UITextView *)textView {
     self.inputFieldPlaceholder.hidden = self.inputField.text.length != 0;
 }
-//Text field properties END
 
-//Button actions
+#pragma mark - Button actions
+- (IBAction)takePhoto:(id)sender {
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
 - (IBAction)modeSwitch:(id)sender {
     BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
     BOOL clearAlways = [[NSUserDefaults standardUserDefaults] boolForKey:@"alwaysClear"];
@@ -148,7 +162,7 @@
 
 - (IBAction)sendButton:(id)sender {
     NSLog(@"--BUTTON ACTION-- Send button tapped");
-    BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
+    BOOL imageMode =                [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
     if(imageMode == YES) {
         NSLog(@"imageMode == YES");
         NSLog(@"Image generation mode is enabled, therefore the function for image generation is executed.");
@@ -169,6 +183,7 @@
             //preventative, for both ugliness and effectiveness
             [self showAlertWithTitle:@"Too short" message:@"Your message is too short, please type in something longer (and don't waste your API key credit)."];
         } else {
+            [self.inputFieldImageView removeFromSuperview];
             [self chatRequest];
         }
     }
@@ -201,30 +216,24 @@
     [self.inputField resignFirstResponder];
 }
 
-//end
-
-//Button action block end
-
-//Request-firing Blocks
+#pragma mark - Request-firing Blocks
 
 - (void)chatRequest {
-    //Check prerequisites
-    NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
+    self.bubbleTableView.typingBubble = 2;
+    NSLog(@"Chat request is being prepared");
+    NSString *messagePayload = self.inputField.text;
+    NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[messagePayload stringByAppendingString:@""] date:[NSDate date] type:BubbleTypeMine];
+        
+    [self.bubbleDataArray addObject:userBubbleData];
     
-    if(authenticationSecret.length == 0) {
-        [self showAlertWithTitle:@"Apiary Error" message:@"You have no API key set"];
-        NSLog(@"Chat Request preparation failed. No Authentication Secret set.");
+    if (currentImage != nil) {
+        [self.requestFactory startTextRequest:messagePayload withBase64Image:currentImage];
+         currentImage = nil;
     } else {
-        NSLog(@"Chat request is being prepared");
-        NSString *messagePayload = self.inputField.text;
-        NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[messagePayload stringByAppendingString:@""] date:[NSDate date] type:BubbleTypeMine];
-        
-        [self.bubbleDataArray addObject:userBubbleData];
-        
         [self.requestFactory startTextRequest:messagePayload];
-        [self.bubbleTableView reloadData];
-        self.inputField.text = @"";
     }
+    [self.bubbleTableView reloadData];
+    self.inputField.text = @"";
 }
 
 - (void)imageGenRequest {
@@ -234,16 +243,15 @@
     self.inputField.text = @"";
 }
 
-- (void)didReceiveResponseData:(NSData *)data {
+- (void)didReceiveResponseData:(NSString *)data {
+    self.bubbleTableView.typingBubble = 0;
     NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:data date:[NSDate date] type:BubbleTypeSomeoneElse];
     [self.bubbleDataArray addObject:assistantBubbleData];
     [self.bubbleTableView reloadData];
     
 }
 
-//Temp request classes END
-
-//Keyboard event block begin
+#pragma mark - Keyboard event block
 - (void)keyboardWillShow:(NSNotification *)notification {
 
 	int keyboardHeight = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
@@ -276,9 +284,8 @@
 	[self.toolbar setY:self.view.height - self.toolbar.height];
 	[UIView commitAnimations];
 }
-//Keyboard event block end
 
-//Bubble table view attributes BEGIN
+#pragma mark - Bubble table view attributes
 - (NSInteger)rowsForBubbleTable:(UIBubbleTableView *)tableView {
     return self.bubbleDataArray.count;
 }
@@ -292,9 +299,7 @@
     [SVProgressHUD showErrorWithStatus:@"Selected"];
 }
 
-
-//END
-//Miscellaneous functions that get called from other block components BEGIN
+#pragma mark - Miscellaneous functions that get called from other block components
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
@@ -303,6 +308,23 @@
 -(void)scrollChatToBottom {
     [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
 }
-//END
+
+#pragma mark - Image picker delegate methods
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    currentImage = [UIImagePNGRepresentation([UIImage imageWithImage:[info objectForKey:UIImagePickerControllerOriginalImage] scaledToSize:CGSizeMake(640, 480)]) base64EncodedString];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    CGRect aRect = CGRectMake(156, 2, 24, 24);
+    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (self.inputFieldImageView == nil) {
+        self.inputFieldImageView = [[UIImageView alloc] initWithImage:img];
+    } else {
+        self.inputFieldImageView.image = img;
+    }
+    [self.inputFieldImageView setFrame:aRect];
+    
+    [self.inputField addSubview:self.inputFieldImageView];
+    NSBubbleData *imgBubbleData = [NSBubbleData dataWithImage:img date:[NSDate date] type:BubbleTypeMine];
+    [self.bubbleDataArray addObject:imgBubbleData];
+}
 
 @end

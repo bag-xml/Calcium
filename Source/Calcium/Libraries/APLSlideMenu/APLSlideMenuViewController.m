@@ -138,11 +138,6 @@ static CGFloat kAPLSlideMenuFirstOffset = 4.0;
     }
     @catch (NSException *exception) {
     }
-    @try {
-        [self performSegueWithIdentifier:@"rightMenu" sender:self];
-    }
-    @catch (NSException *exception) {
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated  {

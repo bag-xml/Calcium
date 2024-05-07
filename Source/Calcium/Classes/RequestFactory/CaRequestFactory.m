@@ -12,7 +12,9 @@
 
 @implementation CaRequestFactory
 
-- (void)startTextRequest:(NSString *)messagePayload {
+static NSString *const kAPIURL = @"http://192.168.1.185:5001/api/v1/generate";
+
+- (void)startTextRequest:(NSString *)messagePayload withBase64Image:(NSString *)base64Image {
     NSLog(@"ChatCommunicator active, will prepare request now.");
     //OSBlock
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
@@ -32,19 +34,45 @@
             
         } else if(useHeadlessBrowserEngine == NO) {
             NSLog(@"User does not want to use a middleman, this is okay.");
-            //inherited values
-            NSString *preferredModel = [[NSUserDefaults standardUserDefaults] objectForKey:@"AIModel"];
             //configuration
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
             
-            NSString *apiaryURL = @"http://api.openai.com/v1/chat/completions";
-            NSURL *apiaryRequestURL = [NSURL URLWithString:apiaryURL];
+            NSURL *apiaryRequestURL = [NSURL URLWithString:kAPIURL];
             
             NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
-            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"model": preferredModel, @"messages": @[@{@"role": @"user", @"content": messagePayload}]}];
-
-            
+            NSMutableDictionary *completionRequestBody = [@{
+                                             @"n": @1,
+                                             @"max_content_length": @1600,
+                                             @"max_length": @120,
+                                             @"rep_pen": @1.1,
+                                             @"temperature": @0.7,
+                                             @"top_p": @0.92,
+                                             @"top_k": @100,
+                                             @"top_a": @0,
+                                             @"typical": @1,
+                                             @"tfs": @1,
+                                             @"rep_pen_range": @320,
+                                             @"rep_pen_slope": @0.7,
+                                             @"sampler_order": @[@6, @0, @1, @3, @4, @2, @5],
+                                             @"memory": @"",
+                                             @"genkey": @"KCPP3044",
+                                             @"min_p": @0,
+                                             @"dynatemp_range": @0,
+                                             @"dynatemp_exponent": @1,
+                                             @"smoothing_factor": @0,
+                                             @"banned_tokens": @[],
+                                             @"presence_penalty": @0,
+                                             @"logit_bias": @{},
+                                             @"prompt": [NSString stringWithFormat:@"### Instruction:\n%@\n### Response:\n", messagePayload],
+                                             @"quiet": @true,
+                                             @"stop_sequence": @[@"### Instruction:", @"### Response:"],
+                                             @"use_default_badwordsids": @false,
+                                             @"images": @[],
+            } mutableCopy];
+            if (base64Image != nil) {
+                [completionRequestBody addEntriesFromDictionary:@{@"images": @[base64Image]}];
+            }
             NSData *completionRBData = [NSJSONSerialization dataWithJSONObject:completionRequestBody options:0 error:nil];
             
             //Headers for the apiary URL Request
@@ -55,9 +83,6 @@
             //Goes directly to OpenAI
             
             //Debug alert view
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"JSON Body: %@", completionRequestBody]];
-            });
             NSLog(@"Request Headers: %@", [apiaryCommunicationRequest allHTTPHeaderFields]);
             //Remove after communicator development
 
@@ -80,6 +105,10 @@
     }
 }
 
+- (void)startTextRequest:(NSString *)messagePayload {
+    [self startTextRequest:messagePayload withBase64Image:nil];
+}
+
 - (void)startImageGenerationRequest:(NSString *)messageContent {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -97,8 +126,12 @@
         BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
         BOOL didImageGeneration = [[NSUserDefaults standardUserDefaults] boolForKey:@"didGenerateImage"];
         
-        NSDictionary *apiaryResponseJournal = [NSJSONSerialization JSONObjectWithData:self.apiaryResponseData options:0 error:nil];
-        NSLog(@"Apiary Response: %@", apiaryResponseJournal);
+        NSError *err;
+        NSDictionary *apiaryResponseJournal = [NSJSONSerialization JSONObjectWithData:self.apiaryResponseData options:0 error:&err];
+        NSLog(@"Apiary Response: %@", [[NSString alloc] initWithData:self.apiaryResponseData encoding:NSUTF8StringEncoding]);
+        if (err != nil) {
+            NSLog(@"Apiary Error: %@", [err localizedDescription]);
+        }
         NSLog(@"Executing code block dependent on request config now");
         
         //In case of any error
@@ -134,7 +167,9 @@
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate didReceiveResponseData:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
+            NSString *response = [[[apiaryResponseJournal objectForKey:@"results"] objectAtIndex:0] valueForKey:@"text"];
+            [self.delegate didReceiveResponseData:response];
+            self.apiaryResponseData = nil;
         });
     });
 }

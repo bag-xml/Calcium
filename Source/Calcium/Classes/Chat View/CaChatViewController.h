@@ -12,8 +12,10 @@
 #import "UIBubbleTableView.h"
 #import "TRMalleableFrameView.h"
 #import "CaRequestFactory.h"
+#import "UIImage+Utils.h"
+#import "Base64.h"
 
-@interface CaChatViewController : UIViewController <UIBubbleTableViewDataSource, UIBubbleTableViewDelegate, UIActionSheetDelegate, CaRequestFactoryDelegate>
+@interface CaChatViewController : UIViewController <UIBubbleTableViewDataSource, UIBubbleTableViewDelegate, UIActionSheetDelegate, CaRequestFactoryDelegate, UIImagePickerControllerDelegate>
 
 
 //mainview
@@ -32,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *inputFieldPlaceholder;
 @property (weak, nonatomic) IBOutlet UIImageView *insetShadow;
 @property (weak, nonatomic) IBOutlet UIView *pill;
+@property (strong, nonatomic) UIImageView *inputFieldImageView;
 
 //
 
@@ -46,5 +49,7 @@
 
 //RFC
 @property (nonatomic, strong) CaRequestFactory *requestFactory;
+
+@property (strong, nonatomic) NSString *currentImage;
 
 @end
