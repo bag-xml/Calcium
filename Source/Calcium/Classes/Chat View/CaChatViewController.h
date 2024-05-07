@@ -53,4 +53,8 @@
 @property (nonatomic, strong) CaRequestFactory *requestFactory;
 @property (nonatomic, strong) NSMutableData *apiaryResponseData;
 
+
+//functions
+- (void)typing;
+- (void)nottyping;
 @end

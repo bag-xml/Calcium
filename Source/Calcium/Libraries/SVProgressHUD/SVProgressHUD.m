@@ -151,9 +151,6 @@ CGFloat SVProgressHUDRingThickness = 6;
     [self showImage:[[self sharedView] hudErrorImage] status:string];
 }
 
-+ (void)showMistakeWithStatus:(NSString *)string {
-    [self showImage:[self sharedView] status:string];
-}
 + (void)showImage:(UIImage *)image status:(NSString *)string {
     NSTimeInterval displayInterval = [[SVProgressHUD sharedView] displayDurationForString:string];
     [[self sharedView] showImage:image status:string duration:displayInterval];
@@ -358,7 +355,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 - (void)positionHUD:(NSNotification*)notification {
     
     CGFloat keyboardHeight;
-    double animationDuration;
+    double animationDuration = 0.0;
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     

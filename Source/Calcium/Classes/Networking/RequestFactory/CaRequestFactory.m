@@ -13,20 +13,25 @@
 @implementation CaRequestFactory
 
 //holy mother
-static NSString *const kAPIURL = @"http://192.168.1.185:5001/api/v1/generate";
 - (void)startTextRequest:(NSString *)messagePayload {
     NSLog(@"ChatCommunicator active, will prepare request now.");
-    //OSBlock
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    //Init-Configuration
+    //Only triggered if returned to requesta
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
+    //OS Check
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
     
     NSString *baseURL = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverURL"];
-    
+    BOOL authorization = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasAuth"];
+    //if auth
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    //Codeblocks
     if(iOSVersion < 7.0) {
         NSLog(@"Initializing Chat Completion request, iOS 5.0-6.1.6");
         
         //URL Building
-        
         NSString *finalURL = [NSString stringWithFormat:@"%@/api/v1/generate", baseURL];
         NSLog(@"final built URL: %@", finalURL);
         NSURL *apiaryRequestURL = [NSURL URLWithString:finalURL];
@@ -39,35 +44,41 @@ static NSString *const kAPIURL = @"http://192.168.1.185:5001/api/v1/generate";
         [apiaryCommunicationRequest setHTTPMethod:@"POST"];
         [apiaryCommunicationRequest setHTTPBody:completionRBData];
         [apiaryCommunicationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        if(authorization == YES)
+            [apiaryCommunicationRequest setValue:[NSString stringWithFormat:@"Bearer %@", password] forHTTPHeaderField:@"Authorization"];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self displayAlertView:@"--apiaryCommunicatorLOG: CompletionRequest Log" message:[NSString stringWithFormat:@"JSON Body: %@", completionRequestBody]];
-        });
+        //typing indication
+        [self.delegate setTyping:2];
         
         NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
         [communicatorCall start];
-
-    
     } else if(iOSVersion > 7.0) {
     }
 }
 
 - (void)startTextRequest:(NSString *)messagePayload withBase64Image:(NSString *)base64Image {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSLog(@"ChatCommunicator active, will prepare request now.");
-    //OSBlock
+    //Init-Configuration
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
+    //OS-Check
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
     
-    NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
-    BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
+    //Server related
+    NSString *baseURL = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverURL"];
+    BOOL authorization = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasAuth"];
+    //if auth
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     
+    //Codeblock
     if(iOSVersion < 7.0) {
         NSLog(@"User does not want to use a middleman, this is okay.");
-        //configuration
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
         
-        NSURL *apiaryRequestURL = [NSURL URLWithString:kAPIURL];
+        //URL Building
+        NSString *finalURL = [NSString stringWithFormat:@"%@/api/v1/generate", baseURL];
+        NSLog(@"final built URL: %@", finalURL);
+        NSURL *apiaryRequestURL = [NSURL URLWithString:finalURL];
         
         NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
         NSMutableDictionary *completionRequestBody = [@{
@@ -108,11 +119,11 @@ static NSString *const kAPIURL = @"http://192.168.1.185:5001/api/v1/generate";
         [apiaryCommunicationRequest setHTTPMethod:@"POST"];
         [apiaryCommunicationRequest setHTTPBody:completionRBData];
         [apiaryCommunicationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        if(authorization == YES)
+            [apiaryCommunicationRequest setValue:[NSString stringWithFormat:@"Bearer %@", password] forHTTPHeaderField:@"Authorization"];
         
-        //Debug alert view
-        NSLog(@"Request Headers: %@", [apiaryCommunicationRequest allHTTPHeaderFields]);
-        //Remove after communicator development
-        
+        //Typing indicator
+        [self.delegate setTyping:2];
         
         //Starting the request
         NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
@@ -144,42 +155,37 @@ static NSString *const kAPIURL = @"http://192.168.1.185:5001/api/v1/generate";
         NSLog(@"Executing code block dependent on request config now");
         
         //In case of any error
-        NSDictionary *apiaryError = [apiaryResponseJournal objectForKey:@"error"];
+        NSDictionary *apiaryError = [apiaryResponseJournal objectForKey:@"detail"];
         if(apiaryError) {
             NSLog(@"error");
-            NSString *errorBody = [apiaryError objectForKey:@"message"];
+            NSString *error = [apiaryError objectForKey:@"error"];
+            NSString *errorBody = [apiaryError objectForKey:@"msg"];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"Apiary Error" message:errorBody];
+                [self displayAlertView:error message:errorBody];
             });
         }
         
-        if(didTheRequestWithMiddleman == YES) {
-            NSLog(@"Middleman Request = YES");
-            if(didImageGeneration == YES) {
-                NSLog(@"Image Generation = YES");
-            } else if(didImageGeneration == NO) {
-                NSLog(@"Image Generation = NO");
-            }
+        //Codeblocks, each executed dependent on what the user requested
+        
+        if(didImageGeneration == YES) {
+            NSLog(@"Image Generation = YES");
             
-        } else if(didTheRequestWithMiddleman == NO) {
-            NSLog(@"Middleman Request = No");
-            if(didImageGeneration == YES) {
-                NSLog(@"Image Generation = YES");
-            } else if(didImageGeneration == NO) {
-                NSLog(@"Image Generation = NO");
-                [self sendReset];
-                //Debug, delete at the end of Calcium development
-                dispatch_async(dispatch_get_main_queue(), ^{
-                });
-                
-            }
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate didReceiveResponseData:[NSString stringWithFormat:@"%@", apiaryResponseJournal]];
+        } else if(didImageGeneration == NO) {
+            NSLog(@"Image Generation = NO");
+            //prepare for next call
+            [self sendReset];
+            
+            //processing
             NSString *response = [[[apiaryResponseJournal objectForKey:@"results"] objectAtIndex:0] valueForKey:@"text"];
-            self.apiaryResponseData = nil;
-        });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //remove typing indication
+                [self.delegate setTyping:0];
+                [self.delegate didReceiveResponseData:response];
+                self.apiaryResponseData = nil;
+            });
+                
+        }
     });
 }
 

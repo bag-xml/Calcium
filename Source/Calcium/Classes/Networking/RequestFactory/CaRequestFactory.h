@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "UIBubbleTableView.h"
 #import "SVProgressHUD.h"
+
 @protocol CaRequestFactoryDelegate <NSObject>
 - (void)didReceiveResponseData:(NSData *)data;
+- (void)typing;
+- (void)nottyping;
+- (void)setTyping:(BOOL)typing;
 @end
 
 @interface CaRequestFactory : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLSessionDelegate>

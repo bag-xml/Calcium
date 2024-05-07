@@ -43,6 +43,10 @@
     self.bubbleDataArray = [NSMutableArray array];
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
     [self.bubbleTableView reloadData];
+    
+    if(iOSVersion > 7.0) {
+        self.bubbleTableView.backgroundColor = [UIColor whiteColor];
+    }
     //table view options OFF
     
     //Image picker stuff
@@ -153,6 +157,10 @@
 }
 
 - (IBAction)didLongPress:(id)sender {
+    UIActionSheet *messageActionSheet = [[UIActionSheet alloc] initWithTitle:@"What do you want to do" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Clear conversation" otherButtonTitles:@"Share", @"Save Conversation", @"Name", nil];
+    [messageActionSheet setTag:2];
+    [messageActionSheet setDelegate:self];
+    [messageActionSheet showInView:self.view];
 }
 
 //remove after drag-dev
@@ -167,11 +175,18 @@
 //Request-firing Blocks
 
 - (void)chatRequest {
-    //Check prerequisites
-    self.inputFieldImageView.image = nil;
-
+    NSLog(@"Chat request is being prepared");
     NSString *messagePayload = self.inputField.text;
-    [self.requestFactory startTextRequest:messagePayload];
+    
+    //one prerequisite
+    self.inputFieldImageView.image = nil;
+    
+    if (currentImage != nil) {
+        [self.requestFactory startTextRequest:messagePayload withBase64Image:currentImage];
+        currentImage = nil;
+    } else {
+        [self.requestFactory startTextRequest:messagePayload];
+    }
     self.inputField.text = @"";
 }
 
@@ -179,14 +194,12 @@
 - (void)imageGenRequest {
     NSLog(@"Image generation request is being prepared");
     NSString *messageContent = self.inputField.text;
+    
     [self.requestFactory startImageGenerationRequest:messageContent];
     self.inputField.text = @"";
 }
 
 - (void)didReceiveResponseData:(NSString *)data {
-    //Typing indication
-    self.bubbleTableView.typingBubble = 0;
-    
     //Spawning bubble
     NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:data date:[NSDate date] type:BubbleTypeSomeoneElse];
     [self.bubbleDataArray addObject:assistantBubbleData];
@@ -258,6 +271,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     CGRect aRect = CGRectMake(156, 2, 24, 24);
     UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    //check if the user was in image-generation mode and change back to chat mode:
+    BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
+    
+    if(imageMode == YES) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"imageGenerationModeEnabled"];
+        [SVProgressHUD showSuccessWithStatus:@"Switched to Chat Mode"];
+        self.navigationItem.title = @"Chat";
+    }
     if (self.inputFieldImageView == nil) {
         self.inputFieldImageView = [[UIImageView alloc] initWithImage:img];
     } else {
@@ -270,6 +292,7 @@
     [self.bubbleDataArray addObject:imgBubbleData];
 }
 
+//actionsheet and alertview refersheet index functions
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (actionSheet.tag == 1) {
         if (buttonIndex == actionSheet.firstOtherButtonIndex) {
@@ -284,7 +307,6 @@
             //spawn
             [self presentViewController:picker animated:YES completion:nil];
             [picker viewWillAppear:YES];
-            
         } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 2) {
             BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
             BOOL clearAlways = [[NSUserDefaults standardUserDefaults] boolForKey:@"alwaysClear"];
@@ -327,9 +349,38 @@
                 [self.modeButton setImage:correspondingMode];
             }
         }
+    } else if(actionSheet.tag == 2) {
+        if (buttonIndex == actionSheet.destructiveButtonIndex) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Clear Conversation" message:@"Are you sure you want to clear the entire conversation?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear", nil];
+            [alertView setTag:2];
+            [alertView show];
+        } else if (buttonIndex == actionSheet.firstOtherButtonIndex) {
+            NSLog(@"share");
+        } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 1) {
+            NSLog(@"save");
+        } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 2) {
+            //
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Conversation" message:@"Type a name into the input field to name your conversation" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            //input field
+            alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alertView setTag:2];
+            [alertView show];
+        }
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 1) {
+        if (buttonIndex == alertView.firstOtherButtonIndex) {
+        }
+    }
+}
+
+//Status indicators
+
+- (void)setTyping:(BOOL)typing {
+    self.bubbleTableView.typingBubble = typing ? 2 : 0;
+}
 -(void)scrollChatToBottom {
     [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
 }
