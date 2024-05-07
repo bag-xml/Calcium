@@ -60,6 +60,8 @@
 		5B64BA012BE9281A00AA4799 /* CaAboutPageController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B9FF2BE9281A00AA4799 /* CaAboutPageController-iOS7.m */; };
 		5B64BA062BE9283A00AA4799 /* CaRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64BA052BE9283A00AA4799 /* CaRequestFactory.m */; };
 		5B64BA0B2BE928B300AA4799 /* CaGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64BA0A2BE928B300AA4799 /* CaGuideController.m */; };
+		5B68AEF82BEA9D7A0068E7E8 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B68AEF72BEA9D7A0068E7E8 /* Base64.m */; };
+		5B68AEFC2BEA9D8A0068E7E8 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B68AEFB2BEA9D8A0068E7E8 /* UIImage+Utils.m */; };
 		5B68CB532B822835000A42AC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B68CB522B822835000A42AC /* Settings.bundle */; };
 		5B6C5F3A2BC07CD700311C0D /* LCellBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F1E2BC07CD700311C0D /* LCellBG@2x.png */; };
 		5B6C5F3B2BC07CD700311C0D /* AboutTableBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F202BC07CD700311C0D /* AboutTableBG.png */; };
@@ -180,6 +182,10 @@
 		5B64BA052BE9283A00AA4799 /* CaRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaRequestFactory.m; sourceTree = "<group>"; };
 		5B64BA092BE928B300AA4799 /* CaGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaGuideController.h; sourceTree = "<group>"; };
 		5B64BA0A2BE928B300AA4799 /* CaGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaGuideController.m; sourceTree = "<group>"; };
+		5B68AEF62BEA9D7A0068E7E8 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		5B68AEF72BEA9D7A0068E7E8 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		5B68AEFA2BEA9D8A0068E7E8 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		5B68AEFB2BEA9D8A0068E7E8 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		5B68CB522B822835000A42AC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5B6C5F1E2BC07CD700311C0D /* LCellBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LCellBG@2x.png"; sourceTree = "<group>"; };
 		5B6C5F202BC07CD700311C0D /* AboutTableBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutTableBG.png; sourceTree = "<group>"; };
@@ -347,6 +353,8 @@
 		5B0A93512B820C4C003FBE13 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5B68AEF92BEA9D8A0068E7E8 /* UIImage+Utils */,
+				5B68AEF52BEA9D7A0068E7E8 /* Base64 */,
 				5B2820522BEA51670054D998 /* BButton */,
 				5BFEABAE2B823AA900032F34 /* TRMalleableFrameView */,
 				5B0A936A2B82101D003FBE13 /* BubbleView */,
@@ -558,6 +566,24 @@
 			children = (
 			);
 			path = "iOS 7";
+			sourceTree = "<group>";
+		};
+		5B68AEF52BEA9D7A0068E7E8 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				5B68AEF62BEA9D7A0068E7E8 /* Base64.h */,
+				5B68AEF72BEA9D7A0068E7E8 /* Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		5B68AEF92BEA9D8A0068E7E8 /* UIImage+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5B68AEFA2BEA9D8A0068E7E8 /* UIImage+Utils.h */,
+				5B68AEFB2BEA9D8A0068E7E8 /* UIImage+Utils.m */,
+			);
+			path = "UIImage+Utils";
 			sourceTree = "<group>";
 		};
 		5B68CB512B82282E000A42AC /* Bundles */ = {
@@ -863,12 +889,14 @@
 				5B0A93502B820B8F003FBE13 /* AppDelegate.m in Sources */,
 				5B0A93902B82101D003FBE13 /* UIBubbleTypingTableViewCell.m in Sources */,
 				5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */,
+				5B68AEF82BEA9D7A0068E7E8 /* Base64.m in Sources */,
 				5B64B9F82BE9281500AA4799 /* CaWelcomeViewController-iOS7.m in Sources */,
 				5B0A935E2B820C4C003FBE13 /* APLSlideMenuViewController.m in Sources */,
 				5B28205B2BEA51670054D998 /* BButton.m in Sources */,
 				5B0A93652B820CB1003FBE13 /* CaSidebarMainViewController.m in Sources */,
 				5B0A93612B820C4C003FBE13 /* SVProgressHUD.m in Sources */,
 				5B0A938D2B82101D003FBE13 /* UIBubbleHeaderTableViewCell.m in Sources */,
+				5B68AEFC2BEA9D8A0068E7E8 /* UIImage+Utils.m in Sources */,
 				5B28205E2BEA51670054D998 /* UIColor+BButton.m in Sources */,
 				5B28205C2BEA51670054D998 /* NSString+FontAwesome.m in Sources */,
 				5B64B9F72BE9281500AA4799 /* CaWelcomeViewController.m in Sources */,

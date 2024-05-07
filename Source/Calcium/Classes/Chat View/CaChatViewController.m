@@ -11,10 +11,12 @@
 @interface CaChatViewController ()
 {
     NSMutableArray *bubbleData;
+    UIImagePickerController *imagePicker;
 }
 @end
 
 @implementation CaChatViewController
+@synthesize currentImage;
 
 - (void)viewDidLoad
 {
@@ -42,6 +44,18 @@
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
     [self.bubbleTableView reloadData];
     //table view options OFF
+    
+    //Image picker stuff
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    #if !(TARGET_IPHONE_SIMULATOR)
+    // We don't have cameras on simulators xd
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    #else
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    #endif
+    currentImage = nil;
+    //End
     
     //RFactory delegate
     self.requestFactory = [[CaRequestFactory alloc] init];
@@ -88,53 +102,13 @@
 
 //Button actions
 - (IBAction)modeSwitch:(id)sender {
-    BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
-    BOOL clearAlways = [[NSUserDefaults standardUserDefaults] boolForKey:@"alwaysClear"];
-    if (imageMode == YES) {
-        UIImage *correspondingMode = [UIImage imageNamed:@"PictureModeGlyph"];
-        NSLog(@"--BUTTON ACTION-- User switched to chat mode from gen mode");
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"imageGenerationModeEnabled"];
-        [SVProgressHUD showSuccessWithStatus:@"Switched to Chat Mode"];
-        self.navigationItem.title = @"Chat";
-        
-        //Clears history
-        if(clearAlways == YES) {
-            NSLog(@"Chat history has been cleared.");
-            [self.bubbleDataArray removeAllObjects];
-            [self.bubbleTableView reloadData];
-        }
-        
-        //Input field
-        self.inputFieldPlaceholder.text = @"Type something in...";
-        self.inputField.text = @"";
-        [self.modeButton setImage:correspondingMode];
-        
-    } else if (imageMode == NO) {
-        UIImage *correspondingMode = [UIImage imageNamed:@"hamburger"];
-        NSLog(@"--BUTTON ACTION-- User switched to gen from chat mode");
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"imageGenerationModeEnabled"];
-        [SVProgressHUD showSuccessWithStatus:@"Switched to Image Generation Mode"];
-        self.navigationItem.title = @"Generate Image";
-        
-        //Clears history
-        if(clearAlways == YES) {
-            NSLog(@"Chat history has been cleared.");
-            [self.bubbleDataArray removeAllObjects];
-            [self.bubbleTableView reloadData];
-        }
-
-        BOOL switchForFirstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"didIWarnYou"];
-        if(switchForFirstTime == NO) {
-            NSString *errorMessage = @"For Image Generation you may need a more advanced API key that has DALL-E and GPT-4 access.";
-            [self showAlertWithTitle:@"Hey" message:errorMessage];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"didIWarnYou"];
-        }
-        //input field dishery
-        self.inputFieldPlaceholder.text = @"Generate something...";
-        self.inputField.text = @"";
-        [self.modeButton setImage:correspondingMode];
-    }
-
+    UIActionSheet *messageActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select an option" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Select Picture", @"Switch Modes", nil];
+    
+    [messageActionSheet setTag:1];
+    [messageActionSheet setDelegate:self];
+    [messageActionSheet showInView:self.view];
+    //[self presentViewController:imagePicker animated:YES completion:nil];
+    //actionsheet
 }
 
 - (IBAction)sendButton:(id)sender {
@@ -179,12 +153,6 @@
 }
 
 - (IBAction)didLongPress:(id)sender {
-    NSLog(@"--ACTION-- Did long press");
-    //Show action sheet
-    UIActionSheet *messageActionSheet = [[UIActionSheet alloc] initWithTitle:@"What do you want to do" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Clear conversation" otherButtonTitles:nil];
-    [messageActionSheet setTag:1];
-    [messageActionSheet setDelegate:self];
-    [messageActionSheet showInView:self.view];
 }
 
 //remove after drag-dev
@@ -200,18 +168,13 @@
 
 - (void)chatRequest {
     //Check prerequisites
-    NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
-    
-    if(authenticationSecret.length == 0) {
-        [self showAlertWithTitle:@"Apiary Error" message:@"You have no API key set"];
-        NSLog(@"Chat Request preparation failed. No Authentication Secret set.");
-    } else {
-        NSLog(@"Chat request is being prepared");
-        NSString *messagePayload = self.inputField.text;
-        [self.requestFactory startTextRequest:messagePayload];
-        self.inputField.text = @"";
-    }
+    self.inputFieldImageView.image = nil;
+
+    NSString *messagePayload = self.inputField.text;
+    [self.requestFactory startTextRequest:messagePayload];
+    self.inputField.text = @"";
 }
+
 
 - (void)imageGenRequest {
     NSLog(@"Image generation request is being prepared");
@@ -220,7 +183,11 @@
     self.inputField.text = @"";
 }
 
-- (void)didReceiveResponseData:(NSData *)data {
+- (void)didReceiveResponseData:(NSString *)data {
+    //Typing indication
+    self.bubbleTableView.typingBubble = 0;
+    
+    //Spawning bubble
     NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:data date:[NSDate date] type:BubbleTypeSomeoneElse];
     [self.bubbleDataArray addObject:assistantBubbleData];
     [self.bubbleTableView reloadData];
@@ -286,11 +253,85 @@
     [alertView show];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    currentImage = [UIImagePNGRepresentation([UIImage imageWithImage:[info objectForKey:UIImagePickerControllerOriginalImage] scaledToSize:CGSizeMake(640, 480)]) base64EncodedString];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    CGRect aRect = CGRectMake(156, 2, 24, 24);
+    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (self.inputFieldImageView == nil) {
+        self.inputFieldImageView = [[UIImageView alloc] initWithImage:img];
+    } else {
+        self.inputFieldImageView.image = img;
+    }
+    [self.inputFieldImageView setFrame:aRect];
+    
+    [self.inputField addSubview:self.inputFieldImageView];
+    NSBubbleData *imgBubbleData = [NSBubbleData dataWithImage:img date:[NSDate date] type:BubbleTypeMine];
+    [self.bubbleDataArray addObject:imgBubbleData];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (actionSheet.tag == 1) {
+        if (buttonIndex == actionSheet.firstOtherButtonIndex) {
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 1) {
+            //imagepicker declaration
+            UIImagePickerController *picker = UIImagePickerController.new;
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            
+            [picker setDelegate:self];
+            [picker viewWillAppear:YES];
+            //spawn
+            [self presentViewController:picker animated:YES completion:nil];
+            [picker viewWillAppear:YES];
+            
+        } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 2) {
+            BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
+            BOOL clearAlways = [[NSUserDefaults standardUserDefaults] boolForKey:@"alwaysClear"];
+            if (imageMode == YES) {
+                UIImage *correspondingMode = [UIImage imageNamed:@"PictureModeGlyph"];
+                NSLog(@"--BUTTON ACTION-- User switched to chat mode from gen mode");
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"imageGenerationModeEnabled"];
+                [SVProgressHUD showSuccessWithStatus:@"Switched to Chat Mode"];
+                self.navigationItem.title = @"Chat";
+                
+                //Clears history
+                if(clearAlways == YES) {
+                    NSLog(@"Chat history has been cleared.");
+                    [self.bubbleDataArray removeAllObjects];
+                    [self.bubbleTableView reloadData];
+                }
+                
+                //Input field
+                self.inputFieldPlaceholder.text = @"Type something in...";
+                self.inputField.text = @"";
+                [self.modeButton setImage:correspondingMode];
+                
+            } else if (imageMode == NO) {
+                UIImage *correspondingMode = [UIImage imageNamed:@"hamburger"];
+                NSLog(@"--BUTTON ACTION-- User switched to gen from chat mode");
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"imageGenerationModeEnabled"];
+                [SVProgressHUD showSuccessWithStatus:@"Switched to Image Generation Mode"];
+                self.navigationItem.title = @"Generate Image";
+                
+                //Clears history
+                if(clearAlways == YES) {
+                    NSLog(@"Chat history has been cleared.");
+                    [self.bubbleDataArray removeAllObjects];
+                    [self.bubbleTableView reloadData];
+                }
+                
+                //input field dishery
+                self.inputFieldPlaceholder.text = @"Generate something...";
+                self.inputField.text = @"";
+                [self.modeButton setImage:correspondingMode];
+            }
+        }
+    }
+}
+
 -(void)scrollChatToBottom {
     [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
 }
 //END
-
-
-
 @end

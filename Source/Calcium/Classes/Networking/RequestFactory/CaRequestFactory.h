@@ -18,6 +18,8 @@
 
 //Data
 @property (nonatomic, strong) NSMutableData *apiaryResponseData;
+
+- (void)startTextRequest:(NSString *)messagePayload withBase64Image:(NSString *)base64Image;
 - (void)startTextRequest:(NSString *)messagePayload;
 - (void)startImageGenerationRequest:(NSString *)messageContent;
 @end

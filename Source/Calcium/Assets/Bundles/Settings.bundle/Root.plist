@@ -20,6 +20,50 @@
 			<key>Key</key>
 			<string>serverURL</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>More</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Shows the User and AI profile picture in the chat view</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Show PFP</string>
+			<key>Key</key>
+			<string>showPFP</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Nicknames for the user and the AI that will appear in chat bubbles.</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Nickname</string>
+			<key>Key</key>
+			<string>nickname</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>AI Nickname</string>
+			<key>Key</key>
+			<string>aiNick</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>
