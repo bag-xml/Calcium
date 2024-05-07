@@ -201,8 +201,14 @@
 
 - (void)didReceiveResponseData:(NSString *)data {
     //Spawning bubble
-    NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:data date:[NSDate date] type:BubbleTypeSomeoneElse];
-    [self.bubbleDataArray addObject:assistantBubbleData];
+    NSString *nickname = [[NSUserDefaults standardUserDefaults] objectForKey:@"aiNick"];
+    if(nickname.length == 0) {
+        NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:data date:[NSDate date] type:BubbleTypeSomeoneElse];
+        [self.bubbleDataArray addObject:assistantBubbleData];
+    } else {
+        NSBubbleData *assistantBubbleData = [NSBubbleData dataWithText:[NSString stringWithFormat:@"%@:\n%@", nickname, data] date:[NSDate date] type:BubbleTypeSomeoneElse];
+        [self.bubbleDataArray addObject:assistantBubbleData];
+    }
     [self.bubbleTableView reloadData];
     
 }
@@ -356,8 +362,13 @@
             [alertView show];
         } else if (buttonIndex == actionSheet.firstOtherButtonIndex) {
             NSLog(@"share");
+            //PURE TEST
+            NSArray *itemsToShare = @[self.inputField.text];
+            UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+            [self presentViewController:activityVC animated:YES completion:nil];
+            [activityVC viewWillAppear:YES];
         } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 1) {
-            NSLog(@"save");
+            [SVProgressHUD showErrorWithStatus:@"Save failed"];
         } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 2) {
             //
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Conversation" message:@"Type a name into the input field to name your conversation" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -370,8 +381,10 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 1) {
+    if (alertView.tag == 2) {
         if (buttonIndex == alertView.firstOtherButtonIndex) {
+            NSString *enteredText = [alertView textFieldAtIndex:0].text;
+            self.navigationItem.title = enteredText;
         }
     }
 }

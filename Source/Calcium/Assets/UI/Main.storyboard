@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F1911" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="wFt-If-Q7F">
     <dependencies>
+        <deployment defaultVersion="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,7 @@
         <scene sceneID="8wu-hy-xxC">
             <objects>
                 <viewController storyboardIdentifier="LeftMenu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XJs-Un-yOy" userLabel="Left Menu View Controller" customClass="CaSidebarMainViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iK4-Tx-Z3g">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iK4-Tx-Z3g">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
@@ -831,13 +832,13 @@
         <image name="LCellBG.png" width="294" height="119"/>
         <image name="PHPref.png" width="48" height="40"/>
         <image name="Send.png" width="23" height="20"/>
-        <image name="SidebarTopLeader.png" width="260" height="384"/>
+        <image name="SidebarTopLeader.png" width="260" height="431"/>
         <image name="TrashButton.png" width="48" height="40"/>
         <image name="WelcomeBanner-iOS5-6.png" width="640" height="241"/>
         <image name="WelcomeBanner-iOS7.png" width="640" height="270"/>
         <image name="hamburger.png" width="25" height="25"/>
     </resources>
-    <color key="tintColor" red="0.49411764705882355" green="0.73725490196078436" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.27924347388037973" green="0.73725490196078436" blue="0.6987035484720896" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
