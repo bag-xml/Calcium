@@ -57,14 +57,6 @@
 	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     //event notification block END
     
-    //OS Specific settings BEGIN
-    if(iOSVersion < 6.0) {
-        NSLog(@"User uses iOS 5");
-    } else if(iOSVersion < 7.0) {
-        NSLog(@"User uses iOS 6");
-    } else if(iOSVersion > 7.0) {
-        NSLog(@"User uses iOS 7 or newer");
-    }
     //OS Specific settings END
     
     //first launch block, performs a segue if the application has been launched for the first ever time.
@@ -283,7 +275,7 @@
 
 // Implement optional delegate method
 - (void)bubbleTableView:(UIBubbleTableView *)tableView didSelectRow:(NSUInteger)row {
-    [SVProgressHUD showErrorWithStatus:@"Selected"];
+    NSLog(@"selected");
 }
 
 

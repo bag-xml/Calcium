@@ -122,7 +122,7 @@
 		5B0A93562B820C4C003FBE13 /* APLSlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLSlideMenuViewController.m; sourceTree = "<group>"; };
 		5B0A93582B820C4C003FBE13 /* SVProgressHUD-15e9190d.o.tmp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SVProgressHUD-15e9190d.o.tmp"; sourceTree = "<group>"; };
 		5B0A93592B820C4C003FBE13 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
-		5B0A935A2B820C4C003FBE13 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		5B0A935A2B820C4C003FBE13 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = ../../Libraries/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		5B0A935B2B820C4C003FBE13 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		5B0A935C2B820C4C003FBE13 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		5B0A93632B820CB1003FBE13 /* CaSidebarMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaSidebarMainViewController.h; sourceTree = "<group>"; };
@@ -372,7 +372,6 @@
 			children = (
 				5B0A93582B820C4C003FBE13 /* SVProgressHUD-15e9190d.o.tmp */,
 				5B0A93592B820C4C003FBE13 /* SVProgressHUD-Prefix.pch */,
-				5B0A935A2B820C4C003FBE13 /* SVProgressHUD.bundle */,
 				5B0A935B2B820C4C003FBE13 /* SVProgressHUD.h */,
 				5B0A935C2B820C4C003FBE13 /* SVProgressHUD.m */,
 			);
@@ -564,6 +563,7 @@
 		5B68CB512B82282E000A42AC /* Bundles */ = {
 			isa = PBXGroup;
 			children = (
+				5B0A935A2B820C4C003FBE13 /* SVProgressHUD.bundle */,
 				5B68CB522B822835000A42AC /* Settings.bundle */,
 			);
 			path = Bundles;

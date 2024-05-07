@@ -46,6 +46,11 @@
         [self.About setImage:[UIImage imageNamed:@"flatContact"] forState:UIControlStateNormal];
         [self.About.titleLabel setShadowOffset:CGSizeMake(0, 0)];
         [self.About setTitleColor:[UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        
+        [self.Clear setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [self.Clear.titleLabel setShadowOffset:CGSizeMake(0, 0)];
+        [self.Clear setTitleColor:[UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        
         //Statusbar adjustment
         if ([self respondsToSelector:@selector(topLayoutGuide)]) {
             self.tableView.contentInset = UIEdgeInsetsMake(20., 0., 0., 0.);
@@ -77,7 +82,7 @@
     
     //History cell LOGICAL properties
     historyCell.textLabel.text = [NSString stringWithFormat:@"Conversation %ld",(long)indexPath.row];
-    historyCell.detailTextLabel.text = [NSString stringWithFormat:@"01/09/2007"];
+    historyCell.detailTextLabel.text = [NSString stringWithFormat:@"05/03/2007"];
     return historyCell;
 }
 

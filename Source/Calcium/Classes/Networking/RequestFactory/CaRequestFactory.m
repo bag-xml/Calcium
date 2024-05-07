@@ -18,65 +18,31 @@
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     CGFloat iOSVersion = [systemVersion floatValue];
     
-    NSString *authenticationSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiKey"];
-    BOOL useHeadlessBrowserEngine = [[NSUserDefaults standardUserDefaults] boolForKey:@"useMiddleman"];
+    NSString *serverURL = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverURL"];
     
     if(iOSVersion < 7.0) {
-        if(useHeadlessBrowserEngine == YES) {
-            NSLog(@"User desires headless browser engine, will request this way.");
-            //config
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"requestPerformedWithMiddleman"];
-            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
-            //Request code for the headless chatgpt engine
-            //NOT YET
-            
-        } else if(useHeadlessBrowserEngine == NO) {
-            NSLog(@"User does not want to use a middleman, this is okay.");
-            //inherited values
-            NSString *preferredModel = [[NSUserDefaults standardUserDefaults] objectForKey:@"AIModel"];
-            //configuration
-            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"requestPerformedWithMiddleman"];
-            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
-            
-            NSString *apiaryURL = @"http://api.openai.com/v1/chat/completions";
-            NSURL *apiaryRequestURL = [NSURL URLWithString:apiaryURL];
-            
-            NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
-            NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"model": preferredModel, @"messages": @[@{@"role": @"user", @"content": messagePayload}]}];
+        NSLog(@"Initializing Chat Completion request, iOS 5.0-6.1.6");
+        
+        NSURL *apiaryRequestURL = [NSURL URLWithString:serverURL];
+        
+        NSMutableURLRequest *apiaryCommunicationRequest = [NSMutableURLRequest requestWithURL:apiaryRequestURL];
+        NSMutableDictionary *completionRequestBody = [NSMutableDictionary dictionaryWithDictionary:@{@"max_context_length": @2048, @"max_length": @100, @"prompt": messagePayload, @"quiet": @false, @"rep_pen": @1.1, @"rep_pen_range": @256, @"rep_pen_slope": @1, @"temperature": @0.5, @"tfs": @1, @"top_a": @0, @"top_k": @100, @"top_p": @0.9, @"typical": @1}];
 
-            
-            NSData *completionRBData = [NSJSONSerialization dataWithJSONObject:completionRequestBody options:0 error:nil];
-            
-            //Headers for the apiary URL Request
-            [apiaryCommunicationRequest setHTTPMethod:@"POST"];
-            [apiaryCommunicationRequest setHTTPBody:completionRBData];
-            [apiaryCommunicationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [apiaryCommunicationRequest setValue:[NSString stringWithFormat:@"Bearer %@", authenticationSecret] forHTTPHeaderField:@"Authorization"];
-            //Goes directly to OpenAI
-            
-            //Debug alert view
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"--apiaryCommunicatorLOG: Non-Middleman ChatGeneration -- POST-Request log" message:[NSString stringWithFormat:@"JSON Body: %@", completionRequestBody]];
-            });
-            NSLog(@"Request Headers: %@", [apiaryCommunicationRequest allHTTPHeaderFields]);
-            //Remove after communicator development
+        NSData *completionRBData = [NSJSONSerialization dataWithJSONObject:completionRequestBody options:0 error:nil];
 
+        [apiaryCommunicationRequest setHTTPMethod:@"POST"];
+        [apiaryCommunicationRequest setHTTPBody:completionRBData];
+        [apiaryCommunicationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self displayAlertView:@"--apiaryCommunicatorLOG: CompletionRequest Log" message:[NSString stringWithFormat:@"JSON Body: %@", completionRequestBody]];
+        });
+        
+        NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
+        [communicatorCall start];
 
-            //Starting the request
-            NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
-            [communicatorCall start];
-        }
+    
     } else if(iOSVersion > 7.0) {
-        if(useHeadlessBrowserEngine == YES) {
-            //headless code
-        } else if(useHeadlessBrowserEngine == NO) {
-            //conventional openai endpoint engineering
-            //use 7.0+ because nsurlsession
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:@"Communicator Log" message:[NSString stringWithFormat:@"iOS 7+ NSURLSession RequestBlock not implemented, CaRequestFactory"]];
-            });
-        }
     }
 }
 

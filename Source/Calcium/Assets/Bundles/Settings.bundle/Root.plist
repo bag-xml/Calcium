@@ -6,61 +6,19 @@
 	<array>
 		<dict>
 			<key>FooterText</key>
-			<string>A &quot;Middleman&quot; server is a server you self-host that acts as a headless browser engine, this can be used by advanced users or users who dont want to generate API keys. More about this is on Calcium&apos;s GitHub page. If you don&apos;t know what you&apos;re doing LEAVE THIS DISABLED AND AS-IS</string>
+			<string>Here are API related settings. Without adjusting these your app may not work</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Middleman Settings</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Enable</string>
-			<key>Key</key>
-			<string>useMiddleman</string>
-			<key>DefaultValue</key>
-			<false/>
+			<string>API related</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Endpoint</string>
+			<string>URL</string>
 			<key>Key</key>
-			<string>middlemanURL</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
-			<string>Basic OpenAI API Settings</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>OpenAI Settings</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>API Key</string>
-			<key>Key</key>
-			<string>apiKey</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>AI Model</string>
-			<key>Key</key>
-			<string>AIModel</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
-			<string>Miscellaneous options, albeit still important ones.</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Fun</string>
+			<string>serverURL</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
