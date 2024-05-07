@@ -44,6 +44,15 @@
 		5B26964F2BC84F28000FA95F /* flatGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B26964E2BC84F28000FA95F /* flatGear.png */; };
 		5B2696522BC85C7B000FA95F /* flatContact.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2696502BC85C7B000FA95F /* flatContact.png */; };
 		5B2696532BC85C7B000FA95F /* flatGuide.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2696512BC85C7B000FA95F /* flatGuide.png */; };
+		5B28205B2BEA51670054D998 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2820542BEA51670054D998 /* BButton.m */; };
+		5B28205C2BEA51670054D998 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2820562BEA51670054D998 /* NSString+FontAwesome.m */; };
+		5B28205D2BEA51670054D998 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820582BEA51670054D998 /* FontAwesome.ttf */; };
+		5B28205E2BEA51670054D998 /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28205A2BEA51670054D998 /* UIColor+BButton.m */; };
+		5B2820632BEA56F80054D998 /* UITitleBarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820622BEA56F80054D998 /* UITitleBarBG.png */; };
+		5B2820662BEA57A10054D998 /* DarkUITitleBarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820642BEA57A10054D998 /* DarkUITitleBarBG.png */; };
+		5B2820672BEA57A10054D998 /* DarkUITitleBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820652BEA57A10054D998 /* DarkUITitleBarBG@2x.png */; };
+		5B28206A2BEA59B30054D998 /* BagBaseplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820682BEA59B30054D998 /* BagBaseplate.png */; };
+		5B28206B2BEA59B30054D998 /* ElectiBaseplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820692BEA59B30054D998 /* ElectiBaseplate.png */; };
 		5B64B9ED2BE923D200AA4799 /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B64B9EC2BE923D200AA4799 /* TrashButton.png */; };
 		5B64B9F72BE9281500AA4799 /* CaWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B9F32BE9281500AA4799 /* CaWelcomeViewController.m */; };
 		5B64B9F82BE9281500AA4799 /* CaWelcomeViewController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B9F62BE9281500AA4799 /* CaWelcomeViewController-iOS7.m */; };
@@ -67,7 +76,6 @@
 		5B6C5F472BC07CD700311C0D /* PHPref.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F2E2BC07CD700311C0D /* PHPref.png */; };
 		5B6C5F482BC07CD700311C0D /* SidebarTopLeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F2F2BC07CD700311C0D /* SidebarTopLeader.png */; };
 		5B6C5F492BC07CD700311C0D /* SidebarTopLeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F302BC07CD700311C0D /* SidebarTopLeader@2x.png */; };
-		5B6C5F4A2BC07CD700311C0D /* UITitlebarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F322BC07CD700311C0D /* UITitlebarBG.png */; };
 		5B6C5F4B2BC07CD700311C0D /* UITitlebarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F332BC07CD700311C0D /* UITitlebarBG@2x.png */; };
 		5B6C5F4C2BC07CD700311C0D /* UIToolbarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F352BC07CD700311C0D /* UIToolbarBG.png */; };
 		5B6C5F4D2BC07CD700311C0D /* UIToolbarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C5F362BC07CD700311C0D /* UIToolbarBG@2x.png */; };
@@ -147,6 +155,18 @@
 		5B26964E2BC84F28000FA95F /* flatGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatGear.png; sourceTree = "<group>"; };
 		5B2696502BC85C7B000FA95F /* flatContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatContact.png; sourceTree = "<group>"; };
 		5B2696512BC85C7B000FA95F /* flatGuide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatGuide.png; sourceTree = "<group>"; };
+		5B2820532BEA51670054D998 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		5B2820542BEA51670054D998 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		5B2820552BEA51670054D998 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		5B2820562BEA51670054D998 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		5B2820582BEA51670054D998 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		5B2820592BEA51670054D998 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		5B28205A2BEA51670054D998 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		5B2820622BEA56F80054D998 /* UITitleBarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITitleBarBG.png; sourceTree = "<group>"; };
+		5B2820642BEA57A10054D998 /* DarkUITitleBarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkUITitleBarBG.png; sourceTree = "<group>"; };
+		5B2820652BEA57A10054D998 /* DarkUITitleBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkUITitleBarBG@2x.png"; sourceTree = "<group>"; };
+		5B2820682BEA59B30054D998 /* BagBaseplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BagBaseplate.png; sourceTree = "<group>"; };
+		5B2820692BEA59B30054D998 /* ElectiBaseplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ElectiBaseplate.png; sourceTree = "<group>"; };
 		5B64B9EC2BE923D200AA4799 /* TrashButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashButton.png; sourceTree = "<group>"; };
 		5B64B9F22BE9281500AA4799 /* CaWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaWelcomeViewController.h; sourceTree = "<group>"; };
 		5B64B9F32BE9281500AA4799 /* CaWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaWelcomeViewController.m; sourceTree = "<group>"; };
@@ -176,7 +196,6 @@
 		5B6C5F2E2BC07CD700311C0D /* PHPref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PHPref.png; sourceTree = "<group>"; };
 		5B6C5F2F2BC07CD700311C0D /* SidebarTopLeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SidebarTopLeader.png; sourceTree = "<group>"; };
 		5B6C5F302BC07CD700311C0D /* SidebarTopLeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SidebarTopLeader@2x.png"; sourceTree = "<group>"; };
-		5B6C5F322BC07CD700311C0D /* UITitlebarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITitlebarBG.png; sourceTree = "<group>"; };
 		5B6C5F332BC07CD700311C0D /* UITitlebarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UITitlebarBG@2x.png"; sourceTree = "<group>"; };
 		5B6C5F352BC07CD700311C0D /* UIToolbarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIToolbarBG.png; sourceTree = "<group>"; };
 		5B6C5F362BC07CD700311C0D /* UIToolbarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIToolbarBG@2x.png"; sourceTree = "<group>"; };
@@ -328,6 +347,7 @@
 		5B0A93512B820C4C003FBE13 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5B2820522BEA51670054D998 /* BButton */,
 				5BFEABAE2B823AA900032F34 /* TRMalleableFrameView */,
 				5B0A936A2B82101D003FBE13 /* BubbleView */,
 				5B0A93522B820C4C003FBE13 /* APLSlideMenu */,
@@ -411,6 +431,28 @@
 				5B0A93752B82101D003FBE13 /* typingSomeone@2x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		5B2820522BEA51670054D998 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				5B2820532BEA51670054D998 /* BButton.h */,
+				5B2820542BEA51670054D998 /* BButton.m */,
+				5B2820552BEA51670054D998 /* NSString+FontAwesome.h */,
+				5B2820562BEA51670054D998 /* NSString+FontAwesome.m */,
+				5B2820572BEA51670054D998 /* resources */,
+				5B2820592BEA51670054D998 /* UIColor+BButton.h */,
+				5B28205A2BEA51670054D998 /* UIColor+BButton.m */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		5B2820572BEA51670054D998 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B2820582BEA51670054D998 /* FontAwesome.ttf */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		5B64B9EE2BE927F200AA4799 /* Unimportant Structures */ = {
@@ -561,6 +603,8 @@
 		5B6C5F1D2BC07CD700311C0D /* LeaderCellBackground */ = {
 			isa = PBXGroup;
 			children = (
+				5B2820682BEA59B30054D998 /* BagBaseplate.png */,
+				5B2820692BEA59B30054D998 /* ElectiBaseplate.png */,
 				5B6C5F1E2BC07CD700311C0D /* LCellBG@2x.png */,
 			);
 			path = LeaderCellBackground;
@@ -606,7 +650,9 @@
 		5B6C5F312BC07CD700311C0D /* Titlebar */ = {
 			isa = PBXGroup;
 			children = (
-				5B6C5F322BC07CD700311C0D /* UITitlebarBG.png */,
+				5B2820642BEA57A10054D998 /* DarkUITitleBarBG.png */,
+				5B2820652BEA57A10054D998 /* DarkUITitleBarBG@2x.png */,
+				5B2820622BEA56F80054D998 /* UITitleBarBG.png */,
 				5B6C5F332BC07CD700311C0D /* UITitlebarBG@2x.png */,
 			);
 			path = Titlebar;
@@ -747,7 +793,10 @@
 				5B6C5F3E2BC07CD700311C0D /* hamburger.png in Resources */,
 				5B0A93872B82101D003FBE13 /* missingAvatar@2x.png in Resources */,
 				5B0A93862B82101D003FBE13 /* missingAvatar.png in Resources */,
+				5B2820632BEA56F80054D998 /* UITitleBarBG.png in Resources */,
+				5B2820662BEA57A10054D998 /* DarkUITitleBarBG.png in Resources */,
 				5B0A93832B82101D003FBE13 /* bubbleMine@2x.png in Resources */,
+				5B28206B2BEA59B30054D998 /* ElectiBaseplate.png in Resources */,
 				5B0A93882B82101D003FBE13 /* typingMine.png in Resources */,
 				5B6C5F3B2BC07CD700311C0D /* AboutTableBG.png in Resources */,
 				5B6C5F4E2BC07CD700311C0D /* WelcomeBanner-iOS5-6.png in Resources */,
@@ -755,6 +804,7 @@
 				5B6C5F412BC07CD700311C0D /* PictureModeGlyph@2x.png in Resources */,
 				5B6C5F402BC07CD700311C0D /* PictureModeGlyph.png in Resources */,
 				5B6C5F3A2BC07CD700311C0D /* LCellBG@2x.png in Resources */,
+				5B28206A2BEA59B30054D998 /* BagBaseplate.png in Resources */,
 				5B6C5F422BC07CD700311C0D /* Send.png in Resources */,
 				5B6C5F442BC07CD700311C0D /* GuideButton.png in Resources */,
 				5B6C5F492BC07CD700311C0D /* SidebarTopLeader@2x.png in Resources */,
@@ -775,13 +825,14 @@
 				5B0A938B2B82101D003FBE13 /* typingSomeone@2x.png in Resources */,
 				5B0A93892B82101D003FBE13 /* typingMine@2x.png in Resources */,
 				5B6C5F582BC07E7A00311C0D /* DarkUITitleBarBG.png in Resources */,
+				5B2820672BEA57A10054D998 /* DarkUITitleBarBG@2x.png in Resources */,
 				5B6C5F3D2BC07CD700311C0D /* AboutTableBG@R4.png in Resources */,
 				5B6C5F4B2BC07CD700311C0D /* UITitlebarBG@2x.png in Resources */,
-				5B6C5F4A2BC07CD700311C0D /* UITitlebarBG.png in Resources */,
 				5B2696522BC85C7B000FA95F /* flatContact.png in Resources */,
 				5B6C5F4F2BC07CD700311C0D /* WelcomeBanner-iOS7.png in Resources */,
 				5B0A93842B82101D003FBE13 /* bubbleSomeone.png in Resources */,
 				5B6C5F482BC07CD700311C0D /* SidebarTopLeader.png in Resources */,
+				5B28205D2BEA51670054D998 /* FontAwesome.ttf in Resources */,
 				5B0A934A2B820B86003FBE13 /* Images.xcassets in Resources */,
 				5B0A938A2B82101D003FBE13 /* typingSomeone.png in Resources */,
 				5B6C5F4C2BC07CD700311C0D /* UIToolbarBG.png in Resources */,
@@ -814,9 +865,12 @@
 				5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */,
 				5B64B9F82BE9281500AA4799 /* CaWelcomeViewController-iOS7.m in Sources */,
 				5B0A935E2B820C4C003FBE13 /* APLSlideMenuViewController.m in Sources */,
+				5B28205B2BEA51670054D998 /* BButton.m in Sources */,
 				5B0A93652B820CB1003FBE13 /* CaSidebarMainViewController.m in Sources */,
 				5B0A93612B820C4C003FBE13 /* SVProgressHUD.m in Sources */,
 				5B0A938D2B82101D003FBE13 /* UIBubbleHeaderTableViewCell.m in Sources */,
+				5B28205E2BEA51670054D998 /* UIColor+BButton.m in Sources */,
+				5B28205C2BEA51670054D998 /* NSString+FontAwesome.m in Sources */,
 				5B64B9F72BE9281500AA4799 /* CaWelcomeViewController.m in Sources */,
 				5B0A935D2B820C4C003FBE13 /* APLSlideMenuSegue.m in Sources */,
 				5B64BA0B2BE928B300AA4799 /* CaGuideController.m in Sources */,

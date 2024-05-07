@@ -29,13 +29,10 @@
     self.tableView.delegate = self;
     //need to make a 4-inch check in order to give the right tableview background image, remember, i love consistency.
     if(IS_IPHONE_5) {
-        [SVProgressHUD showSuccessWithStatus:@"iPhone 5"];
         self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AboutTableBG@R4"]];
     } else if(IS_IPHONE_4) {
-        [SVProgressHUD showSuccessWithStatus:@"iPhone 4"];
         self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AboutTableBG@2x"]];
     } else if(IS_IPHONE_3GS) {
-        [SVProgressHUD showSuccessWithStatus:@"iphone 3GS"];
         self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AboutTableBG"]];
     }
     
