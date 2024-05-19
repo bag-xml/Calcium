@@ -398,4 +398,5 @@
     [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
 }
 //END
+
 @end

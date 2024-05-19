@@ -5,7 +5,7 @@
 //  Created by bag.xml on 18/02/24.
 //  Copyright (c) 2024 Mali 357. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "APLSlideMenuViewController.h"
 #import "NSBubbleData.h"
@@ -53,8 +53,4 @@
 @property (nonatomic, strong) CaRequestFactory *requestFactory;
 @property (nonatomic, strong) NSMutableData *apiaryResponseData;
 
-
-//functions
-- (void)typing;
-- (void)nottyping;
 @end

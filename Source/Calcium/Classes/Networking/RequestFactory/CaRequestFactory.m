@@ -142,7 +142,6 @@
         //Check the client's OS for if-blocks 
         NSLog(@"API has responded");
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        BOOL didTheRequestWithMiddleman = [[NSUserDefaults standardUserDefaults] boolForKey:@"requestPerformedWithMiddleman"];
         BOOL didImageGeneration = [[NSUserDefaults standardUserDefaults] boolForKey:@"didGenerateImage"];
         
         NSDictionary *apiaryResponseJournal = [NSJSONSerialization JSONObjectWithData:self.apiaryResponseData options:0 error:nil];
@@ -150,6 +149,16 @@
         NSLog(@"Executing code block dependent on request config now");
         
         //In case of any error
+        
+        //Null response:
+        if(apiaryResponseJournal == nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayAlertView:@"Apiary Error" message:@"Check your endpoint, it's not normal that the response is nothing."];
+            });
+            
+        }
+        
+        //JSON Error
         NSDictionary *apiaryError = [apiaryResponseJournal objectForKey:@"detail"];
         if(apiaryError) {
             NSLog(@"error");
@@ -170,14 +179,15 @@
             NSLog(@"Image Generation = NO");
             //prepare for next call
             [self sendReset];
-            
             //processing
             NSString *response = [[[apiaryResponseJournal objectForKey:@"results"] objectAtIndex:0] valueForKey:@"text"];
             dispatch_async(dispatch_get_main_queue(), ^{
-                //remove typing indication
-                [self.delegate setTyping:0];
-                [self.delegate didReceiveResponseData:response];
-                self.apiaryResponseData = nil;
+                if(!apiaryResponseJournal == nil) {
+                    //remove typing indication
+                    [self.delegate setTyping:0];
+                    [self.delegate didReceiveResponseData:response];
+                    self.apiaryResponseData = nil;
+                }
             });
                 
         }

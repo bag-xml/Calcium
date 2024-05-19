@@ -12,8 +12,6 @@
 
 @protocol CaRequestFactoryDelegate <NSObject>
 - (void)didReceiveResponseData:(NSData *)data;
-- (void)typing;
-- (void)nottyping;
 - (void)setTyping:(BOOL)typing;
 @end
 

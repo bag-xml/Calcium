@@ -838,7 +838,7 @@
         <image name="WelcomeBanner-iOS7.png" width="640" height="270"/>
         <image name="hamburger.png" width="25" height="25"/>
     </resources>
-    <color key="tintColor" red="0.27924347388037973" green="0.73725490196078436" blue="0.6987035484720896" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.48024753194349956" green="0.73725490196078436" blue="0.53784845027417061" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
