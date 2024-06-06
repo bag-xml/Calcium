@@ -11,6 +11,8 @@
 #import "SVProgressHUD.h"
 #import "CaChatViewController.h"
 
+#define VERSION_MIN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @interface CaSidebarMainViewController : UITableViewController
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;

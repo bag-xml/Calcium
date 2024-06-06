@@ -10,6 +10,8 @@
 #import "UIBubbleTableView.h"
 #import "SVProgressHUD.h"
 
+#define VERSION_MIN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @protocol CaRequestFactoryDelegate <NSObject>
 - (void)didReceiveResponseData:(NSData *)data;
 - (void)setTyping:(BOOL)typing;

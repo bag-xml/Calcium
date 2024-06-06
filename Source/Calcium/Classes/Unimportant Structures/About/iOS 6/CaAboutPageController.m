@@ -25,9 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tableView.delegate = self;
     //need to make a 4-inch check in order to give the right tableview background image, remember, i love consistency.
+    [self.Done setBackgroundImage:[UIImage imageNamed:@"BarButton"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.Done setBackgroundImage:[UIImage imageNamed:@"BarButtonPressed"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     if(IS_IPHONE_5) {
         self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AboutTableBG@R4"]];
     } else if(IS_IPHONE_4) {
@@ -40,6 +40,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSDictionary *titleTextAttributes = @{
+                                          UITextAttributeTextColor: [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1.0],
+                                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
+                                          UITextAttributeTextShadowColor: [UIColor blackColor]
+                                          };
+    
+    // Apply the attributes to the navigation bar
+    [self.navigationController.navigationBar setTitleTextAttributes:titleTextAttributes];
+    
     [UINavigationBar.appearance setBackgroundImage:[UIImage imageNamed:@"DarkUITitlebarBG"] forBarMetrics:UIBarMetricsDefault];
 }
 - (void)viewWillDisappear:(BOOL)animated {

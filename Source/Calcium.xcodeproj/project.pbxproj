@@ -44,6 +44,10 @@
 		5B26964F2BC84F28000FA95F /* flatGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B26964E2BC84F28000FA95F /* flatGear.png */; };
 		5B2696522BC85C7B000FA95F /* flatContact.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2696502BC85C7B000FA95F /* flatContact.png */; };
 		5B2696532BC85C7B000FA95F /* flatGuide.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2696512BC85C7B000FA95F /* flatGuide.png */; };
+		5B27950B2C1258B00094DFD9 /* BarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2795072C1258AF0094DFD9 /* BarButton.png */; };
+		5B27950C2C1258B00094DFD9 /* BarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2795082C1258AF0094DFD9 /* BarButton@2x.png */; };
+		5B27950D2C1258B00094DFD9 /* BarButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2795092C1258AF0094DFD9 /* BarButtonPressed.png */; };
+		5B27950E2C1258B00094DFD9 /* BarButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B27950A2C1258AF0094DFD9 /* BarButtonPressed@2x.png */; };
 		5B28205B2BEA51670054D998 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2820542BEA51670054D998 /* BButton.m */; };
 		5B28205C2BEA51670054D998 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2820562BEA51670054D998 /* NSString+FontAwesome.m */; };
 		5B28205D2BEA51670054D998 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B2820582BEA51670054D998 /* FontAwesome.ttf */; };
@@ -157,6 +161,10 @@
 		5B26964E2BC84F28000FA95F /* flatGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatGear.png; sourceTree = "<group>"; };
 		5B2696502BC85C7B000FA95F /* flatContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatContact.png; sourceTree = "<group>"; };
 		5B2696512BC85C7B000FA95F /* flatGuide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatGuide.png; sourceTree = "<group>"; };
+		5B2795072C1258AF0094DFD9 /* BarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButton.png; sourceTree = "<group>"; };
+		5B2795082C1258AF0094DFD9 /* BarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButton@2x.png"; sourceTree = "<group>"; };
+		5B2795092C1258AF0094DFD9 /* BarButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButtonPressed.png; sourceTree = "<group>"; };
+		5B27950A2C1258AF0094DFD9 /* BarButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonPressed@2x.png"; sourceTree = "<group>"; };
 		5B2820532BEA51670054D998 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		5B2820542BEA51670054D998 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		5B2820552BEA51670054D998 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -332,9 +340,9 @@
 		5B0A934C2B820B8F003FBE13 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5B0A93662B820CF7003FBE13 /* Chat View */,
 				5B64BA022BE9282A00AA4799 /* Networking */,
 				5B64B9EE2BE927F200AA4799 /* Unimportant Structures */,
-				5B0A93662B820CF7003FBE13 /* Chat View */,
 				5B0A93622B820C93003FBE13 /* Sidebar */,
 				5B0A934D2B820B8F003FBE13 /* Delegates */,
 			);
@@ -649,6 +657,7 @@
 		5B6C5F232BC07CD700311C0D /* BarButton Images */ = {
 			isa = PBXGroup;
 			children = (
+				5BB331DA2C10592200A97912 /* BG Masks */,
 				5B6C5F242BC07CD700311C0D /* hamburger.png */,
 				5B6C5F252BC07CD700311C0D /* hamburger@2x.png */,
 				5B6C5F262BC07CD700311C0D /* PictureModeGlyph.png */,
@@ -709,6 +718,17 @@
 				5B6C5F572BC07E7A00311C0D /* DarkUITitleBarBG@2x.png */,
 			);
 			path = UITitlebarBG;
+			sourceTree = "<group>";
+		};
+		5BB331DA2C10592200A97912 /* BG Masks */ = {
+			isa = PBXGroup;
+			children = (
+				5B2795072C1258AF0094DFD9 /* BarButton.png */,
+				5B2795082C1258AF0094DFD9 /* BarButton@2x.png */,
+				5B2795092C1258AF0094DFD9 /* BarButtonPressed.png */,
+				5B27950A2C1258AF0094DFD9 /* BarButtonPressed@2x.png */,
+			);
+			path = "BG Masks";
 			sourceTree = "<group>";
 		};
 		5BBF067C2BC81138004C0FF1 /* iOS 7 */ = {
@@ -839,6 +859,7 @@
 				5B6C5F432BC07CD700311C0D /* Send@2x.png in Resources */,
 				5B6C5F3C2BC07CD700311C0D /* AboutTableBG@2x.png in Resources */,
 				5B0A93822B82101D003FBE13 /* bubbleMine.png in Resources */,
+				5B27950C2C1258B00094DFD9 /* BarButton@2x.png in Resources */,
 				5BBF06802BC81138004C0FF1 /* SidebarTopLeaderFlat@2x.png in Resources */,
 				5B6C5F592BC07E7A00311C0D /* DarkUITitleBarBG@2x.png in Resources */,
 				5B6C5F452BC07CD700311C0D /* HelpButton.png in Resources */,
@@ -847,6 +868,7 @@
 				5B6C5F472BC07CD700311C0D /* PHPref.png in Resources */,
 				5B26964F2BC84F28000FA95F /* flatGear.png in Resources */,
 				5B0A931B2B820AC7003FBE13 /* InfoPlist.strings in Resources */,
+				5B27950D2C1258B00094DFD9 /* BarButtonPressed.png in Resources */,
 				5B0A935F2B820C4C003FBE13 /* SVProgressHUD-15e9190d.o.tmp in Resources */,
 				5B0A938B2B82101D003FBE13 /* typingSomeone@2x.png in Resources */,
 				5B0A93892B82101D003FBE13 /* typingMine@2x.png in Resources */,
@@ -854,6 +876,8 @@
 				5B2820672BEA57A10054D998 /* DarkUITitleBarBG@2x.png in Resources */,
 				5B6C5F3D2BC07CD700311C0D /* AboutTableBG@R4.png in Resources */,
 				5B6C5F4B2BC07CD700311C0D /* UITitlebarBG@2x.png in Resources */,
+				5B27950E2C1258B00094DFD9 /* BarButtonPressed@2x.png in Resources */,
+				5B27950B2C1258B00094DFD9 /* BarButton.png in Resources */,
 				5B2696522BC85C7B000FA95F /* flatContact.png in Resources */,
 				5B6C5F4F2BC07CD700311C0D /* WelcomeBanner-iOS7.png in Resources */,
 				5B0A93842B82101D003FBE13 /* bubbleSomeone.png in Resources */,
@@ -1026,7 +1050,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
 				INFOPLIST_FILE = "Calcium/Calcium-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1042,7 +1066,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calcium/Calcium-Prefix.pch";
 				INFOPLIST_FILE = "Calcium/Calcium-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

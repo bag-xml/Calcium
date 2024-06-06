@@ -17,13 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"SIDEBAR TABLE VIEW LOADED");
-    //Variables
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
-    //Var END
-    
     //If classes BEGON
-    if(iOSVersion > 7.0) {
+    if(VERSION_MIN(@"7.0")) {
         //Customization of the background view
         
         //figma doesnt work on any of my machines
@@ -55,7 +50,7 @@
         if ([self respondsToSelector:@selector(topLayoutGuide)]) {
             self.tableView.contentInset = UIEdgeInsetsMake(20., 0., 0., 0.);
         }
-    } else if(iOSVersion > 6.0) {
+    } else if(VERSION_MIN(@"6.0")) {
         //figma thingy
         self.debugLabel.text = @"";
     }
@@ -71,9 +66,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *historyCell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
     //iOS 7's block
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
-    if(iOSVersion > 7.0) {
+    if(VERSION_MIN(@"7.0")) {
         historyCell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:17];
         [historyCell.textLabel setShadowOffset:CGSizeMake(0, 0)];
         [historyCell.detailTextLabel setShadowOffset:CGSizeMake(0, 0)];
@@ -115,25 +108,19 @@
 
 - (IBAction)guide:(id)sender {
     NSLog(@"--ACTION-- Pressed Guide button in sidebar");
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
-    if(iOSVersion > 7.0) {
+    if(VERSION_MIN(@"7.0")) {
         [self performSegueWithIdentifier:@"sidebar to Guide-iOS7" sender:self];
-    } else if(iOSVersion < 7.0) {
+    } else if(VERSION_MIN(@"5.0")) {
         [self performSegueWithIdentifier:@"sidebar to Guide-iOS6" sender:self];
     }
 }
 
 
 - (IBAction)about:(id)sender {
-    //needed variables
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
-    
     NSLog(@"--ACTION-- Pressed About button in sidebar");
-    if(iOSVersion >7.0) {
+    if(VERSION_MIN(@"7.0")) {
         [self performSegueWithIdentifier:@"sidebar to About-iOS7" sender:self];
-    } else if(iOSVersion <7.0) {
+    } else if(VERSION_MIN(@"5.0")) {
         [self performSegueWithIdentifier:@"sidebar to About-iOS6" sender:self];
     }
 }

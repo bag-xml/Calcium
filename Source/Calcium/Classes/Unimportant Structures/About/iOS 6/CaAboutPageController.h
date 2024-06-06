@@ -16,5 +16,6 @@
 @interface CaAboutPageController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *Done;
 
 @end

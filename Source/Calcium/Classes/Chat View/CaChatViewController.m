@@ -23,8 +23,6 @@
     [super viewDidLoad];
     
     //Definition of variables, ones which are used on the bottom.
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
     BOOL firstLaunchCheck = [[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"];
     //end
     
@@ -44,7 +42,7 @@
     self.bubbleTableView.showAvatars = [[NSUserDefaults standardUserDefaults] boolForKey:@"showPFP"];
     [self.bubbleTableView reloadData];
     
-    if(iOSVersion > 7.0) {
+    if(VERSION_MIN(@"7.0")) {
         self.bubbleTableView.backgroundColor = [UIColor whiteColor];
     }
     //table view options OFF
@@ -66,7 +64,7 @@
     self.requestFactory.delegate = self;
     //RFD end
     //Delegate decs
-    [self.inputField setDelegate:self];
+    self.inputField.delegate = self;
     //Delegate decs end
     
     //event notification block BEGIN
@@ -79,15 +77,28 @@
     
     //first launch block, performs a segue if the application has been launched for the first ever time.
     if (firstLaunchCheck == NO) {
-        if(iOSVersion <7.0) {
+        if(VERSION_MIN(@"5.0")){
             [self performSegueWithIdentifier:@"to Welcomepage-iOS6" sender:self];
-        } else if(iOSVersion >7.0) {
+        } else if(VERSION_MIN(@"7.0")) {
             [self performSegueWithIdentifier:@"to Welcomepage-iOS7" sender:self];
         }
     }
     //first launch block END
-}
+    
+    //refresh control
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(VERSION_MIN(@"6.0") && !self.reloadControl){
 
+            self.reloadControl = UIRefreshControl.new;
+            
+            self.reloadControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"More"];
+            
+            [self.bubbleTableView addSubview:self.reloadControl];
+            
+            [self.reloadControl addTarget:self action:@selector(interactiveView) forControlEvents:UIControlEventValueChanged];
+        }
+    });
+}
 
 //Text field properties BEGIN
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
@@ -111,61 +122,52 @@
     [messageActionSheet setTag:1];
     [messageActionSheet setDelegate:self];
     [messageActionSheet showInView:self.view];
-    //[self presentViewController:imagePicker animated:YES completion:nil];
     //actionsheet
 }
 
 - (IBAction)sendButton:(id)sender {
-    NSLog(@"--BUTTON ACTION-- Send button tapped");
-    BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
-    if(imageMode == YES) {
-        NSLog(@"imageMode == YES");
-        NSLog(@"Image generation mode is enabled, therefore the function for image generation is executed.");
-        [self imageGenRequest];
-        //kaboom
-    } else if(imageMode == NO) {
-        NSLog(@"imageMode == NO");
-        NSLog(@"Chat mode is enabled, therefore the function for image generation is executed.");
-        
-        //this right here is purely a cosmetic measure to hide how the message bubble's dimensions break if the character length is less than 3.
-        //to prevent that just "force" the user to assign themselves a nickname
-        NSString *prepopulatedText = self.inputField.text;
-        NSString *nickname = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
-        if(nickname.length == 0) {
-            NSBubbleData *userBubbleData = [NSBubbleData dataWithText:prepopulatedText date:[NSDate date] type:BubbleTypeMine];
-            [self.bubbleDataArray addObject:userBubbleData];
-        } else {
-            NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[NSString stringWithFormat:@"%@:\n%@", nickname, prepopulatedText] date:[NSDate date] type:BubbleTypeMine];
-            [self.bubbleDataArray addObject:userBubbleData];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"--BUTTON ACTION-- Send button tapped");
+        BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
+        if(imageMode == YES) {
+            NSLog(@"imageMode == YES");
+            NSLog(@"Image generation mode is enabled, therefore the function for image generation is executed.");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self imageGenRequest];
+            });
+            //kaboom
+        } else if(imageMode == NO) {
+            NSLog(@"imageMode == NO");
+            NSLog(@"Chat mode is enabled, therefore the function for image generation is executed.");
+            
+            //this right here is purely a cosmetic measure to hide how the message bubble's dimensions break if the character length is less than 3.
+            //to prevent that just "force" the user to assign themselves a nickname
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *prepopulatedText = self.inputField.text;
+                NSString *nickname = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
+                if(nickname.length == 0) {
+                    NSBubbleData *userBubbleData = [NSBubbleData dataWithText:prepopulatedText date:[NSDate date] type:BubbleTypeMine];
+                    [self.bubbleDataArray addObject:userBubbleData];
+                } else {
+                    NSBubbleData *userBubbleData = [NSBubbleData dataWithText:[NSString stringWithFormat:@"%@:\n%@", nickname, prepopulatedText] date:[NSDate date] type:BubbleTypeMine];
+                    [self.bubbleDataArray addObject:userBubbleData];
+                }
+                [self.bubbleTableView reloadData];
+                [self chatRequest];
+            });
         }
-        [self.bubbleTableView reloadData];
-        [self chatRequest];
-    }
-    //i dont wanna repeat myself twice, but what this does is that it updated the bubbletable view pos to that of what the view looks like with the keyboard expanded
-    if(self.viewingPresentTime)
-        [self.bubbleTableView setContentOffset:CGPointMake(0, self.bubbleTableView.contentSize.height - self.bubbleTableView.frame.size.height) animated:YES];
+        //i dont wanna repeat myself twice, but what this does is that it updated the bubbletable view pos to that of what the view looks like with the keyboard expanded
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(self.viewingPresentTime)
+                [self.bubbleTableView setContentOffset:CGPointMake(0, self.bubbleTableView.contentSize.height - self.bubbleTableView.frame.size.height) animated:YES];
+        });
+    });
 }
 
 - (IBAction)exposeSidebar:(id)sender {
     //Sidebar thingy
     NSLog(@"--BUTTON ACTION-- User pressed left hambuger button, Exposing sidebar now!");
     [self.slideMenuController showLeftMenu:YES];
-}
-- (IBAction)escapeRequest:(id)sender {
-    NSLog(@"--ACTION-- Did escape Tap");
-    [self.inputField resignFirstResponder];
-}
-
-- (IBAction)didLongPress:(id)sender {
-    UIActionSheet *messageActionSheet = [[UIActionSheet alloc] initWithTitle:@"What do you want to do" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Clear conversation" otherButtonTitles:@"Share", @"Save Conversation", @"Name", nil];
-    [messageActionSheet setTag:2];
-    [messageActionSheet setDelegate:self];
-    [messageActionSheet showInView:self.view];
-}
-
-//remove after drag-dev
-- (IBAction)dropdown:(id)sender {
-    [self.inputField resignFirstResponder];
 }
 
 //end
@@ -314,6 +316,8 @@
             [self presentViewController:picker animated:YES completion:nil];
             [picker viewWillAppear:YES];
         } else if (buttonIndex == [actionSheet firstOtherButtonIndex] + 2) {
+            
+            //mode switch
             BOOL imageMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"imageGenerationModeEnabled"];
             BOOL clearAlways = [[NSUserDefaults standardUserDefaults] boolForKey:@"alwaysClear"];
             if (imageMode == YES) {
@@ -342,6 +346,8 @@
                 [SVProgressHUD showSuccessWithStatus:@"Switched to Image Generation Mode"];
                 self.navigationItem.title = @"Generate Image";
                 
+                //If someone has an image, nil it
+                self.inputFieldImageView.image = nil;
                 //Clears history
                 if(clearAlways == YES) {
                     NSLog(@"Chat history has been cleared.");
@@ -358,7 +364,7 @@
     } else if(actionSheet.tag == 2) {
         if (buttonIndex == actionSheet.destructiveButtonIndex) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Clear Conversation" message:@"Are you sure you want to clear the entire conversation?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear", nil];
-            [alertView setTag:2];
+            [alertView setTag:3];
             [alertView show];
         } else if (buttonIndex == actionSheet.firstOtherButtonIndex) {
             NSLog(@"share");
@@ -386,6 +392,11 @@
             NSString *enteredText = [alertView textFieldAtIndex:0].text;
             self.navigationItem.title = enteredText;
         }
+    } else if(alertView.tag == 3) {
+        if(buttonIndex == alertView.firstOtherButtonIndex) {
+            [self.bubbleDataArray removeAllObjects];
+            [self.bubbleTableView reloadData];
+        }
     }
 }
 
@@ -396,6 +407,15 @@
 }
 -(void)scrollChatToBottom {
     [self.bubbleTableView scrollBubbleViewToBottomAnimated:false];
+}
+
+- (void)interactiveView {
+    [self.inputField resignFirstResponder];
+    UIActionSheet *messageActionSheet = [[UIActionSheet alloc] initWithTitle:@"What do you want to do" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Clear conversation" otherButtonTitles:@"Share", @"Save Conversation", @"Name", nil];
+    [messageActionSheet setTag:2];
+    [messageActionSheet setDelegate:self];
+    [self.reloadControl endRefreshing];
+    [messageActionSheet showInView:self.view];
 }
 //END
 

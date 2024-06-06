@@ -6,7 +6,7 @@
 //  Copyright (c) 2024 Mali 357. All rights reserved.
 //
 
-//Apiary communicator class which interacts with the ChatGPT API
+//Apiary communicator class which interacts with a koboldcpp instance.
 
 #import "CaRequestFactory.h"
 
@@ -19,16 +19,13 @@
     //Init-Configuration
     //Only triggered if returned to requesta
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
-    //OS Check
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
     
     NSString *baseURL = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverURL"];
     BOOL authorization = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasAuth"];
     //if auth
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     //Codeblocks
-    if(iOSVersion < 7.0) {
+    if(VERSION_MIN(@"5.0")) {
         NSLog(@"Initializing Chat Completion request, iOS 5.0-6.1.6");
         
         //URL Building
@@ -52,7 +49,7 @@
         
         NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
         [communicatorCall start];
-    } else if(iOSVersion > 7.0) {
+    } else if(VERSION_MIN(@"7.0")) {
     }
 }
 
@@ -61,9 +58,6 @@
     NSLog(@"ChatCommunicator active, will prepare request now.");
     //Init-Configuration
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"didGenerateImage"];
-    //OS-Check
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    CGFloat iOSVersion = [systemVersion floatValue];
     
     //Server related
     NSString *baseURL = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverURL"];
@@ -72,7 +66,7 @@
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     
     //Codeblock
-    if(iOSVersion < 7.0) {
+    if(VERSION_MIN(@"5.0")) {
         NSLog(@"User does not want to use a middleman, this is okay.");
         
         //URL Building
@@ -129,7 +123,7 @@
         NSURLConnection *communicatorCall = [[NSURLConnection alloc] initWithRequest:apiaryCommunicationRequest delegate:self];
         [communicatorCall start];
         
-    } else if(iOSVersion > 7.0) {
+    } else if(VERSION_MIN(@"7.0")) {
     }
 }
 
@@ -143,53 +137,59 @@
         NSLog(@"API has responded");
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BOOL didImageGeneration = [[NSUserDefaults standardUserDefaults] boolForKey:@"didGenerateImage"];
-        
-        NSDictionary *apiaryResponseJournal = [NSJSONSerialization JSONObjectWithData:self.apiaryResponseData options:0 error:nil];
-        NSLog(@"Apiary Response: %@", apiaryResponseJournal);
-        NSLog(@"Executing code block dependent on request config now");
-        
-        //In case of any error
-        
-        //Null response:
-        if(apiaryResponseJournal == nil) {
+        if(self.apiaryResponseData == nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self displayAlertView:@"Apiary Error" message:@"Check your endpoint, it's not normal that the response is nothing."];
+                [self.delegate setTyping:0];
             });
+        } else {
+            NSDictionary *apiaryResponseJournal = [NSJSONSerialization JSONObjectWithData:self.apiaryResponseData options:0 error:nil];
+            NSLog(@"Apiary Response: %@", apiaryResponseJournal);
+            NSLog(@"Executing code block dependent on request config now");
             
-        }
-        
-        //JSON Error
-        NSDictionary *apiaryError = [apiaryResponseJournal objectForKey:@"detail"];
-        if(apiaryError) {
-            NSLog(@"error");
-            NSString *error = [apiaryError objectForKey:@"error"];
-            NSString *errorBody = [apiaryError objectForKey:@"msg"];
+            //In case of any error
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self displayAlertView:error message:errorBody];
-            });
-        }
-        
-        //Codeblocks, each executed dependent on what the user requested
-        
-        if(didImageGeneration == YES) {
-            NSLog(@"Image Generation = YES");
-            
-        } else if(didImageGeneration == NO) {
-            NSLog(@"Image Generation = NO");
-            //prepare for next call
-            [self sendReset];
-            //processing
-            NSString *response = [[[apiaryResponseJournal objectForKey:@"results"] objectAtIndex:0] valueForKey:@"text"];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if(!apiaryResponseJournal == nil) {
-                    //remove typing indication
-                    [self.delegate setTyping:0];
-                    [self.delegate didReceiveResponseData:response];
-                    self.apiaryResponseData = nil;
-                }
-            });
+            //Null response:
+            if(apiaryResponseJournal == nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self displayAlertView:@"Apiary Error" message:@"Check your endpoint, it's not normal that the response is nothing."];
+                });
                 
+            }
+            
+            //JSON Error
+            NSDictionary *apiaryError = [apiaryResponseJournal objectForKey:@"detail"];
+            if(apiaryError) {
+                NSLog(@"error");
+                NSString *error = [apiaryError objectForKey:@"error"];
+                NSString *errorBody = [apiaryError objectForKey:@"msg"];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self displayAlertView:error message:errorBody];
+                });
+            }
+            
+            //Codeblocks, each executed dependent on what the user requested
+            
+            if(didImageGeneration == YES) {
+                NSLog(@"Image Generation = YES");
+                
+            } else if(didImageGeneration == NO) {
+                NSLog(@"Image Generation = NO");
+                //prepare for next call
+                [self sendReset];
+                //processing
+                NSString *response = [[[apiaryResponseJournal objectForKey:@"results"] objectAtIndex:0] valueForKey:@"text"];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(!apiaryResponseJournal == nil) {
+                        //remove typing indication
+                        [self.delegate setTyping:0];
+                        [self.delegate didReceiveResponseData:response];
+                        self.apiaryResponseData = nil;
+                    }
+                });
+                
+            }
         }
     });
 }

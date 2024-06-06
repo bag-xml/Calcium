@@ -16,6 +16,8 @@
 #import "UIImage+Utils.h"
 #import "Base64.h"
 
+#define VERSION_MIN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @interface CaChatViewController : UIViewController <UIBubbleTableViewDataSource, UIBubbleTableViewDelegate, UIActionSheetDelegate, CaRequestFactoryDelegate, UIImagePickerControllerDelegate>
 
 
@@ -52,5 +54,8 @@
 //RFC
 @property (nonatomic, strong) CaRequestFactory *requestFactory;
 @property (nonatomic, strong) NSMutableData *apiaryResponseData;
+
+//sdifrgwe8d9pkrieu
+@property UIRefreshControl *reloadControl;
 
 @end

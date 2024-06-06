@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CaGuideController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *Done;
 
 @end
