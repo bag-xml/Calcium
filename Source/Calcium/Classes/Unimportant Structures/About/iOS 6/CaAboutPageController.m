@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //need to make a 4-inch check in order to give the right tableview background image, remember, i love consistency.
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     [self.Done setBackgroundImage:[UIImage imageNamed:@"BarButton"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self.Done setBackgroundImage:[UIImage imageNamed:@"BarButtonPressed"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     if(IS_IPHONE_5) {

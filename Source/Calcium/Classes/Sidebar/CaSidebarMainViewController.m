@@ -88,8 +88,9 @@
     CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
     if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
         contentViewController.navigationItem.title = cellTitle;
+        [contentViewController didReceiveResponseData:[NSString stringWithFormat:@"%@", cellTitle ]];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.slideMenuController hideMenu:YES];
     NSLog(@"Throwing back to main chat view)");
 }

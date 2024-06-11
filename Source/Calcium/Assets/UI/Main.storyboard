@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F1911" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="wFt-If-Q7F">
     <dependencies>
-        <deployment defaultVersion="1280" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -772,46 +772,45 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WelcomeBanner-iOS5-6.png" id="0Mb-H3-Jzp">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="QSX-X8-tdU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <sections>
-                            <tableViewSection headerTitle="the banner sucks i know" footerTitle="Just hit continue, and then you're done!" id="HNr-FM-eL0">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Mtv-6Q-68Q" rowHeight="44" style="IBUITableViewCellStyleDefault" id="5b1-Rv-pCL">
-                                        <rect key="frame" x="0.0" y="156" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5b1-Rv-pCL" id="STa-hy-QZw">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Continue!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mtv-6Q-68Q">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="wFt-If-Q7F" kind="modal" identifier="Done" modalTransitionStyle="flipHorizontal" id="4XP-bi-cF6"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Lh-yS-eNM" customClass="BButton">
+                                    <rect key="frame" x="20" y="80" width="280" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Continue">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="continue:" destination="QYO-C2-slr" eventType="touchUpInside" id="Dil-Yf-DTs"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This page is under construction!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wkN-HK-qxd">
+                                    <rect key="frame" x="0.0" y="20" width="320" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="textColor" red="0.232421875" green="0.232421875" blue="0.232421875" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="QYO-C2-slr" id="Hma-q4-Hcz"/>
                             <outlet property="delegate" destination="QYO-C2-slr" id="oRo-Ov-3XR"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Welcome!" id="ZOQ-sA-rcB"/>
+                    <connections>
+                        <segue destination="wFt-If-Q7F" kind="modal" identifier="BackToMainFromWelcome-iOS6" modalTransitionStyle="flipHorizontal" id="f13-j7-tSO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jg1-Oe-v4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="-35"/>
+            <point key="canvasLocation" x="4839" y="85"/>
         </scene>
     </scenes>
     <resources>
@@ -824,7 +823,6 @@
         <image name="Send.png" width="23" height="20"/>
         <image name="SidebarTopLeader.png" width="260" height="431"/>
         <image name="TrashButton.png" width="48" height="40"/>
-        <image name="WelcomeBanner-iOS5-6.png" width="640" height="241"/>
         <image name="WelcomeBanner-iOS7.png" width="640" height="270"/>
         <image name="hamburger.png" width="25" height="25"/>
     </resources>
@@ -835,6 +833,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4XP-bi-cF6"/>
+        <segue reference="f13-j7-tSO"/>
     </inferredMetricsTieBreakers>
 </document>
