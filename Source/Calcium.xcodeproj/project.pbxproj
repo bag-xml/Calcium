@@ -200,7 +200,7 @@
 		5B6C5F212BC07CD700311C0D /* AboutTableBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AboutTableBG@2x.png"; sourceTree = "<group>"; };
 		5B6C5F222BC07CD700311C0D /* AboutTableBG@R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AboutTableBG@R4.png"; sourceTree = "<group>"; };
 		5B6C5F242BC07CD700311C0D /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
-		5B6C5F252BC07CD700311C0D /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger@2x.png"; sourceTree = "<group>"; };
+		5B6C5F252BC07CD700311C0D /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hamburger@2x.png"; path = "../BarButton Images/hamburger@2x.png"; sourceTree = "<group>"; };
 		5B6C5F262BC07CD700311C0D /* PictureModeGlyph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PictureModeGlyph.png; sourceTree = "<group>"; };
 		5B6C5F272BC07CD700311C0D /* PictureModeGlyph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PictureModeGlyph@2x.png"; sourceTree = "<group>"; };
 		5B6C5F282BC07CD700311C0D /* Send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Send.png; sourceTree = "<group>"; };
@@ -659,7 +659,6 @@
 			children = (
 				5BB331DA2C10592200A97912 /* BG Masks */,
 				5B6C5F242BC07CD700311C0D /* hamburger.png */,
-				5B6C5F252BC07CD700311C0D /* hamburger@2x.png */,
 				5B6C5F262BC07CD700311C0D /* PictureModeGlyph.png */,
 				5B6C5F272BC07CD700311C0D /* PictureModeGlyph@2x.png */,
 				5B6C5F282BC07CD700311C0D /* Send.png */,
@@ -685,6 +684,7 @@
 		5B6C5F312BC07CD700311C0D /* Titlebar */ = {
 			isa = PBXGroup;
 			children = (
+				5B6C5F252BC07CD700311C0D /* hamburger@2x.png */,
 				5B2820642BEA57A10054D998 /* DarkUITitleBarBG.png */,
 				5B2820652BEA57A10054D998 /* DarkUITitleBarBG@2x.png */,
 				5B2820622BEA56F80054D998 /* UITitleBarBG.png */,

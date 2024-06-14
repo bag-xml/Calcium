@@ -119,10 +119,22 @@
 
 - (IBAction)about:(id)sender {
     NSLog(@"--ACTION-- Pressed About button in sidebar");
+    /*
     if(VERSION_MIN(@"7.0")) {
         [self performSegueWithIdentifier:@"sidebar to About-iOS7" sender:self];
     } else if(VERSION_MIN(@"5.0")) {
         [self performSegueWithIdentifier:@"sidebar to About-iOS6" sender:self];
+    }
+     *///to About-6
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *aboutViewController = [storyboard instantiateViewControllerWithIdentifier:@"About-6"];
+    
+    UINavigationController *navigationController = (UINavigationController *)self.slideMenuController.contentViewController;
+    CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
+    if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
+        [contentViewController.navigationController pushViewController:aboutViewController animated:NO];
+        [self.slideMenuController hideMenu:YES];
+        
     }
 }
 

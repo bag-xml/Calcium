@@ -39,10 +39,5 @@
     [self.Done setBackgroundImage:[UIImage imageNamed:@"BarButtonPressed"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
 }
 
-//Button actions
-- (IBAction)Done:(id)sender {
-    [self performSegueWithIdentifier:@"TurnBack-6" sender:self];
-}
-
 
 @end
