@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B09643C2C284636003FDF15 /* CaGuideController-iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B09643B2C284636003FDF15 /* CaGuideController-iOS7.m */; };
 		5B0A93112B820AC7003FBE13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0A93102B820AC7003FBE13 /* Foundation.framework */; };
 		5B0A93132B820AC7003FBE13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0A93122B820AC7003FBE13 /* CoreGraphics.framework */; };
 		5B0A93152B820AC7003FBE13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0A93142B820AC7003FBE13 /* UIKit.framework */; };
@@ -106,6 +107,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B09643A2C284636003FDF15 /* CaGuideController-iOS7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CaGuideController-iOS7.h"; path = "Calcium/Classes/Unimportant Structures/Guide/iOS 7/CaGuideController-iOS7.h"; sourceTree = SOURCE_ROOT; };
+		5B09643B2C284636003FDF15 /* CaGuideController-iOS7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CaGuideController-iOS7.m"; path = "Calcium/Classes/Unimportant Structures/Guide/iOS 7/CaGuideController-iOS7.m"; sourceTree = SOURCE_ROOT; };
 		5B0A930D2B820AC7003FBE13 /* Calcium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calcium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0A93102B820AC7003FBE13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B0A93122B820AC7003FBE13 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -572,6 +575,8 @@
 		5B64BA082BE928A500AA4799 /* iOS 7 */ = {
 			isa = PBXGroup;
 			children = (
+				5B09643A2C284636003FDF15 /* CaGuideController-iOS7.h */,
+				5B09643B2C284636003FDF15 /* CaGuideController-iOS7.m */,
 			);
 			path = "iOS 7";
 			sourceTree = "<group>";
@@ -913,6 +918,7 @@
 				5B0A93502B820B8F003FBE13 /* AppDelegate.m in Sources */,
 				5B0A93902B82101D003FBE13 /* UIBubbleTypingTableViewCell.m in Sources */,
 				5BFEABB12B823AC200032F34 /* TRMalleableFrameView.m in Sources */,
+				5B09643C2C284636003FDF15 /* CaGuideController-iOS7.m in Sources */,
 				5B68AEF82BEA9D7A0068E7E8 /* Base64.m in Sources */,
 				5B64B9F82BE9281500AA4799 /* CaWelcomeViewController-iOS7.m in Sources */,
 				5B0A935E2B820C4C003FBE13 /* APLSlideMenuViewController.m in Sources */,

@@ -53,13 +53,13 @@
     } else if(VERSION_MIN(@"6.0")) {
         //figma thingy
         self.debugLabel.text = @"";
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.refreshControl = UIRefreshControl.new;
-            self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Reload"];
-            [self.tableView addSubview:self.refreshControl];
-            [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
-        });
     }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.refreshControl = UIRefreshControl.new;
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Reload"];
+        [self.tableView addSubview:self.refreshControl];
+        [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+    });
     //If classes END
 }
 
@@ -94,7 +94,7 @@
     CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
     if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
         contentViewController.navigationItem.title = cellTitle;
-        [contentViewController didReceiveResponseData:[NSString stringWithFormat:@"%@", cellTitle ]];
+        [contentViewController didReceiveResponseData:[NSString stringWithFormat:@"%@", cellTitle]];
     }
     //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.slideMenuController hideMenu:YES];
@@ -103,9 +103,7 @@
 
 //SIdebar table view properties END
 
-//FUNCTIONS BLOCK BEGIN
-- (void)reloadEngine {
-}
+
 //Button actions
 
 - (IBAction)settings:(id)sender {
@@ -177,6 +175,6 @@
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
+
 //Misc class End
-/*    */
 @end

@@ -262,10 +262,10 @@
 }
 
 // Implement optional delegate method
-- (void)bubbleTableView:(UIBubbleTableView *)tableView didSelectRow:(NSUInteger)row {
+
+-(void)bubbleTableView:(UIBubbleTableView *)bubbleTableView didSelectRow:(int)row {
     NSLog(@"selected");
 }
-
 
 //END
 //Miscellaneous functions that get called from other block components BEGIN
