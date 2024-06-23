@@ -29,7 +29,7 @@
         NSLog(@"Initializing Chat Completion request, iOS 5.0-6.1.6");
         
         //URL Building
-        NSString *finalURL = [NSString stringWithFormat:@"%@/api/v1/generate", baseURL];
+        NSString *finalURL = [NSString stringWithFormat:@"%@/amber/v1/home/bag.php", baseURL];
         NSLog(@"final built URL: %@", finalURL);
         NSURL *apiaryRequestURL = [NSURL URLWithString:finalURL];
 

@@ -53,6 +53,12 @@
     } else if(VERSION_MIN(@"6.0")) {
         //figma thingy
         self.debugLabel.text = @"";
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.refreshControl = UIRefreshControl.new;
+            self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Reload"];
+            [self.tableView addSubview:self.refreshControl];
+            [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+        });
     }
     //If classes END
 }
@@ -103,29 +109,40 @@
 //Button actions
 
 - (IBAction)settings:(id)sender {
-    //Temporary, opens cydia for the time being
-    [self showAlertWithTitle:@"In-App settings can't be changed here." message:@"To change In-App settings, open the Settings app."];
+    NSLog(@"--ACTION-- Pressed Guide button in sidebar");
+    
+    //iOS 5-6
+    
+    UINavigationController *navigationController = (UINavigationController *)self.slideMenuController.contentViewController;
+    CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
+    if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
+        [contentViewController performSegueWithIdentifier:@"LoopbackSegue" sender:self];
+        //[self.slideMenuController hideMenu:YES];
+        
+    }
 }
 
 - (IBAction)guide:(id)sender {
     NSLog(@"--ACTION-- Pressed Guide button in sidebar");
-    if(VERSION_MIN(@"7.0")) {
-        [self performSegueWithIdentifier:@"sidebar to Guide-iOS7" sender:self];
-    } else if(VERSION_MIN(@"5.0")) {
-        [self performSegueWithIdentifier:@"sidebar to Guide-iOS6" sender:self];
+
+    //iOS 5-6
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *lowOSDestination = [storyboard instantiateViewControllerWithIdentifier:@"Guide-6"];
+    
+    UINavigationController *navigationController = (UINavigationController *)self.slideMenuController.contentViewController;
+    CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
+    if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
+        [contentViewController.navigationController pushViewController:lowOSDestination animated:NO];
+        [self.slideMenuController hideMenu:YES];
+        
     }
 }
 
 
 - (IBAction)about:(id)sender {
     NSLog(@"--ACTION-- Pressed About button in sidebar");
-    /*
-    if(VERSION_MIN(@"7.0")) {
-        [self performSegueWithIdentifier:@"sidebar to About-iOS7" sender:self];
-    } else if(VERSION_MIN(@"5.0")) {
-        [self performSegueWithIdentifier:@"sidebar to About-iOS6" sender:self];
-    }
-     *///to About-6
+    
+    //iOS 5-6
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lowOSDestination = [storyboard instantiateViewControllerWithIdentifier:@"About-6"];
     
@@ -147,6 +164,13 @@
 
 //Button actions END
 
+
+//reload logic
+- (void)reload {
+    [self.tableView reloadData];
+    [SVProgressHUD showSuccessWithStatus:@"Reload successful"];
+    [self.refreshControl endRefreshing];
+}
 
 //Misc class Begin
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {

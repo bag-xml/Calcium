@@ -38,4 +38,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *About;
 
 @property (weak, nonatomic) IBOutlet UIButton *Clear;
+
+@property UIRefreshControl *refreshControl;
 @end
