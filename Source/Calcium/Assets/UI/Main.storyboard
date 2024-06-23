@@ -157,7 +157,7 @@
         <!--Ca About Page Controller - About-->
         <scene sceneID="FCX-Jr-QJw">
             <objects>
-                <tableViewController id="5aP-xx-Orj" customClass="CaAboutPageController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="About-6" id="5aP-xx-Orj" customClass="CaAboutPageController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uku-um-Chk">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -472,7 +472,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLV-Dp-GzC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5504" y="-1592"/>
+            <point key="canvasLocation" x="5496" y="-1592"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hd-Fl-r76">

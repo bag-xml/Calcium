@@ -127,12 +127,12 @@
     }
      *///to About-6
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *aboutViewController = [storyboard instantiateViewControllerWithIdentifier:@"About-6"];
+    UIViewController *lowOSDestination = [storyboard instantiateViewControllerWithIdentifier:@"About-6"];
     
     UINavigationController *navigationController = (UINavigationController *)self.slideMenuController.contentViewController;
     CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
     if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
-        [contentViewController.navigationController pushViewController:aboutViewController animated:NO];
+        [contentViewController.navigationController pushViewController:lowOSDestination animated:NO];
         [self.slideMenuController hideMenu:YES];
         
     }
