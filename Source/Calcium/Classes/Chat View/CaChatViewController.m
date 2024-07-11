@@ -18,6 +18,11 @@
 @implementation CaChatViewController
 @synthesize currentImage;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [UINavigationBar.appearance setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    //[UINavigationBar.appearance setTintColor:[UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1.0]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -394,6 +399,7 @@
         }
     } else if(alertView.tag == 3) {
         if(buttonIndex == alertView.firstOtherButtonIndex) {
+            [self setTyping:0];
             [self.bubbleDataArray removeAllObjects];
             [self.bubbleTableView reloadData];
         }

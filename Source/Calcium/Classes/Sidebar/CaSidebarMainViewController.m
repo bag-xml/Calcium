@@ -107,15 +107,14 @@
 //Button actions
 
 - (IBAction)settings:(id)sender {
-    NSLog(@"--ACTION-- Pressed Guide button in sidebar");
-    
-    //iOS 5-6
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *lowOSDestination = [storyboard instantiateViewControllerWithIdentifier:@"Chat"];
     
     UINavigationController *navigationController = (UINavigationController *)self.slideMenuController.contentViewController;
     CaChatViewController *contentViewController = navigationController.viewControllers.firstObject;
     if ([contentViewController isKindOfClass:[CaChatViewController class]]) {
-        [contentViewController performSegueWithIdentifier:@"LoopbackSegue" sender:self];
-        //[self.slideMenuController hideMenu:YES];
+        [contentViewController.navigationController pushViewController:lowOSDestination animated:NO];
+        [self.slideMenuController hideMenu:YES];
         
     }
 }
